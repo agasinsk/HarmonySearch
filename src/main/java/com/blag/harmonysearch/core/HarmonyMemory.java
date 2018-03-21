@@ -4,8 +4,6 @@ import com.blag.harmonysearch.helpers.BoundedTreeSet;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.SortedSet;
-
 /**
  * Stores best solutions for harmony search algorithm
  */

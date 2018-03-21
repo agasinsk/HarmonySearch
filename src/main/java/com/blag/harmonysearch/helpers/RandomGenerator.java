@@ -10,7 +10,7 @@ public class RandomGenerator extends Random{
         return nextBoundedDouble(limit.getOrigin(), limit.getBound());
     }
 
-    public double nextBoundedDouble(double origin, double bound) {
+    private double nextBoundedDouble(double origin, double bound) {
         double r = nextDouble();
         r = r * (bound - origin) + origin;
         if (r >= bound) // correct for rounding

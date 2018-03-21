@@ -2,28 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/BaseTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/ArgumentLimitTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/ArgumentLimit.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/ArgumentLimit.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonyMemory.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonyMemory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonySearcher.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonySearcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/Solution.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/Solution.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionGenerator.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionValueComparator.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionValueComparator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/helpers/RandomGenerator.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/helpers/RandomGenerator.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HarmonySearch.iml" afterPath="$PROJECT_DIR$/HarmonySearch.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentLimit.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentLimit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/RandomGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/RandomGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/ArgumentLimitTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/ArgumentLimitTest.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -665,7 +651,7 @@
       <workItem from="1521650140170" duration="919000" />
       <workItem from="1521651091322" duration="1044000" />
       <workItem from="1521652183550" duration="300000" />
-      <workItem from="1521652523424" duration="5574000" />
+      <workItem from="1521652523424" duration="6015000" />
     </task>
     <servers />
   </component>
@@ -702,11 +688,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9835000" />
+    <option name="totallyTimeSpent" value="10276000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="-8" width="1858" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -722,7 +707,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14169382" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14169382" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295688" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
