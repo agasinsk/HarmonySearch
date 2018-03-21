@@ -2,6 +2,8 @@ package com.blag.harmonysearch.core;
 
 import com.blag.harmonysearch.helpers.RandomGenerator;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.mariuszgromada.math.mxparser.Function;
 
 import java.util.List;
@@ -10,12 +12,16 @@ import java.util.List;
  * Generates solutions
  */
 @AllArgsConstructor
-public class SolutionGenerator {
+class SolutionGenerator {
 
     private RandomGenerator randomGenerator = new RandomGenerator();
     private Function function;
+
+    @Setter
+    @Getter
     private List<ArgumentLimit> argumentGenerationLimits;
 
+    @Getter
     private int argumentsCount;
 
     SolutionGenerator(Function function, List<ArgumentLimit> argumentGenerationLimits){
@@ -35,7 +41,7 @@ public class SolutionGenerator {
     /**
      * Generates random arguments within limits
      */
-    private double[] generateRandomArguments(){
+    double[] generateRandomArguments(){
 
         double[] randomArguments = new double[argumentsCount];
 
@@ -50,7 +56,7 @@ public class SolutionGenerator {
     /**
      * Calculates solution for provided arguments
      */
-    private Solution calculateSolution(double... arguments){
+     Solution calculateSolution(double... arguments){
 
         double functionValue = function.calculate(arguments);
         return new Solution(functionValue, arguments);

@@ -55,6 +55,7 @@ public class HarmonySearcher {
     public Solution searchForHarmony() {
 
         initializeHarmonyMemory();
+
         return null;
     }
 }

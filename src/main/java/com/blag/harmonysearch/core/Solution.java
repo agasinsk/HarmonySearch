@@ -1,6 +1,5 @@
 package com.blag.harmonysearch.core;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.Comparator;

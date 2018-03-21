@@ -13,7 +13,7 @@ import java.util.SortedSet;
 @Setter
 class HarmonyMemory {
 
-    private SortedSet<Solution> solutions;
+    private BoundedTreeSet<Solution> solutions;
 
     HarmonyMemory(int harmonyMemorySize){
 
