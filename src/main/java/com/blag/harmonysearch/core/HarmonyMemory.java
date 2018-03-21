@@ -1,4 +1,4 @@
-package sample.com.harmonysearch.core;
+package com.blag.harmonysearch.core;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package sample;
+package com.blag.harmonysearch.gui;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;

@@ -1,4 +1,4 @@
-package sample;
+package com.blag.harmonysearch.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
