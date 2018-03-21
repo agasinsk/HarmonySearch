@@ -1,6 +1,5 @@
 package com.blag.harmonysearch.core;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.mariuszgromada.math.mxparser.Function;
@@ -10,7 +9,6 @@ import java.util.List;
 /**
  * Implements harmony search algorithm
  */
-@AllArgsConstructor
 @Getter
 @Setter
 public class HarmonySearcher {
@@ -23,37 +21,40 @@ public class HarmonySearcher {
     private HarmonyMemory harmonyMemory;
     private Function function;
 
-    public HarmonySearcher(int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio){
+    private List<ArgumentLimit> argumentGenerationLimits;
+    private SolutionGenerator solutionGenerator;
+
+    public HarmonySearcher(Function function, List<ArgumentLimit> argumentGenerationLimits, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio){
 
         this.maxImprovisationCount = maxImprovisationCount;
 
         this.harmonyMemoryConsiderationRatio = harmonyMemoryConsiderationRatio;
         this.pitchAdjustmentRatio = pitchAdjustmentRatio;
 
+        this.function = function;
+        this.argumentGenerationLimits = argumentGenerationLimits;
+
         harmonyMemory = new HarmonyMemory(harmonyMemorySize);
+        solutionGenerator = new SolutionGenerator(function, argumentGenerationLimits);
     }
 
     /**
      * Initializes harmony memory with random solutions
      */
-    public void initializeHarmonyMemory(List<ArgumentLimit> argumentGenerationLimits)
+    private void initializeHarmonyMemory()
     {
-        harmonyMemory.setSolutionDimension(function.getArgumentsNumber());
-        harmonyMemory.setArgumentGenerationLimits(argumentGenerationLimits);
-        harmonyMemory.initialize();
+        for (int i = 0; i < function.getArgumentsNumber(); i++) {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
     }
 
     /**
-     * Calculates solution for provided arguments
+     * Looks for optimal solution of function
      */
-    Solution calculateSolution(double... arguments){
+    public Solution searchForHarmony() {
 
-        double functionValue = function.calculate(arguments);
-        return new Solution(arguments, functionValue);
-    }
-
-
-    public Solution search() {
+        initializeHarmonyMemory();
         return null;
     }
 }

@@ -31,19 +31,13 @@ public class BoundedTreeSet<E> extends TreeSet<E> {
 
     @Override
     public boolean add(final E e) {
-        if (size() >= capacity) {
-            return false;
-        }
+        return size() < capacity && super.add(e);
 
-        return super.add(e);
     }
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        if (size() + c.size() >= capacity) {
-            return false;
-        }
+        return size() + c.size() < capacity && super.addAll(c);
 
-        return super.addAll(c);
     }
 }

@@ -8,19 +8,23 @@ import java.util.Comparator;
 /**
  * Represents single problem solution (e.g. a vector of x)
  */
-@AllArgsConstructor
 @Getter
-public class Solution {
+class Solution {
 
     private double[] arguments;
     private double value;
+
+    Solution(double value, double... arguments){
+        this.value = value;
+        this.arguments = arguments;
+    }
 }
 
 
 class SolutionValueComparator implements Comparator<Solution> {
 
     @Override
-    public int compare(Solution a, Solution b) {
-        return a.getValue() < b.getValue() ? -1 : a.getValue() == b.getValue() ? 0 : 1;
+    public int compare(Solution first, Solution other) {
+        return Double.compare(first.getValue(), other.getValue());
     }
 }

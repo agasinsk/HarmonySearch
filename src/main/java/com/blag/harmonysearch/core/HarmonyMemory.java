@@ -4,73 +4,37 @@ import com.blag.harmonysearch.helpers.BoundedTreeSet;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.*;
+import java.util.SortedSet;
 
 /**
  * Stores best solutions for harmony search algorithm
  */
 @Getter
 @Setter
-public class HarmonyMemory {
+class HarmonyMemory {
 
-    private int solutionDimension;
     private SortedSet<Solution> solutions;
-    private List<ArgumentLimit> argumentGenerationLimits;
-    private Random randomGenerator;
 
-    public HarmonyMemory(int harmonyMemorySize){
+    HarmonyMemory(int harmonyMemorySize){
 
-        solutions = new TreeSet<>(new SolutionValueComparator());
-        randomGenerator = new Random();
-    }
-
-    public HarmonyMemory(int harmonyMemorySize, List<ArgumentLimit> argumentGenerationLimits){
-
-        this.argumentGenerationLimits = argumentGenerationLimits;
         solutions = new BoundedTreeSet<>(harmonyMemorySize, new SolutionValueComparator());
-        randomGenerator = new Random();
     }
 
-    /**
-     * Initializes harmony memory by generating random solutions
-     */
-    public void initialize(){
-
-        List<Double> randomArguments = new ArrayList<>(solutionDimension);
-
-        for (int i = 0; i < solutionDimension; i++) {
-            double randomArgument = nextBoundedDouble(argumentGenerationLimits.get(i));
-            randomArguments.add(randomArgument);
-        }
-
-        Solution solution = new Solution(randomArguments, );
-
-        solutions.add(solution);
-    }
-
-    public Solution getBestSolution()
+    Solution getBestSolution()
     {
         return solutions.first();
     }
 
-    public Solution getWorstSolution()
+    Solution getWorstSolution()
     {
         return solutions.last();
     }
 
-    public void clear(){
+    void clear(){
         solutions.clear();
     }
 
-    private double nextBoundedDouble(ArgumentLimit limit) {
-        return nextBoundedDouble(limit.getOrigin(), limit.getBound());
-    }
-
-    private double nextBoundedDouble(double origin, double bound) {
-        double r = randomGenerator.nextDouble();
-        r = r * (bound - origin) + origin;
-        if (r >= bound) // correct for rounding
-            r = Math.nextDown(bound);
-        return r;
+    void add(Solution solution) {
+        solutions.add(solution);
     }
 }
