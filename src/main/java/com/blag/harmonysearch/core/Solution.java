@@ -10,7 +10,6 @@ import java.util.Comparator;
 @Getter
 class Solution
 {
-
     private double[] arguments;
     private double value;
 
@@ -19,12 +18,16 @@ class Solution
         this.value = value;
         this.arguments = arguments;
     }
+
+    boolean isBetterThan(Solution otherSolution)
+    {
+        return getValue() < otherSolution.getValue();
+    }
 }
 
 
 class SolutionValueComparator implements Comparator<Solution>
 {
-
     @Override
     public int compare(Solution first, Solution other)
     {

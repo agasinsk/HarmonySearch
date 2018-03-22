@@ -25,6 +25,7 @@ public class HarmonySearcher
 
     private List<ArgumentLimit> argumentGenerationLimits;
     private SolutionGenerator solutionGenerator;
+    private int improvisationCount;
 
     public HarmonySearcher(Function function, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio)
     {
@@ -77,6 +78,29 @@ public class HarmonySearcher
     {
         initializeHarmonyMemory();
 
+        improvisationCount = 0;
+
+        while (searchingShouldContinue())
+        {
+            Solution worstSolution = harmonyMemory.getWorstSolution();
+            Solution newSolution = improviseNewSolution();
+
+            if (newSolution.isBetterThan(worstSolution))
+            {
+                harmonyMemory.swapForWorstSolution(newSolution);
+            }
+            improvisationCount++;
+        }
+        return harmonyMemory.getBestSolution();
+    }
+
+    Solution improviseNewSolution()
+    {
         return null;
+    }
+
+    private boolean searchingShouldContinue()
+    {
+        return improvisationCount < maxImprovisationCount;
     }
 }

@@ -35,7 +35,6 @@ class HarmonyMemory
 
     void add(Solution solution)
     {
-
         solutions.add(solution);
     }
 
@@ -47,5 +46,12 @@ class HarmonyMemory
     int getMaxCapacity()
     {
         return solutions.getCapacity();
+    }
+
+    void swapForWorstSolution(Solution newSolution)
+    {
+        Solution worstSolution = getWorstSolution();
+        solutions.remove(worstSolution);
+        solutions.add(newSolution);
     }
 }
