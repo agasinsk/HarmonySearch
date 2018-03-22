@@ -4,17 +4,19 @@ import lombok.Getter;
 import lombok.Setter;
 import org.mariuszgromada.math.mxparser.Function;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_ARGUMENT_LIMIT;
 
 /**
  * Implements harmony search algorithm
  */
 @Getter
 @Setter
-public class HarmonySearcher {
-
+public class HarmonySearcher
+{
     private final long maxImprovisationCount;
-
     private final double harmonyMemoryConsiderationRatio;
     private final double pitchAdjustmentRatio;
 
@@ -24,8 +26,26 @@ public class HarmonySearcher {
     private List<ArgumentLimit> argumentGenerationLimits;
     private SolutionGenerator solutionGenerator;
 
-    public HarmonySearcher(Function function, List<ArgumentLimit> argumentGenerationLimits, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio){
+    public HarmonySearcher(Function function, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio)
+    {
+        this.maxImprovisationCount = maxImprovisationCount;
 
+        this.harmonyMemoryConsiderationRatio = harmonyMemoryConsiderationRatio;
+        this.pitchAdjustmentRatio = pitchAdjustmentRatio;
+
+        this.function = function;
+        this.argumentGenerationLimits = new ArrayList<>(function.getArgumentsNumber());
+        for (int i = 0; i < function.getArgumentsNumber(); i++)
+        {
+            argumentGenerationLimits.add(new ArgumentLimit(-DEFAULT_ARGUMENT_LIMIT, DEFAULT_ARGUMENT_LIMIT));
+        }
+
+        harmonyMemory = new HarmonyMemory(harmonyMemorySize);
+        solutionGenerator = new SolutionGenerator(function, argumentGenerationLimits);
+    }
+
+    public HarmonySearcher(Function function, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio, List<ArgumentLimit> argumentGenerationLimits)
+    {
         this.maxImprovisationCount = maxImprovisationCount;
 
         this.harmonyMemoryConsiderationRatio = harmonyMemoryConsiderationRatio;
@@ -41,9 +61,10 @@ public class HarmonySearcher {
     /**
      * Initializes harmony memory with random solutions
      */
-    private void initializeHarmonyMemory()
+    void initializeHarmonyMemory()
     {
-        for (int i = 0; i < function.getArgumentsNumber(); i++) {
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
             Solution randomSolution = solutionGenerator.generateRandomSolution();
             harmonyMemory.add(randomSolution);
         }
@@ -52,8 +73,8 @@ public class HarmonySearcher {
     /**
      * Looks for optimal solution of function
      */
-    public Solution searchForHarmony() {
-
+    public Solution searchForHarmony()
+    {
         initializeHarmonyMemory();
 
         return null;

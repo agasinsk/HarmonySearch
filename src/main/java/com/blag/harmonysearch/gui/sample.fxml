@@ -1,12 +1,10 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="com.blag.harmonysearch.gui.Controller"
+<?import javafx.scene.layout.GridPane?>
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.blag.harmonysearch.gui.Controller"
           stylesheets=
-                  "/com/blag/harmonysearch/gui/sample.css"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+                  "/com/blag/harmonysearch/gui/sample.css" alignment="center" hgap="10" vgap="10">
     <Button text=
                     "Say 'Hello World'" onAction=
                     "#sayHelloWorld"/>

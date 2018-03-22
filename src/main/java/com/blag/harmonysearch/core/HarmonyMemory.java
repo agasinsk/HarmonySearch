@@ -9,12 +9,12 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-class HarmonyMemory {
-
+class HarmonyMemory
+{
     private BoundedTreeSet<Solution> solutions;
 
-    HarmonyMemory(int harmonyMemorySize){
-
+    HarmonyMemory(int harmonyMemorySize)
+    {
         solutions = new BoundedTreeSet<>(harmonyMemorySize, new SolutionValueComparator());
     }
 
@@ -28,11 +28,24 @@ class HarmonyMemory {
         return solutions.last();
     }
 
-    void clear(){
+    void clear()
+    {
         solutions.clear();
     }
 
-    void add(Solution solution) {
+    void add(Solution solution)
+    {
+
         solutions.add(solution);
+    }
+
+    int getSize()
+    {
+        return solutions.size();
+    }
+
+    int getMaxCapacity()
+    {
+        return solutions.getCapacity();
     }
 }

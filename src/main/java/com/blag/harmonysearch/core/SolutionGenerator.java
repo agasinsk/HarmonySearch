@@ -12,7 +12,8 @@ import java.util.List;
  * Generates solutions
  */
 @AllArgsConstructor
-class SolutionGenerator {
+class SolutionGenerator
+{
 
     private RandomGenerator randomGenerator = new RandomGenerator();
     private Function function;
@@ -24,7 +25,8 @@ class SolutionGenerator {
     @Getter
     private int argumentsCount;
 
-    SolutionGenerator(Function function, List<ArgumentLimit> argumentGenerationLimits){
+    SolutionGenerator(Function function, List<ArgumentLimit> argumentGenerationLimits)
+    {
         this.function = function;
         this.argumentGenerationLimits = argumentGenerationLimits;
         argumentsCount = function.getArgumentsNumber();
@@ -33,7 +35,8 @@ class SolutionGenerator {
     /**
      * Generates solution from random arguments
      */
-    Solution generateRandomSolution(){
+    Solution generateRandomSolution()
+    {
         double[] arguments = generateRandomArguments();
         return calculateSolution(arguments);
     }
@@ -41,11 +44,13 @@ class SolutionGenerator {
     /**
      * Generates random arguments within limits
      */
-    double[] generateRandomArguments(){
+    double[] generateRandomArguments()
+    {
 
         double[] randomArguments = new double[argumentsCount];
 
-        for (int i = 0; i < argumentsCount; i++) {
+        for (int i = 0; i < argumentsCount; i++)
+        {
             double randomArgument = randomGenerator.nextBoundedDouble(argumentGenerationLimits.get(i));
             randomArguments[i] = randomArgument;
         }
@@ -56,7 +61,8 @@ class SolutionGenerator {
     /**
      * Calculates solution for provided arguments
      */
-     Solution calculateSolution(double... arguments){
+    Solution calculateSolution(double... arguments)
+    {
 
         double functionValue = function.calculate(arguments);
         return new Solution(functionValue, arguments);

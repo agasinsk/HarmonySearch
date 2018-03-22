@@ -1,14 +1,16 @@
 package com.blag.harmonysearch;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInstance;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class BaseTest {
 
-    @BeforeEach
+    @BeforeAll
     public abstract void setUp();
 
-    @AfterEach
+    @AfterAll
     public abstract void cleanUp();
 }
 

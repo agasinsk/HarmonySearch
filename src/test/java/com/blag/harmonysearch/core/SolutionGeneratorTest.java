@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class SolutionGeneratorTest {
-
+class SolutionGeneratorTest extends BaseTest
+{
     private SolutionGenerator solutionGenerator;
 
     @Test
-    void testGenerateRandomSolution() {
-
+    void testGenerateRandomSolution()
+    {
         //Arrange
         List<ArgumentLimit> argumentLimits = new ArrayList<>();
         argumentLimits.add(new ArgumentLimit(-10, 10));
@@ -33,8 +33,8 @@ class SolutionGeneratorTest {
     }
 
     @Test
-    void testGenerateRandomArguments() {
-
+    void testGenerateRandomArguments()
+    {
         //Arrange
         List<ArgumentLimit> argumentLimits = new ArrayList<>();
         argumentLimits.add(new ArgumentLimit(-10, 10));
@@ -52,8 +52,8 @@ class SolutionGeneratorTest {
     }
 
     @Test
-    void testCalculateSolution() {
-
+    void testCalculateSolution()
+    {
         //Arrange
         double x1 = 2;
         double x2 = 0.7;
@@ -66,9 +66,10 @@ class SolutionGeneratorTest {
         Assertions.assertArrayEquals(new double[]{x1, x2}, result.getArguments());
     }
 
+    @Override
     @BeforeAll
-    void setUp() {
-
+    public void setUp()
+    {
         List<ArgumentLimit> argumentLimits = new ArrayList<>();
         argumentLimits.add(new ArgumentLimit(-10, 10));
         argumentLimits.add(new ArgumentLimit(-10, 10));
@@ -76,8 +77,10 @@ class SolutionGeneratorTest {
         solutionGenerator = new SolutionGenerator(new Function("f(x1,x2) = x1^2+x1*x2"), argumentLimits);
     }
 
+    @Override
     @AfterAll
-    public void cleanUp() {
+    public void cleanUp()
+    {
         solutionGenerator = null;
     }
 }
