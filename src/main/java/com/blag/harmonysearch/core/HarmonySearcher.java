@@ -6,6 +6,7 @@ import org.mariuszgromada.math.mxparser.Function;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_ARGUMENT_LIMIT;
 
@@ -96,7 +97,63 @@ public class HarmonySearcher
 
     Solution improviseNewSolution()
     {
-        return null;
+        double[] improvisedArguments = improviseArguments();
+        return solutionGenerator.calculateSolution(improvisedArguments);
+    }
+
+    double[] improviseArguments()
+    {
+
+        double[] arguments = new double[function.getArgumentsNumber()];
+
+        for (int i = 0; i < arguments.length; i++)
+        {
+            arguments[i] = generateArgument();
+        }
+
+        return arguments;
+    }
+
+    private double generateArgument()
+    {
+
+        double probability = new Random().nextDouble();
+
+        ArgumentGenerationRules generationRule = establishArgumentGenerationRuleWithProbability(probability);
+        double argument = 0;
+        switch (generationRule)
+        {
+            case MemoryConsidering:
+                argument = useMemoryConsidering();
+                break;
+            case PitchAdjusting:
+                argument = usePitchAdjusting();
+                break;
+            case RandomChoosing:
+                argument = useRandomChoosing();
+                break;
+        }
+        return argument;
+    }
+
+    private double useMemoryConsidering()
+    {
+        return 0;
+    }
+
+    private double usePitchAdjusting()
+    {
+        return 0;
+    }
+
+    private double useRandomChoosing()
+    {
+        return 0;
+    }
+
+    private ArgumentGenerationRules establishArgumentGenerationRuleWithProbability(double probability)
+    {
+        return ArgumentGenerationRules.MemoryConsidering;
     }
 
     private boolean searchingShouldContinue()
