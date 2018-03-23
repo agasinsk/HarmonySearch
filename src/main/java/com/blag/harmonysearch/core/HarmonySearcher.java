@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.mariuszgromada.math.mxparser.Function;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_ARGUMENT_LIMIT;
 
 /**
  * Implements harmony search algorithm
@@ -76,7 +73,7 @@ public class HarmonySearcher
         while (searchingShouldContinue())
         {
             Solution worstSolution = harmonyMemory.getWorstSolution();
-            Solution newSolution = solutionGenerator.improviseNewSolution();
+            Solution newSolution = solutionGenerator.improviseSolution();
 
             if (newSolution.isBetterThan(worstSolution))
             {

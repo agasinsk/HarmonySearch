@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Stores best solutions for harmony search algorithm
@@ -65,5 +68,10 @@ class HarmonyMemory
     public Solution getSolution(int index)
     {
         return solutions.get(index);
+    }
+
+    List<Double> getArgumentsByIndex(int argumentIndex)
+    {
+        return solutions.stream().map(s -> s.getArgument(argumentIndex)).collect(Collectors.toList());
     }
 }

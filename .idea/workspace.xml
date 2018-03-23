@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentGenerationRules.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentGenerationRules.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/BoundedTreeSet.java" afterPath="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/BoundedTreeSet.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonyMemoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonyMemoryTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonySearcherTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonySearcherTest.java" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonySearcher$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonySearcher.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/Solution.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/Solution.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionGenerator.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionValueComparator.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionValueComparator.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/blag/harmonysearch/core/HarmonySearcherTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/blag/harmonysearch/core/HarmonySearcherTest.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/ArgumentGenerationRules.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/ArgumentGenerationRules.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonyMemory.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonyMemory.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonySearcher.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/HarmonySearcher.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionGenerator$1.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionGenerator$1.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionGenerator.class" afterPath="$PROJECT_DIR$/target/classes/com/blag/harmonysearch/core/SolutionGenerator.class" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/blag/harmonysearch/core/SolutionGeneratorTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/blag/harmonysearch/core/SolutionGeneratorTest.class" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -85,23 +79,13 @@
       <file leaf-file-name="HarmonySearcher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="51" column="44" lean-forward="false" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
+            <state relative-caret-position="157">
+              <caret line="70" column="31" lean-forward="true" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2981#2982#0" expanded="true" />
-                <element signature="e#3046#3047#0" expanded="true" />
+                <element signature="e#2856#2857#0" expanded="true" />
+                <element signature="e#2921#2922#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArgumentLimit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentLimit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -109,24 +93,10 @@
       <file leaf-file-name="SolutionGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="140" column="51" lean-forward="true" selection-start-line="140" selection-start-column="51" selection-end-line="140" selection-end-column="51" />
+            <state relative-caret-position="180">
+              <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#480#481#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,79 +105,38 @@
       <file leaf-file-name="HarmonyMemory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="39" column="15" lean-forward="false" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+            <state relative-caret-position="735">
+              <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
               <folding>
-                <element signature="e#712#713#0" expanded="true" />
-                <element signature="e#758#759#0" expanded="true" />
-                <element signature="e#783#784#0" expanded="true" />
-                <element signature="e#822#823#0" expanded="true" />
-                <element signature="e#854#855#0" expanded="true" />
-                <element signature="e#900#901#0" expanded="true" />
-                <element signature="e#1238#1239#0" expanded="true" />
-                <element signature="e#1281#1282#0" expanded="true" />
+                <element signature="e#806#807#0" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
+                <element signature="e#877#878#0" expanded="true" />
+                <element signature="e#916#917#0" expanded="true" />
+                <element signature="e#948#949#0" expanded="true" />
+                <element signature="e#994#995#0" expanded="true" />
+                <element signature="e#1332#1333#0" expanded="true" />
+                <element signature="e#1375#1376#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoundedTreeSet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/BoundedTreeSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="52" column="58" lean-forward="false" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
-              <folding>
-                <element signature="e#1131#1132#0" expanded="true" />
-                <element signature="e#1202#1203#0" expanded="true" />
-                <element signature="e#1276#1277#0" expanded="true" />
-                <element signature="e#1346#1347#0" expanded="true" />
-                <element signature="e#1381#1382#0" expanded="true" />
-                <element signature="e#1419#1420#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeSet.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/TreeSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="276" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HarmonyMemoryTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonyMemoryTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1445">
-              <caret line="153" column="14" lean-forward="false" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
-              <folding>
-                <element signature="method#testGetWorstSolution#0;class#HarmonyMemoryTest#0" expanded="false" />
-                <element signature="method#testGetSizeIfEmpty#0;class#HarmonyMemoryTest#0" expanded="false" />
-                <element signature="e#2027#2036#0" expanded="false" />
-                <element signature="method#testGetSizeIfNotEmpty#0;class#HarmonyMemoryTest#0" expanded="false" />
-                <element signature="method#testGetMaxCapacity#0;class#HarmonyMemoryTest#0" expanded="false" />
-                <element signature="e#2462#2471#0" expanded="false" />
-                <element signature="method#testSwapWithWorstSolutionForNewBestSolution#0;class#HarmonyMemoryTest#0" expanded="false" />
-                <element signature="method#testSwapWithWorstSolutionForNewWorstSolution#0;class#HarmonyMemoryTest#0" expanded="false" />
-                <element signature="e#4441#4452#0" expanded="false" />
-                <element signature="method#setUp#0;class#HarmonyMemoryTest#0" expanded="false" />
-                <element signature="e#4609#4618#0" expanded="false" />
-                <marker date="1521833182661" expanded="false" signature="2704:3225" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SolutionGeneratorTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SolutionGeneratorTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="121" column="196" lean-forward="true" selection-start-line="121" selection-start-column="196" selection-end-line="121" selection-end-column="196" />
+            <state relative-caret-position="204">
+              <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#testGenerateRandomSolution#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="method#testGenerateRandomArguments#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="method#testImproviseArguments#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="method#testImproviseSolution#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="method#testCalculateSolution#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="method#testEstablishArgumentGenerationRuleForRandomChoosing#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="method#testEstablishArgumentGenerationRuleForPitchAdjusting#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="method#testEstablishArgumentGenerationRuleForMemoryConsideration#0;class#SolutionGeneratorTest#0" expanded="false" />
+                <element signature="e#7254#7263#0" expanded="false" />
+                <element signature="e#7781#7790#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -273,11 +202,11 @@
         <option value="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonySearcherTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/BoundedTreeSet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonyMemoryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java" />
       </list>
     </option>
   </component>
@@ -464,7 +393,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HarmonyMemoryTest">
+  <component name="RunManager" selected="JUnit.SolutionGeneratorTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module />
       <option name="HTML_USED" value="false" />
@@ -508,81 +437,6 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="HarmonyMemoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.blag.harmonysearch.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="HarmonySearch" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.blag.harmonysearch.core" />
-      <option name="MAIN_CLASS_NAME" value="com.blag.harmonysearch.core.HarmonyMemoryTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="HarmonyMemoryTest.testAddSolutionIfMemoryIsFull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.blag.harmonysearch.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="HarmonySearch" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.blag.harmonysearch.core" />
-      <option name="MAIN_CLASS_NAME" value="com.blag.harmonysearch.core.HarmonyMemoryTest" />
-      <option name="METHOD_NAME" value="testAddSolutionIfMemoryIsFull" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="HarmonyMemoryTest.testGetSolution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.blag.harmonysearch.core.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="HarmonySearch" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.blag.harmonysearch.core" />
-      <option name="MAIN_CLASS_NAME" value="com.blag.harmonysearch.core.HarmonyMemoryTest" />
-      <option name="METHOD_NAME" value="testGetSolution" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration name="SolutionGeneratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -608,7 +462,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="SolutionGeneratorTest.testEstablishArgumentGenerationRuleForPitchAdjusting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SolutionGeneratorTest.testImproviseArguments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.blag.harmonysearch.core.*" />
@@ -620,7 +474,82 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.blag.harmonysearch.core" />
       <option name="MAIN_CLASS_NAME" value="com.blag.harmonysearch.core.SolutionGeneratorTest" />
-      <option name="METHOD_NAME" value="testEstablishArgumentGenerationRuleForPitchAdjusting" />
+      <option name="METHOD_NAME" value="testImproviseArguments" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="SolutionGeneratorTest.testImproviseSolution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.blag.harmonysearch.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="HarmonySearch" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.blag.harmonysearch.core" />
+      <option name="MAIN_CLASS_NAME" value="com.blag.harmonysearch.core.SolutionGeneratorTest" />
+      <option name="METHOD_NAME" value="testImproviseSolution" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="SolutionGeneratorTest.testUseMemoryConsideration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.blag.harmonysearch.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="HarmonySearch" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.blag.harmonysearch.core" />
+      <option name="MAIN_CLASS_NAME" value="com.blag.harmonysearch.core.SolutionGeneratorTest" />
+      <option name="METHOD_NAME" value="testUseMemoryConsideration" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="SolutionGeneratorTest.testUsePitchAdjusting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.blag.harmonysearch.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="HarmonySearch" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.blag.harmonysearch.core" />
+      <option name="MAIN_CLASS_NAME" value="com.blag.harmonysearch.core.SolutionGeneratorTest" />
+      <option name="METHOD_NAME" value="testUsePitchAdjusting" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -707,19 +636,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testEstablishArgumentGenerationRuleForPitchAdjusting" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.HarmonyMemoryTest.testGetSolution" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.HarmonyMemoryTest.testAddSolutionIfMemoryIsFull" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.HarmonyMemoryTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testImproviseArguments" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testImproviseSolution" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testUseMemoryConsideration" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testUsePitchAdjusting" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.HarmonyMemoryTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.HarmonyMemoryTest.testAddSolutionIfMemoryIsFull" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.HarmonyMemoryTest.testGetSolution" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testEstablishArgumentGenerationRuleForPitchAdjusting" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testUsePitchAdjusting" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testUseMemoryConsideration" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testImproviseArguments" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.SolutionGeneratorTest.testImproviseSolution" />
       </list>
     </recent_temporary>
   </component>
@@ -746,7 +675,7 @@
       <workItem from="1521709623629" duration="2909000" />
       <workItem from="1521734548311" duration="1747000" />
       <workItem from="1521828701356" duration="2041000" />
-      <workItem from="1521830816611" duration="2372000" />
+      <workItem from="1521830816611" duration="4780000" />
     </task>
     <servers />
   </component>
@@ -757,33 +686,33 @@
     <history-entry file="HarmonyMemoryTest - 2018.03.23 at 20h 26m 31s.xml">
       <configuration name="HarmonyMemoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HarmonyMemoryTest_testAddSolutionIfMemoryIsFull - 2018.03.23 at 20h 25m 05s.xml">
-      <configuration name="HarmonyMemoryTest.testAddSolutionIfMemoryIsFull" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HarmonyMemoryTest_testAddSolutionIfMemoryIsFull - 2018.03.23 at 20h 25m 55s.xml">
       <configuration name="HarmonyMemoryTest.testAddSolutionIfMemoryIsFull" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HarmonyMemoryTest_testGetSolution - 2018.03.23 at 20h 22m 13s.xml">
-      <configuration name="HarmonyMemoryTest.testGetSolution" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SolutionGeneratorTest - 2018.03.23 at 19h 40m 29s.xml">
+    <history-entry file="SolutionGeneratorTest - 2018.03.23 at 21h 04m 38s.xml">
       <configuration name="SolutionGeneratorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionGeneratorTest - 2018.03.23 at 19h 43m 07s.xml">
-      <configuration name="SolutionGeneratorTest" configurationId="JUnit" />
+    <history-entry file="SolutionGeneratorTest_testImproviseArguments - 2018.03.23 at 20h 35m 11s.xml">
+      <configuration name="SolutionGeneratorTest.testImproviseArguments" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionGeneratorTest - 2018.03.23 at 19h 43m 34s.xml">
-      <configuration name="SolutionGeneratorTest" configurationId="JUnit" />
+    <history-entry file="SolutionGeneratorTest_testImproviseArguments - 2018.03.23 at 20h 37m 40s.xml">
+      <configuration name="SolutionGeneratorTest.testImproviseArguments" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionGeneratorTest_testEstablishArgumentGenerationRuleForPitchAdjusting - 2018.03.23 at 19h 41m 17s.xml">
-      <configuration name="SolutionGeneratorTest.testEstablishArgumentGenerationRuleForPitchAdjusting" configurationId="JUnit" />
+    <history-entry file="SolutionGeneratorTest_testImproviseArguments - 2018.03.23 at 20h 44m 10s.xml">
+      <configuration name="SolutionGeneratorTest.testImproviseArguments" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionGeneratorTest_testEstablishArgumentGenerationRuleForPitchAdjusting - 2018.03.23 at 19h 42m 36s.xml">
-      <configuration name="SolutionGeneratorTest.testEstablishArgumentGenerationRuleForPitchAdjusting" configurationId="JUnit" />
+    <history-entry file="SolutionGeneratorTest_testImproviseSolution - 2018.03.23 at 20h 40m 58s.xml">
+      <configuration name="SolutionGeneratorTest.testImproviseSolution" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SolutionGeneratorTest_testUseMemoryConsideration - 2018.03.23 at 21h 03m 22s.xml">
+      <configuration name="SolutionGeneratorTest.testUseMemoryConsideration" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SolutionGeneratorTest_testUsePitchAdjusting - 2018.03.23 at 21h 03m 57s.xml">
+      <configuration name="SolutionGeneratorTest.testUsePitchAdjusting" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20932000" />
+    <option name="totallyTimeSpent" value="23340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="-8" width="1858" height="1096" extended-state="6" />
@@ -798,7 +727,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33163783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32451677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32451677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -876,23 +805,11 @@
           <properties />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java</url>
-          <line>167</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java</url>
-          <line>161</line>
-          <properties />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="24" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -901,31 +818,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentLimit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/BoundedTreeSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -935,7 +827,6 @@
             <element signature="e#1202#1203#0" expanded="true" />
             <element signature="e#1276#1277#0" expanded="true" />
             <element signature="e#1346#1347#0" expanded="true" />
-            <element signature="e#1381#1382#0" expanded="true" />
             <element signature="e#1419#1420#0" expanded="true" />
           </folding>
         </state>
@@ -954,8 +845,8 @@
           <caret line="46" column="49" lean-forward="false" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2981#2982#0" expanded="true" />
-            <element signature="e#3046#3047#0" expanded="true" />
+            <element signature="e#2856#2857#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -991,14 +882,14 @@
         <state relative-caret-position="153">
           <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
           <folding>
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1009,8 +900,8 @@
           <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2981#2982#0" expanded="true" />
-            <element signature="e#3046#3047#0" expanded="true" />
+            <element signature="e#2856#2857#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1200,107 +1091,15 @@
         <state relative-caret-position="-51">
           <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentLimit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="51" column="44" lean-forward="false" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2981#2982#0" expanded="true" />
-            <element signature="e#3046#3047#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="121" column="196" lean-forward="true" selection-start-line="121" selection-start-column="196" selection-end-line="121" selection-end-column="196" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="140" column="51" lean-forward="true" selection-start-line="140" selection-start-column="51" selection-end-line="140" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/TreeSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="276" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/BoundedTreeSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="52" column="58" lean-forward="false" selection-start-line="52" selection-start-column="58" selection-end-line="52" selection-end-column="58" />
-          <folding>
-            <element signature="e#1131#1132#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-            <element signature="e#1276#1277#0" expanded="true" />
-            <element signature="e#1346#1347#0" expanded="true" />
-            <element signature="e#1381#1382#0" expanded="true" />
-            <element signature="e#1419#1420#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="39" column="15" lean-forward="false" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
-          <folding>
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#783#784#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#1238#1239#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/HarmonyMemoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="153" column="14" lean-forward="false" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
+        <state relative-caret-position="118">
+          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
           <folding>
             <element signature="method#testGetWorstSolution#0;class#HarmonyMemoryTest#0" expanded="false" />
             <element signature="method#testGetSizeIfEmpty#0;class#HarmonyMemoryTest#0" expanded="false" />
@@ -1314,6 +1113,122 @@
             <element signature="method#setUp#0;class#HarmonyMemoryTest#0" expanded="false" />
             <element signature="e#4609#4618#0" expanded="false" />
             <marker date="1521833182661" expanded="false" signature="2704:3225" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/TreeSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="267" column="71" lean-forward="true" selection-start-line="267" selection-start-column="71" selection-end-line="267" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/helpers/BoundedTreeSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1202#1203#0" expanded="true" />
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1346#1347#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="428" column="0" lean-forward="false" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/SolutionGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/ArgumentLimit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonySearcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="70" column="31" lean-forward="true" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2856#2857#0" expanded="true" />
+            <element signature="e#2921#2922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blag/harmonysearch/core/HarmonyMemory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="72" column="25" lean-forward="true" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+          <folding>
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+            <element signature="e#994#995#0" expanded="true" />
+            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="e#1375#1376#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/blag/harmonysearch/core/SolutionGeneratorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="111" column="5" lean-forward="true" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+          <folding>
+            <element signature="method#testGenerateRandomSolution#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="method#testGenerateRandomArguments#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="method#testImproviseArguments#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="method#testImproviseSolution#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="method#testCalculateSolution#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="method#testEstablishArgumentGenerationRuleForRandomChoosing#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="method#testEstablishArgumentGenerationRuleForPitchAdjusting#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="method#testEstablishArgumentGenerationRuleForMemoryConsideration#0;class#SolutionGeneratorTest#0" expanded="false" />
+            <element signature="e#7254#7263#0" expanded="false" />
+            <element signature="e#7781#7790#0" expanded="false" />
           </folding>
         </state>
       </provider>

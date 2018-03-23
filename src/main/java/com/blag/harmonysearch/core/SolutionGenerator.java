@@ -21,6 +21,9 @@ class SolutionGenerator
     private final double pitchAdjustmentRatio;
     private RandomGenerator randomGenerator = new RandomGenerator();
     private Function function;
+
+    @Setter
+    @Getter
     private HarmonyMemory harmonyMemory;
 
     @Setter
@@ -92,7 +95,10 @@ class SolutionGenerator
         return new Solution(functionValue, arguments);
     }
 
-    Solution improviseNewSolution()
+    /**
+     * Improvises new solution based on algorithm parameters
+     */
+    Solution improviseSolution()
     {
         double[] improvisedArguments = improviseArguments();
         return calculateSolution(improvisedArguments);
@@ -123,9 +129,9 @@ class SolutionGenerator
 
         switch (generationRule)
         {
-            case MemoryConsidering:
+            case MemoryConsideration:
                 return useMemoryConsidering(argumentIndex);
-            case PitchAdjusting:
+            case PitchAdjustement:
                 return usePitchAdjusting(argumentIndex);
             case RandomChoosing:
                 return useRandomChoosing(argumentIndex);
@@ -134,16 +140,21 @@ class SolutionGenerator
         }
     }
 
-    private double useMemoryConsidering(int argumentIndex)
+    double useMemoryConsidering(int argumentIndex)
     {
         int randomIndex = randomGenerator.nextInt(harmonyMemory.getMaxCapacity());
         Solution solution = harmonyMemory.getSolution(randomIndex);
         return solution.getArgument(argumentIndex);
     }
 
-    private double usePitchAdjusting(int argumentIndex)
+    double usePitchAdjusting(int argumentIndex)
     {
-        return 0;
+        double existingArgument = useMemoryConsidering(argumentIndex);
+
+        ArgumentLimit limit = argumentGenerationLimits.get(argumentIndex);
+        double pitchAdjustment = randomGenerator.nextBoundedDouble(limit);
+
+        return existingArgument + pitchAdjustment;
     }
 
     private double useRandomChoosing(int argumentIndex)
@@ -154,8 +165,6 @@ class SolutionGenerator
 
     /**
      * Chooses argument generation rule by their probabilities
-     *
-     * @return Appropriate argument generation rule
      */
     ArgumentGenerationRules establishArgumentGenerationRule(double probability)
     {
@@ -165,11 +174,11 @@ class SolutionGenerator
         }
         else if (probability <= harmonyMemoryConsiderationRatio * pitchAdjustmentRatio)
         {
-            return ArgumentGenerationRules.PitchAdjusting;
+            return ArgumentGenerationRules.PitchAdjustement;
         }
         else
         {
-            return ArgumentGenerationRules.MemoryConsidering;
+            return ArgumentGenerationRules.MemoryConsideration;
         }
     }
 }

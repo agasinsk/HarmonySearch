@@ -56,6 +56,98 @@ class SolutionGeneratorTest extends BaseTest
     }
 
     @Test
+    void testImproviseArguments()
+    {
+        //Arrange
+        List<ArgumentLimit> argumentLimits = new ArrayList<>();
+        argumentLimits.add(new ArgumentLimit(-10, 10));
+        argumentLimits.add(new ArgumentLimit(-1, 5));
+        solutionGenerator.setArgumentGenerationLimits(argumentLimits);
+
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+
+        //Act
+        double[] result = solutionGenerator.improviseArguments();
+
+        //Assert
+        Assertions.assertEquals(argumentLimits.size(), result.length);
+        Assertions.assertEquals(solutionGenerator.getArgumentsCount(), result.length);
+        Assertions.assertTrue(argumentLimits.get(0).IsWithinLimits(result[0]));
+        Assertions.assertTrue(argumentLimits.get(1).IsWithinLimits(result[1]));
+    }
+
+    @Test
+    void testImproviseSolution()
+    {
+        //Arrange
+        List<ArgumentLimit> argumentLimits = new ArrayList<>();
+        argumentLimits.add(new ArgumentLimit(-10, 10));
+        argumentLimits.add(new ArgumentLimit(-1, 5));
+        solutionGenerator.setArgumentGenerationLimits(argumentLimits);
+
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+
+        //Act
+        Solution result = solutionGenerator.improviseSolution();
+
+        //Assert
+        Assertions.assertEquals(solutionGenerator.calculateSolution(result.getArguments()).getValue(), result.getValue());
+        Assertions.assertEquals(argumentLimits.size(), result.getArguments().length);
+    }
+
+    @Test
+    void testUseMemoryConsideration()
+    {
+        //Arrange
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+        int argumentIndex = 0;
+
+        //Act
+        double result = solutionGenerator.useMemoryConsidering(argumentIndex);
+
+        //Assert
+        Assertions.assertTrue(harmonyMemory.getArgumentsByIndex(argumentIndex).contains(result));
+    }
+
+    @Test
+    void testUsePitchAdjusting()
+    {
+        //Arrange
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+        int argumentIndex = 0;
+
+        //Act
+        double result = solutionGenerator.usePitchAdjusting(argumentIndex);
+
+        //Assert
+        Assertions.assertFalse(harmonyMemory.getArgumentsByIndex(argumentIndex).contains(result));
+    }
+
+    @Test
     void testCalculateSolution()
     {
         //Arrange
@@ -93,7 +185,7 @@ class SolutionGeneratorTest extends BaseTest
         ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
 
         //Assert
-        Assertions.assertEquals(ArgumentGenerationRules.PitchAdjusting, result);
+        Assertions.assertEquals(ArgumentGenerationRules.PitchAdjustement, result);
     }
 
     @Test
@@ -106,7 +198,7 @@ class SolutionGeneratorTest extends BaseTest
         ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
 
         //Assert
-        Assertions.assertEquals(ArgumentGenerationRules.MemoryConsidering, result);
+        Assertions.assertEquals(ArgumentGenerationRules.MemoryConsideration, result);
     }
 
     @Override
