@@ -48,10 +48,14 @@ class HarmonyMemory
         return solutions.getCapacity();
     }
 
-    void swapForWorstSolution(Solution newSolution)
+    void swapWithWorstSolution(Solution solution)
     {
         Solution worstSolution = getWorstSolution();
         solutions.remove(worstSolution);
-        solutions.add(newSolution);
+        solutions.add(solution);
+    }
+
+    boolean contains(Solution solution) {
+        return solutions.contains(solution);
     }
 }

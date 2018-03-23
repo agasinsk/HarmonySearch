@@ -7,6 +7,7 @@ import org.junit.jupiter.api.*;
 class HarmonyMemoryTest extends BaseTest
 {
     private HarmonyMemory harmonyMemory;
+    private int harmonyMemoryTestSize;
 
     @Test
     void testGetBestSolution()
@@ -41,13 +42,28 @@ class HarmonyMemoryTest extends BaseTest
     }
 
     @Test
-    void testGetSize()
+    void testGetSizeIfEmpty()
     {
         //Arrange
 
         //Act
+        int size = harmonyMemory.getSize();
 
         //Assert
+        Assertions.assertEquals(0, size);
+    }
+
+    @Test
+    void testGetSizeIfNotEmpty()
+    {
+        //Arrange
+        harmonyMemory.add(new Solution(22, 0,11));
+
+        //Act
+        int size = harmonyMemory.getSize();
+
+        //Assert
+        Assertions.assertEquals(1, size);
     }
 
     @Test
@@ -56,29 +72,75 @@ class HarmonyMemoryTest extends BaseTest
         //Arrange
 
         //Act
+        int capacity = harmonyMemory.getMaxCapacity();
 
         //Assert
+        Assertions.assertEquals(harmonyMemoryTestSize, capacity);
     }
 
     @Test
-    void swapForWorstSolution()
+    void swapWithWorstSolutionForNewMiddleSolution()
     {
         //Arrange
+        Solution oldWorstSolution = new Solution(4, 3, 3);
         harmonyMemory.add(new Solution(2, 1, 3));
         harmonyMemory.add(new Solution(-2, -1, 3));
-        harmonyMemory.add(new Solution(4, 3, 3));
+        harmonyMemory.add(oldWorstSolution);
 
+        Solution newSolution = new Solution(0, 2, 2.5);
 
         //Act
+        harmonyMemory.swapWithWorstSolution(newSolution);
 
         //Assert
+        Assertions.assertTrue(harmonyMemory.contains(newSolution));
+        Assertions.assertTrue(!harmonyMemory.contains(oldWorstSolution));
     }
 
-    @BeforeAll
+    @Test
+    void swapWithWorstSolutionForNewBestSolution()
+    {
+        //Arrange
+        Solution oldWorstSolution = new Solution(4, 3, 3);
+        harmonyMemory.add(new Solution(2, 1, 3));
+        harmonyMemory.add(new Solution(-2, -1, 3));
+        harmonyMemory.add(oldWorstSolution);
+
+        Solution newSolution = new Solution(-10, 2, 2.5);
+
+        //Act
+        harmonyMemory.swapWithWorstSolution(newSolution);
+
+        //Assert
+        Assertions.assertEquals(newSolution, harmonyMemory.getBestSolution());
+        Assertions.assertTrue(!harmonyMemory.contains(oldWorstSolution));
+    }
+
+    @Test
+    void swapWithWorstSolutionForNewWorstSolution()
+    {
+        //Arrange
+        Solution oldWorstSolution = new Solution(4, 3, 3);
+        harmonyMemory.add(new Solution(2, 1, 3));
+        harmonyMemory.add(new Solution(-2, -1, 3));
+        harmonyMemory.add(oldWorstSolution);
+
+        Solution newSolution = new Solution(3, 2, 2.5);
+
+        //Act
+        harmonyMemory.swapWithWorstSolution(newSolution);
+
+        //Assert
+        Assertions.assertEquals(newSolution, harmonyMemory.getWorstSolution());
+        Assertions.assertTrue(!harmonyMemory.contains(oldWorstSolution));
+    }
+
+    @BeforeEach
     @Override
     public void setUp()
     {
-        harmonyMemory = new HarmonyMemory(3);
+        harmonyMemoryTestSize = 3;
+        harmonyMemory = new HarmonyMemory(harmonyMemoryTestSize);
     }
 
     @AfterAll

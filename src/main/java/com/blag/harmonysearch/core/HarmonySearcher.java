@@ -87,7 +87,7 @@ public class HarmonySearcher
 
             if (newSolution.isBetterThan(worstSolution))
             {
-                harmonyMemory.swapForWorstSolution(newSolution);
+                harmonyMemory.swapWithWorstSolution(newSolution);
             }
             improvisationCount++;
         }
