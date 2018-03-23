@@ -130,9 +130,9 @@ class SolutionGenerator
         switch (generationRule)
         {
             case MemoryConsideration:
-                return useMemoryConsidering(argumentIndex);
+                return useMemoryConsideration(argumentIndex);
             case PitchAdjustement:
-                return usePitchAdjusting(argumentIndex);
+                return usePitchAdjustment(argumentIndex);
             case RandomChoosing:
                 return useRandomChoosing(argumentIndex);
             default:
@@ -140,16 +140,16 @@ class SolutionGenerator
         }
     }
 
-    double useMemoryConsidering(int argumentIndex)
+    double useMemoryConsideration(int argumentIndex)
     {
         int randomIndex = randomGenerator.nextInt(harmonyMemory.getMaxCapacity());
         Solution solution = harmonyMemory.getSolution(randomIndex);
         return solution.getArgument(argumentIndex);
     }
 
-    double usePitchAdjusting(int argumentIndex)
+    double usePitchAdjustment(int argumentIndex)
     {
-        double existingArgument = useMemoryConsidering(argumentIndex);
+        double existingArgument = useMemoryConsideration(argumentIndex);
 
         ArgumentLimit limit = argumentGenerationLimits.get(argumentIndex);
         double pitchAdjustment = randomGenerator.nextBoundedDouble(limit);

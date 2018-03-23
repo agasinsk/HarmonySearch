@@ -121,7 +121,7 @@ class SolutionGeneratorTest extends BaseTest
         int argumentIndex = 0;
 
         //Act
-        double result = solutionGenerator.useMemoryConsidering(argumentIndex);
+        double result = solutionGenerator.useMemoryConsideration(argumentIndex);
 
         //Assert
         Assertions.assertTrue(harmonyMemory.getArgumentsByIndex(argumentIndex).contains(result));
@@ -141,7 +141,7 @@ class SolutionGeneratorTest extends BaseTest
         int argumentIndex = 0;
 
         //Act
-        double result = solutionGenerator.usePitchAdjusting(argumentIndex);
+        double result = solutionGenerator.usePitchAdjustment(argumentIndex);
 
         //Assert
         Assertions.assertFalse(harmonyMemory.getArgumentsByIndex(argumentIndex).contains(result));
