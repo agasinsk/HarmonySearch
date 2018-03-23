@@ -7,6 +7,10 @@ import org.mariuszgromada.math.mxparser.Function;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO;
+import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_HARMONY_MEMORY_SIZE;
+import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_PITCH_ADJUSTMENT_RATIO;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SolutionGeneratorTest extends BaseTest
 {
@@ -66,6 +70,45 @@ class SolutionGeneratorTest extends BaseTest
         Assertions.assertArrayEquals(new double[]{x1, x2}, result.getArguments());
     }
 
+    @Test
+    void testEstablishArgumentGenerationRuleForRandomChoosing()
+    {
+        //Arrange
+        double value = 0.96;
+
+        //Act
+        ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
+
+        //Assert
+        Assertions.assertEquals(ArgumentGenerationRules.RandomChoosing, result);
+    }
+
+    @Test
+    void testEstablishArgumentGenerationRuleForPitchAdjusting()
+    {
+        //Arrange
+        double value = DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO * DEFAULT_PITCH_ADJUSTMENT_RATIO - 0.01;
+
+        //Act
+        ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
+
+        //Assert
+        Assertions.assertEquals(ArgumentGenerationRules.PitchAdjusting, result);
+    }
+
+    @Test
+    void testEstablishArgumentGenerationRuleForMemoryConsideration()
+    {
+        //Arrange
+        double value = DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO * (1 - DEFAULT_PITCH_ADJUSTMENT_RATIO);
+
+        //Act
+        ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
+
+        //Assert
+        Assertions.assertEquals(ArgumentGenerationRules.MemoryConsidering, result);
+    }
+
     @Override
     @BeforeAll
     public void setUp()
@@ -74,7 +117,9 @@ class SolutionGeneratorTest extends BaseTest
         argumentLimits.add(new ArgumentLimit(-10, 10));
         argumentLimits.add(new ArgumentLimit(-10, 10));
 
-        solutionGenerator = new SolutionGenerator(new Function("f(x1,x2) = x1^2+x1*x2"), argumentLimits);
+        HarmonyMemory harmonyMemory = new HarmonyMemory(DEFAULT_HARMONY_MEMORY_SIZE);
+
+        solutionGenerator = new SolutionGenerator(new Function("f(x1,x2) = x1^2+x1*x2"), harmonyMemory, argumentLimits, DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO, DEFAULT_PITCH_ADJUSTMENT_RATIO);
     }
 
     @Override

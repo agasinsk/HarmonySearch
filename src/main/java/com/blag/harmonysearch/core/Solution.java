@@ -23,6 +23,16 @@ class Solution
     {
         return getValue() < otherSolution.getValue();
     }
+
+    double getArgument(int argumentIndex)
+    {
+        if (argumentIndex > arguments.length)
+        {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
+        return arguments[argumentIndex];
+    }
 }
 
 

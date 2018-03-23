@@ -4,6 +4,8 @@ import com.blag.harmonysearch.helpers.BoundedTreeSet;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Iterator;
+
 /**
  * Stores best solutions for harmony search algorithm
  */
@@ -33,9 +35,9 @@ class HarmonyMemory
         solutions.clear();
     }
 
-    void add(Solution solution)
+    boolean add(Solution solution)
     {
-        solutions.add(solution);
+        return solutions.add(solution);
     }
 
     int getSize()
@@ -55,7 +57,13 @@ class HarmonyMemory
         solutions.add(solution);
     }
 
-    boolean contains(Solution solution) {
+    boolean contains(Solution solution)
+    {
         return solutions.contains(solution);
+    }
+
+    public Solution getSolution(int index)
+    {
+        return solutions.get(index);
     }
 }

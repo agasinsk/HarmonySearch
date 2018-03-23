@@ -33,7 +33,6 @@ class HarmonySearcherTest extends BaseTest
 
     }
 
-
     @BeforeAll
     @Override
     public void setUp()
