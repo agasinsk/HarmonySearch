@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.Comparator;
 
 /**
- * Represents single problem solution (e.g. a vector of x)
+ * Represents single problem solution (arguments and corresponding function value)
  */
 @Getter
 class Solution
@@ -23,14 +23,14 @@ class Solution
     {
         return getValue() < otherSolution.getValue();
     }
-}
 
-
-class SolutionValueComparator implements Comparator<Solution>
-{
-    @Override
-    public int compare(Solution first, Solution other)
+    double getArgument(int argumentIndex)
     {
-        return Double.compare(first.getValue(), other.getValue());
+        if (argumentIndex > arguments.length)
+        {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+
+        return arguments[argumentIndex];
     }
 }

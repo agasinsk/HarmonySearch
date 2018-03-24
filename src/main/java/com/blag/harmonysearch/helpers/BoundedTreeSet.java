@@ -2,14 +2,10 @@ package com.blag.harmonysearch.helpers;
 
 import lombok.Getter;
 
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class BoundedTreeSet<E> extends TreeSet<E>
 {
-
     @Getter
     private final int capacity;
 
@@ -35,6 +31,12 @@ public class BoundedTreeSet<E> extends TreeSet<E>
     {
         super(s);
         this.capacity = capacity;
+    }
+
+    @Override
+    public boolean remove(Object e)
+    {
+        return super.remove(e);
     }
 
     @Override

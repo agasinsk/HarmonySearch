@@ -16,7 +16,6 @@ class HarmonySearcherTest extends BaseTest
     {
         //Arrange
 
-
         //Act
         harmonySearcher.initializeHarmonyMemory();
         HarmonyMemory harmonyMemory = harmonySearcher.getHarmonyMemory();
@@ -29,10 +28,15 @@ class HarmonySearcherTest extends BaseTest
     @Test
     void testSearchForHarmony()
     {
+        //Arrange
 
+        //Act
+        Solution solution = harmonySearcher.searchForHarmony();
 
+        //Assert
+        Assertions.assertEquals(harmonySearcher.getMaxImprovisationCount(), harmonySearcher.getImprovisationCount());
+        Assertions.assertEquals(0, solution.getValue(), 10E-5);
     }
-
 
     @BeforeAll
     @Override

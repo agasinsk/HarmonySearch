@@ -26,6 +26,24 @@ class HarmonyMemoryTest extends BaseTest
     }
 
     @Test
+    void testAddSolutionIfMemoryIsFull()
+    {
+        //Arrange
+        harmonyMemory.add(new Solution(2, 1, 3));
+        harmonyMemory.add(new Solution(-2, -1, 3));
+        harmonyMemory.add(new Solution(-4, -1, 3));
+
+        Solution testSolution = new Solution(-7, 3, 3);
+
+        //Act
+        boolean result = harmonyMemory.add(testSolution);
+
+        //Assert
+        Assertions.assertFalse(result);
+        Assertions.assertTrue(!harmonyMemory.contains(testSolution));
+    }
+
+    @Test
     void testGetWorstSolution()
     {
         //Arrange
@@ -57,7 +75,7 @@ class HarmonyMemoryTest extends BaseTest
     void testGetSizeIfNotEmpty()
     {
         //Arrange
-        harmonyMemory.add(new Solution(22, 0,11));
+        harmonyMemory.add(new Solution(22, 0, 11));
 
         //Act
         int size = harmonyMemory.getSize();
@@ -79,7 +97,7 @@ class HarmonyMemoryTest extends BaseTest
     }
 
     @Test
-    void swapWithWorstSolutionForNewMiddleSolution()
+    void testSwapWithWorstSolutionForNewMiddleSolution()
     {
         //Arrange
         Solution oldWorstSolution = new Solution(4, 3, 3);
@@ -98,7 +116,7 @@ class HarmonyMemoryTest extends BaseTest
     }
 
     @Test
-    void swapWithWorstSolutionForNewBestSolution()
+    void testSwapWithWorstSolutionForNewBestSolution()
     {
         //Arrange
         Solution oldWorstSolution = new Solution(4, 3, 3);
@@ -117,7 +135,7 @@ class HarmonyMemoryTest extends BaseTest
     }
 
     @Test
-    void swapWithWorstSolutionForNewWorstSolution()
+    void testSwapWithWorstSolutionForNewWorstSolution()
     {
         //Arrange
         Solution oldWorstSolution = new Solution(4, 3, 3);

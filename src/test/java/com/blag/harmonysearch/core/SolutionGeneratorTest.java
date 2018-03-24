@@ -7,6 +7,10 @@ import org.mariuszgromada.math.mxparser.Function;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO;
+import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_HARMONY_MEMORY_SIZE;
+import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_PITCH_ADJUSTMENT_RATIO;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SolutionGeneratorTest extends BaseTest
 {
@@ -52,6 +56,98 @@ class SolutionGeneratorTest extends BaseTest
     }
 
     @Test
+    void testImproviseArguments()
+    {
+        //Arrange
+        List<ArgumentLimit> argumentLimits = new ArrayList<>();
+        argumentLimits.add(new ArgumentLimit(-10, 10));
+        argumentLimits.add(new ArgumentLimit(-1, 5));
+        solutionGenerator.setArgumentGenerationLimits(argumentLimits);
+
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+
+        //Act
+        double[] result = solutionGenerator.improviseArguments();
+
+        //Assert
+        Assertions.assertEquals(argumentLimits.size(), result.length);
+        Assertions.assertEquals(solutionGenerator.getArgumentsCount(), result.length);
+        Assertions.assertTrue(argumentLimits.get(0).IsWithinLimits(result[0]));
+        Assertions.assertTrue(argumentLimits.get(1).IsWithinLimits(result[1]));
+    }
+
+    @Test
+    void testImproviseSolution()
+    {
+        //Arrange
+        List<ArgumentLimit> argumentLimits = new ArrayList<>();
+        argumentLimits.add(new ArgumentLimit(-10, 10));
+        argumentLimits.add(new ArgumentLimit(-1, 5));
+        solutionGenerator.setArgumentGenerationLimits(argumentLimits);
+
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+
+        //Act
+        Solution result = solutionGenerator.improviseSolution();
+
+        //Assert
+        Assertions.assertEquals(solutionGenerator.calculateSolution(result.getArguments()).getValue(), result.getValue());
+        Assertions.assertEquals(argumentLimits.size(), result.getArguments().length);
+    }
+
+    @Test
+    void testUseMemoryConsideration()
+    {
+        //Arrange
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+        int argumentIndex = 0;
+
+        //Act
+        double result = solutionGenerator.useMemoryConsideration(argumentIndex);
+
+        //Assert
+        Assertions.assertTrue(harmonyMemory.getArgumentsByIndex(argumentIndex).contains(result));
+    }
+
+    @Test
+    void testUsePitchAdjusting()
+    {
+        //Arrange
+        HarmonyMemory harmonyMemory = new HarmonyMemory(3);
+        solutionGenerator.setHarmonyMemory(harmonyMemory);
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
+        int argumentIndex = 0;
+
+        //Act
+        double result = solutionGenerator.usePitchAdjustment(argumentIndex);
+
+        //Assert
+        Assertions.assertFalse(harmonyMemory.getArgumentsByIndex(argumentIndex).contains(result));
+    }
+
+    @Test
     void testCalculateSolution()
     {
         //Arrange
@@ -66,6 +162,45 @@ class SolutionGeneratorTest extends BaseTest
         Assertions.assertArrayEquals(new double[]{x1, x2}, result.getArguments());
     }
 
+    @Test
+    void testEstablishArgumentGenerationRuleForRandomChoosing()
+    {
+        //Arrange
+        double value = 0.96;
+
+        //Act
+        ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
+
+        //Assert
+        Assertions.assertEquals(ArgumentGenerationRules.RandomChoosing, result);
+    }
+
+    @Test
+    void testEstablishArgumentGenerationRuleForPitchAdjusting()
+    {
+        //Arrange
+        double value = DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO * DEFAULT_PITCH_ADJUSTMENT_RATIO - 0.01;
+
+        //Act
+        ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
+
+        //Assert
+        Assertions.assertEquals(ArgumentGenerationRules.PitchAdjustement, result);
+    }
+
+    @Test
+    void testEstablishArgumentGenerationRuleForMemoryConsideration()
+    {
+        //Arrange
+        double value = DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO * (1 - DEFAULT_PITCH_ADJUSTMENT_RATIO);
+
+        //Act
+        ArgumentGenerationRules result = solutionGenerator.establishArgumentGenerationRule(value);
+
+        //Assert
+        Assertions.assertEquals(ArgumentGenerationRules.MemoryConsideration, result);
+    }
+
     @Override
     @BeforeAll
     public void setUp()
@@ -74,7 +209,9 @@ class SolutionGeneratorTest extends BaseTest
         argumentLimits.add(new ArgumentLimit(-10, 10));
         argumentLimits.add(new ArgumentLimit(-10, 10));
 
-        solutionGenerator = new SolutionGenerator(new Function("f(x1,x2) = x1^2+x1*x2"), argumentLimits);
+        HarmonyMemory harmonyMemory = new HarmonyMemory(DEFAULT_HARMONY_MEMORY_SIZE);
+
+        solutionGenerator = new SolutionGenerator(new Function("f(x1,x2) = x1^2+x1*x2"), harmonyMemory, argumentLimits, DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO, DEFAULT_PITCH_ADJUSTMENT_RATIO);
     }
 
     @Override
