@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -65,13 +66,14 @@ class HarmonyMemory
         return solutions.contains(solution);
     }
 
-    public Solution getSolution(int index)
-    {
-        return solutions.get(index);
-    }
-
     List<Double> getArgumentsByIndex(int argumentIndex)
     {
         return solutions.stream().map(s -> s.getArgument(argumentIndex)).collect(Collectors.toList());
+    }
+
+    double getRandomArgumentByIndex(int argumentIndex)
+    {
+        Optional<Double> randomArgument = solutions.stream().map(s -> s.getArgument(argumentIndex)).findAny();
+        return randomArgument.orElseGet(() -> (double) 0);
     }
 }

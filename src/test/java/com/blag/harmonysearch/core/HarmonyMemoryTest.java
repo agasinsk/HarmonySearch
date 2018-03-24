@@ -26,22 +26,6 @@ class HarmonyMemoryTest extends BaseTest
     }
 
     @Test
-    void testGetSolution()
-    {
-        //Arrange
-        Solution newBest = new Solution(-7, 3, 3);
-        harmonyMemory.add(new Solution(2, 1, 3));
-        harmonyMemory.add(new Solution(-2, -1, 3));
-        harmonyMemory.add(newBest);
-
-        //Act
-        Solution best = harmonyMemory.getSolution(2);
-
-        //Assert
-        Assertions.assertEquals(newBest, best);
-    }
-
-    @Test
     void testAddSolutionIfMemoryIsFull()
     {
         //Arrange

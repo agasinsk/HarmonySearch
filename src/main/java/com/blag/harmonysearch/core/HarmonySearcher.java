@@ -14,8 +14,6 @@ import java.util.List;
 public class HarmonySearcher
 {
     private final long maxImprovisationCount;
-    private final double harmonyMemoryConsiderationRatio;
-    private final double pitchAdjustmentRatio;
 
     private HarmonyMemory harmonyMemory;
     private Function function;
@@ -27,9 +25,6 @@ public class HarmonySearcher
     {
         this.maxImprovisationCount = maxImprovisationCount;
 
-        this.harmonyMemoryConsiderationRatio = harmonyMemoryConsiderationRatio;
-        this.pitchAdjustmentRatio = pitchAdjustmentRatio;
-
         this.function = function;
 
         harmonyMemory = new HarmonyMemory(harmonyMemorySize);
@@ -40,13 +35,20 @@ public class HarmonySearcher
     {
         this.maxImprovisationCount = maxImprovisationCount;
 
-        this.harmonyMemoryConsiderationRatio = harmonyMemoryConsiderationRatio;
-        this.pitchAdjustmentRatio = pitchAdjustmentRatio;
-
         this.function = function;
 
         harmonyMemory = new HarmonyMemory(harmonyMemorySize);
         solutionGenerator = new SolutionGenerator(function, harmonyMemory, argumentGenerationLimits, harmonyMemoryConsiderationRatio, pitchAdjustmentRatio);
+    }
+
+    double getHarmonyMemoryConsiderationRatio()
+    {
+        return solutionGenerator.getHarmonyMemoryConsiderationRatio();
+    }
+
+    double getPitchAdjustmentRatio()
+    {
+        return solutionGenerator.getPitchAdjustmentRatio();
     }
 
     /**
@@ -69,7 +71,6 @@ public class HarmonySearcher
         initializeHarmonyMemory();
 
         improvisationCount = 0;
-
         while (searchingShouldContinue())
         {
             Solution worstSolution = harmonyMemory.getWorstSolution();
@@ -84,6 +85,9 @@ public class HarmonySearcher
         return harmonyMemory.getBestSolution();
     }
 
+    /**
+     * Checks if algorithm should continue working
+     */
     private boolean searchingShouldContinue()
     {
         return improvisationCount < maxImprovisationCount;

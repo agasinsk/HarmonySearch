@@ -17,10 +17,10 @@ import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_ARG
 @AllArgsConstructor
 class SolutionGenerator
 {
+    @Getter
     private final double harmonyMemoryConsiderationRatio;
+    @Getter
     private final double pitchAdjustmentRatio;
-    private RandomGenerator randomGenerator = new RandomGenerator();
-    private Function function;
 
     @Setter
     @Getter
@@ -29,6 +29,9 @@ class SolutionGenerator
     @Setter
     @Getter
     private List<ArgumentLimit> argumentGenerationLimits;
+
+    private RandomGenerator randomGenerator = new RandomGenerator();
+    private Function function;
 
     @Getter
     private int argumentsCount;
@@ -113,7 +116,7 @@ class SolutionGenerator
 
         for (int i = 0; i < argumentsCount; i++)
         {
-            arguments[i] = generateArgument(i);
+            arguments[i] = improviseArgument(i);
         }
 
         return arguments;
@@ -122,7 +125,7 @@ class SolutionGenerator
     /**
      * Generates arguments based on the algorithm parameters
      */
-    private double generateArgument(int argumentIndex)
+    private double improviseArgument(int argumentIndex)
     {
         double randomValue = randomGenerator.nextDouble();
         ArgumentGenerationRules generationRule = establishArgumentGenerationRule(randomValue);
@@ -142,9 +145,7 @@ class SolutionGenerator
 
     double useMemoryConsideration(int argumentIndex)
     {
-        int randomIndex = randomGenerator.nextInt(harmonyMemory.getMaxCapacity());
-        Solution solution = harmonyMemory.getSolution(randomIndex);
-        return solution.getArgument(argumentIndex);
+        return harmonyMemory.getRandomArgumentByIndex(argumentIndex);
     }
 
     double usePitchAdjustment(int argumentIndex)

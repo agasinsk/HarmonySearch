@@ -6,7 +6,6 @@ import java.util.Random;
 
 public class RandomGenerator extends Random
 {
-
     public double nextBoundedDouble(ArgumentLimit limit)
     {
         return nextBoundedDouble(limit.getOrigin(), limit.getBound());
@@ -17,7 +16,9 @@ public class RandomGenerator extends Random
         double r = nextDouble();
         r = r * (bound - origin) + origin;
         if (r >= bound) // correct for rounding
+        {
             r = Math.nextDown(bound);
+        }
         return r;
     }
 }
