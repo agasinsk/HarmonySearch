@@ -2,6 +2,7 @@ package com.blag.harmonysearch.core;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_ARGUMENT_LIMIT;
 
@@ -9,7 +10,9 @@ import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_ARG
 @Getter
 public class ArgumentLimit
 {
+    @Setter
     private double origin;
+    @Setter
     private double bound;
     private String argumentName;
 

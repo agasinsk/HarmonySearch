@@ -5,10 +5,14 @@ import com.blag.harmonysearch.helpers.FunctionStringValidator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.DoubleStringConverter;
+import org.mariuszgromada.math.mxparser.Argument;
 import org.mariuszgromada.math.mxparser.Function;
 
 import java.net.URL;
@@ -26,9 +30,9 @@ public class Controller implements Initializable
     @FXML
     private TableColumn<ArgumentLimit, String> ArgumentName;
     @FXML
-    private TableColumn<ArgumentLimit, String> ArgumentMinValue;
+    private TableColumn<ArgumentLimit, Double> ArgumentMinValue;
     @FXML
-    private TableColumn<ArgumentLimit, String> ArgumentMaxValue;
+    private TableColumn<ArgumentLimit, Double> ArgumentMaxValue;
 
     @FXML
     private TextField functionTextBox;
@@ -65,9 +69,16 @@ public class Controller implements Initializable
         functionValidator = new FunctionStringValidator();
         argumentLimits = FXCollections.observableArrayList();
 
+        argumentLimitsTableView.setEditable(true);
         ArgumentName.setCellValueFactory(new PropertyValueFactory<>("argumentName"));
         ArgumentMinValue.setCellValueFactory(new PropertyValueFactory<>("origin"));
         ArgumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
+
+        ArgumentMinValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        ArgumentMinValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setOrigin(t.getNewValue()));
+
+        ArgumentMaxValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        ArgumentMaxValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue()));
     }
 
     @FXML
@@ -81,10 +92,10 @@ public class Controller implements Initializable
         String functionString = functionTextBox.getText();
         this.function = functionValidator.validateFunctionString(functionString);
 
-        enableArgumentLimitsTableView();
+        showArgumentLimitsTableView();
     }
 
-    private void enableArgumentLimitsTableView()
+    private void showArgumentLimitsTableView()
     {
         argumentLimitsTableView.getItems().clear();
 

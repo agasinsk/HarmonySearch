@@ -42,6 +42,12 @@ public class FunctionStringValidator
             arguments.add(matcher.group());
         }
 
+        String functionDefinitionString = getFunctionDefinitionString(functionString, arguments);
+        return new Function(functionDefinitionString);
+    }
+
+    private String getFunctionDefinitionString(String functionString, Set<String> arguments)
+    {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("f(");
         for (String argument: arguments) {
@@ -52,7 +58,7 @@ public class FunctionStringValidator
         stringBuilder.append(")=");
 
         stringBuilder.append(functionString);
-        return new Function(stringBuilder.toString());
+        return stringBuilder.toString();
     }
 
     boolean matchFunctionArguments(String functionString)
