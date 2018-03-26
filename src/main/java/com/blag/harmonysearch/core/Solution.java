@@ -8,7 +8,7 @@ import java.util.Comparator;
  * Represents single problem solution (arguments and corresponding function value)
  */
 @Getter
-class Solution
+public class Solution
 {
     private double[] arguments;
     private double value;

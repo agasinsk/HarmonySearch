@@ -2,9 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
+
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
       prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.blag.harmonysearch.gui.Controller">
@@ -59,16 +63,14 @@
                         <TableView fx:id="argumentLimitsTableView" layoutX="15.0" layoutY="405.0" prefHeight="233.0"
                                    prefWidth="291.0">
                             <columns>
-                                <TableColumn prefWidth="75.0" text="x" fx:id="ArgumentName" />
-                                <TableColumn prefWidth="75.0" text="min" fx:id="ArgumentMinValue" />
-                                <TableColumn prefWidth="75.0" text="max" fx:id="ArgumentMaxValue"/>
+                                <TableColumn fx:id="ArgumentName" prefWidth="75.0" text="x"/>
+                                <TableColumn fx:id="ArgumentMinValue" prefWidth="75.0" text="min"/>
+                                <TableColumn fx:id="ArgumentMaxValue" prefWidth="75.0" text="max"/>
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                             </columnResizePolicy>
                         </TableView>
-                        <TextField fx:id="functionTextBox" layoutX="42.0" layoutY="58.0"
-                                   onAction="#tryValidateFunctionString" prefHeight="25.0" prefWidth="265.0"/>
                         <Button fx:id="startButton" layoutX="124.0" layoutY="695.0" mnemonicParsing="false"
                                 onAction="#startHarmonySearcher" prefHeight="25.0" prefWidth="69.0" text="Start"/>
                         <Label layoutX="8.0" layoutY="62.0" prefHeight="17.0" prefWidth="34.0" text="f(x) ="/>
@@ -108,6 +110,9 @@
                         <Button fx:id="defaultParameterValuesButton" layoutX="74.0" layoutY="107.0"
                                 mnemonicParsing="false" onAction="#resetDefaultParameterValues"
                                 text="Resetuj wartości parametrów"/>
+                        <ComboBox fx:id="functionComboBox" editable="true" layoutX="42.0" layoutY="58.0"
+                                  onAction="#selectFunction" prefHeight="25.0" prefWidth="257.0"
+                                  promptText="wybierz funkcję"/>
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
