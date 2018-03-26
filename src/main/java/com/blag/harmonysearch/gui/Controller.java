@@ -63,8 +63,8 @@ public class Controller implements Initializable
     {
         harmonyMemorySizeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, DEFAULT_HARMONY_MEMORY_SIZE));
         iterationCountSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000000, DEFAULT_MAX_IMPROVISATION_COUNT));
-        harmonyMemoryConsiderationRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO, 0.001));
-        pitchAdjustingRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_PITCH_ADJUSTMENT_RATIO, 0.001));
+        harmonyMemoryConsiderationRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO, 0.01));
+        pitchAdjustingRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_PITCH_ADJUSTMENT_RATIO, 0.01));
 
         functionValidator = new FunctionStringValidator();
         argumentLimits = FXCollections.observableArrayList();
@@ -101,8 +101,7 @@ public class Controller implements Initializable
 
         for (int i = 0; i < function.getArgumentsNumber(); i++)
         {
-            ArgumentLimit argumentLimit = new ArgumentLimit(function.getArgument(i).getArgumentName());
-            argumentLimits.add(argumentLimit);
+            argumentLimits.add(new ArgumentLimit(function.getArgument(i).getArgumentName()));
         }
 
         argumentLimitsTableView.setItems(argumentLimits);
