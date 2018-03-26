@@ -41,30 +41,18 @@ public class HarmonySearcher
         solutionGenerator = new SolutionGenerator(function, harmonyMemory, argumentGenerationLimits, harmonyMemoryConsiderationRatio, pitchAdjustmentRatio);
     }
 
-    double getHarmonyMemoryConsiderationRatio()
+    public double getHarmonyMemoryConsiderationRatio()
     {
         return solutionGenerator.getHarmonyMemoryConsiderationRatio();
     }
 
-    double getPitchAdjustmentRatio()
+    public double getPitchAdjustmentRatio()
     {
         return solutionGenerator.getPitchAdjustmentRatio();
     }
 
     /**
-     * Initializes harmony memory with random solutions
-     */
-    void initializeHarmonyMemory()
-    {
-        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
-        {
-            Solution randomSolution = solutionGenerator.generateRandomSolution();
-            harmonyMemory.add(randomSolution);
-        }
-    }
-
-    /**
-     * Looks for optimal solution of function
+     * Looks for optimal solution of  function
      */
     public Solution searchForHarmony()
     {
@@ -83,6 +71,18 @@ public class HarmonySearcher
             improvisationCount++;
         }
         return harmonyMemory.getBestSolution();
+    }
+
+    /**
+     * Initializes harmony memory with random solutions
+     */
+    void initializeHarmonyMemory()
+    {
+        for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
+        {
+            Solution randomSolution = solutionGenerator.generateRandomSolution();
+            harmonyMemory.add(randomSolution);
+        }
     }
 
     /**
