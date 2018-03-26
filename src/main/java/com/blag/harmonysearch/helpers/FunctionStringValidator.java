@@ -3,6 +3,8 @@ package com.blag.harmonysearch.helpers;
 
 import org.mariuszgromada.math.mxparser.Function;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,10 +23,10 @@ public class FunctionStringValidator
 
     public FunctionStringValidator(ArgumentMatching argumentMatching)
     {
-        if (argumentMatching == ArgumentMatching.AllLettersAllowed){
+        if (argumentMatching == ArgumentMatching.AllLettersAllowed)
+        {
             pattern = Pattern.compile(genericArgumentRegex);
-        }
-        else
+        } else
         {
             pattern = Pattern.compile(xArgumentRegex);
         }
@@ -34,14 +36,19 @@ public class FunctionStringValidator
     {
         matcher = pattern.matcher(functionString);
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("f(");
+        Set<String> arguments = new HashSet<String>();
         while (matcher.find())
         {
-            stringBuilder.append(matcher.group());
+            arguments.add(matcher.group());
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("f(");
+        for (String argument: arguments) {
+            stringBuilder.append(argument);
             stringBuilder.append(",");
         }
-        stringBuilder.deleteCharAt(stringBuilder.length()-1);
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
         stringBuilder.append(")=");
 
         stringBuilder.append(functionString);

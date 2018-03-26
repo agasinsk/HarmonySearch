@@ -1,105 +1,107 @@
 package com.blag.harmonysearch.gui;
 
+import com.blag.harmonysearch.core.ArgumentLimit;
+import com.blag.harmonysearch.helpers.FunctionStringValidator;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import javafx.scene.control.cell.PropertyValueFactory;
 import org.mariuszgromada.math.mxparser.Function;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static com.blag.harmonysearch.contants.HarmonySearchConstants.*;
 
-public class Controller {
-
-    @FXML
-    private Font x1;
-
-    @FXML
-    private Color x2;
-
+public class Controller implements Initializable
+{
     @FXML
     private CheckBox defaultParameterValuesCheckBox;
 
     @FXML
-    private TableView<Integer> argumentLimitsTableView;
+    private TableView<ArgumentLimit> argumentLimitsTableView;
+    @FXML
+    private TableColumn<ArgumentLimit, String> ArgumentName;
+    @FXML
+    private TableColumn<ArgumentLimit, String> ArgumentMinValue;
+    @FXML
+    private TableColumn<ArgumentLimit, String> ArgumentMaxValue;
 
     @FXML
     private TextField functionTextBox;
 
     @FXML
     private Button startButton;
+    @FXML
+    public Button defaultParameterValuesButton;
 
     @FXML
     private Spinner<Integer> harmonyMemorySizeSpinner;
-
     @FXML
     private Spinner<Integer> iterationCountSpinner;
-
     @FXML
     private Spinner<Double> harmonyMemoryConsiderationRatioSpinner;
-
     @FXML
     private Spinner<Double> pitchAdjustingRatioSpinner;
 
-    @FXML
-    private Font x3;
-
-    @FXML
-    private Color x4;
-
     private Function function;
-    private int harmonyMemorySize = DEFAULT_HARMONY_MEMORY_SIZE;
-    private int maxIterationCount = DEFAULT_MAX_IMPROVISATION_COUNT;
-    private double harmonyMemoryConsiderationRatio = DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO;
-    private double pitchAdjustingRatio = DEFAULT_PITCH_ADJUSTMENT_RATIO;
+    private FunctionStringValidator functionValidator;
+    private ObservableList<ArgumentLimit> argumentLimits;
 
-    @FXML
-    void setHarmonyMemoryConsiderationRatio(InputMethodEvent event) {
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle bundle)
+    {
+        harmonyMemorySizeSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, DEFAULT_HARMONY_MEMORY_SIZE));
+        iterationCountSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000000, DEFAULT_MAX_IMPROVISATION_COUNT));
+        harmonyMemoryConsiderationRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO, 0.001));
+        pitchAdjustingRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_PITCH_ADJUSTMENT_RATIO, 0.001));
 
-        this.harmonyMemoryConsiderationRatio = harmonyMemoryConsiderationRatioSpinner.getValue();
+        functionValidator = new FunctionStringValidator();
+        argumentLimits = FXCollections.observableArrayList();
+
+        ArgumentName.setCellValueFactory(new PropertyValueFactory<>("argumentName"));
+        ArgumentMinValue.setCellValueFactory(new PropertyValueFactory<>("origin"));
+        ArgumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
     }
 
     @FXML
-    void setHarmonyMemorySize(InputMethodEvent event) {
-
+    void startHarmonySearcher(ActionEvent event)
+    {
     }
 
     @FXML
-    void setIterationCount(InputMethodEvent event) {
+    void tryValidateFunctionString(ActionEvent event)
+    {
+        String functionString = functionTextBox.getText();
+        this.function = functionValidator.validateFunctionString(functionString);
 
+        enableArgumentLimitsTableView();
     }
 
-    @FXML
-    void setPitchAdjustingRatio(InputMethodEvent event) {
+    private void enableArgumentLimitsTableView()
+    {
+        argumentLimitsTableView.getItems().clear();
 
+        for (int i = 0; i < function.getArgumentsNumber(); i++)
+        {
+            ArgumentLimit argumentLimit = new ArgumentLimit(function.getArgument(i).getArgumentName());
+            argumentLimits.add(argumentLimit);
+        }
+
+        argumentLimitsTableView.setItems(argumentLimits);
     }
 
-    @FXML
-    void startHarmonySearcher(ActionEvent event) {
-
-    }
-
-    @FXML
-    void switchDefaultParameterValues(MouseEvent event) {
-
+    public void resetDefaultParameterValues(ActionEvent actionEvent)
+    {
         harmonyMemoryConsiderationRatioSpinner.getValueFactory().setValue(DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO);
-        harmonyMemoryConsiderationRatioSpinner.setDisable(true);
-
         harmonyMemorySizeSpinner.getValueFactory().setValue(DEFAULT_HARMONY_MEMORY_SIZE);
-        harmonyMemorySizeSpinner.setDisable(true);
-
         iterationCountSpinner.getValueFactory().setValue(DEFAULT_MAX_IMPROVISATION_COUNT);
-        iterationCountSpinner.setDisable(true);
-
         pitchAdjustingRatioSpinner.getValueFactory().setValue(DEFAULT_PITCH_ADJUSTMENT_RATIO);
-        pitchAdjustingRatioSpinner.setDisable(true);
     }
-
-    @FXML
-    void tryValidateFunctionString(ActionEvent event) {
-
-    }
-
 }

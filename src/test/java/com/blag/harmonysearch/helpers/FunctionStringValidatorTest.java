@@ -88,6 +88,20 @@ class FunctionStringValidatorTest extends BaseTest
         Assertions.assertEquals(2, result.getArgumentsNumber());
     }
 
+    @Test
+    void testValidateFunctionStringWhenFunctionIsComplex()
+    {
+        //Arrange
+        String functionString = "x1^2+x2^2+x1*x2+0.5/x1";
+
+        //Act
+        Function result = functionValidator.validateFunctionString(functionString);
+
+        //Assert
+        Assertions.assertEquals(functionString, result.getFunctionExpressionString());
+        Assertions.assertEquals(2, result.getArgumentsNumber());
+    }
+
     @BeforeEach
     @Override
     public void setUp()
