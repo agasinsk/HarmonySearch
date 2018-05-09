@@ -102,6 +102,7 @@ public class Controller implements Initializable
         double PAR = pitchAdjustingRatioSpinner.getValue();
 
         harmonySearcher = new HarmonySearcher(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
+        //optimalSolution = new SolutionObservable(harmonySearcher.getCurrentBestSolution());
     }
 
     @FXML

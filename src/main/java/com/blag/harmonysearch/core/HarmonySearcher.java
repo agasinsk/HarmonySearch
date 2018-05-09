@@ -20,6 +20,7 @@ public class HarmonySearcher
 
     private SolutionGenerator solutionGenerator;
     private int improvisationCount;
+    private Solution currentBestSolution;
 
     public HarmonySearcher(Function function, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio)
     {
@@ -68,6 +69,7 @@ public class HarmonySearcher
             {
                 harmonyMemory.swapWithWorstSolution(newSolution);
             }
+            currentBestSolution = harmonyMemory.getBestSolution();
             improvisationCount++;
         }
         return harmonyMemory.getBestSolution();
