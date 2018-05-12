@@ -26,7 +26,8 @@ public class FunctionStringValidator
         if (argumentMatching == ArgumentMatching.AllLettersAllowed)
         {
             pattern = Pattern.compile(genericArgumentRegex);
-        } else
+        }
+        else
         {
             pattern = Pattern.compile(xArgumentRegex);
         }
@@ -50,7 +51,8 @@ public class FunctionStringValidator
     {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("f(");
-        for (String argument: arguments) {
+        for (String argument : arguments)
+        {
             stringBuilder.append(argument);
             stringBuilder.append(",");
         }

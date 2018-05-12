@@ -2,8 +2,6 @@ package com.blag.harmonysearch.core;
 
 import lombok.Getter;
 
-import java.util.Comparator;
-
 /**
  * Represents single problem solution (arguments and corresponding function value)
  */
@@ -13,7 +11,7 @@ public class Solution
     private double[] arguments;
     private double value;
 
-    Solution(double value, double... arguments)
+    public Solution(double value, double... arguments)
     {
         this.value = value;
         this.arguments = arguments;
