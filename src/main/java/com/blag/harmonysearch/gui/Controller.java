@@ -3,8 +3,8 @@ package com.blag.harmonysearch.gui;
 import com.blag.harmonysearch.contants.DefaultFunctionStrings;
 import com.blag.harmonysearch.core.ArgumentLimit;
 import com.blag.harmonysearch.core.Solution;
-import com.blag.harmonysearch.core.HarmonySearcher;
 import com.blag.harmonysearch.helpers.FunctionStringValidator;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,14 +37,15 @@ public class Controller implements Initializable
     private TableColumn<ArgumentLimit, Double> ArgumentMaxValue;
 
     @FXML
-    private TableView<Solution> SolutionTableView;
+    private TableView<SolutionGui> SolutionTableView;
 
     @FXML
-    private TableColumn<HarmonySearcher, Integer> SolutionIteration;
+    private TableColumn<SolutionGui, Integer> SolutionIteration;
     @FXML
-    private TableColumn<Solution, Double> SolutionValue;
+    private TableColumn<SolutionGui, Double> SolutionValue;
     @FXML
-    private TableColumn<Solution, Double[]> SolutionArguments;
+    private TableColumn<SolutionGui, String> SolutionArguments;
+
 
     @FXML
     private Button startButton;
@@ -68,10 +69,8 @@ public class Controller implements Initializable
     private Function function;
     private FunctionStringValidator functionValidator;
     private ObservableList<ArgumentLimit> argumentLimits;
-    private HarmonySearcher harmonySearcher;
-    private SolutionObservable optimalSolution;
+    private HarmonySearcherGui harmonySearcher;
     private ObservableList<String> defaultFunctions;
-    private ObservableList<Solution> currentBestSolutions;
 
     /**
      * Initializes the controller class.
@@ -110,11 +109,8 @@ public class Controller implements Initializable
         ArgumentMaxValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue()));
 
         // Solutions table view
-        currentBestSolutions = FXCollections.observableArrayList();
-        SolutionTableView.setEditable(false);
         SolutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
-        SolutionArguments.setCellValueFactory(new PropertyValueFactory<>("arguments"));
-        SolutionIteration.setCellValueFactory(new PropertyValueFactory<>("improvisationCount"));
+        SolutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
 
         SolutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         SolutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
@@ -135,15 +131,12 @@ public class Controller implements Initializable
         double HMCR = harmonyMemoryConsiderationRatioSpinner.getValue();
         double PAR = pitchAdjustingRatioSpinner.getValue();
 
-        harmonySearcher = new HarmonySearcher(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
-        optimalSolution = new SolutionObservable(harmonySearcher.getCurrentBestSolution());
+        harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
-        currentBestSolutions.add(harmonySearcher.getCurrentBestSolution());
-        SolutionTableView.setItems(currentBestSolutions);
-
+        SolutionTableView.setItems(harmonySearcher.getBestSolutions());
         leftStatusLabel.setText("Busy");
-        //Search for harmony in second thread
-        new Thread(() -> harmonySearcher.searchForHarmony()).start();
+
+        harmonySearcher.searchForHarmony();
     }
 
     private void showAlert(Alert.AlertType alertType, String alertTitle, String alertContent)
@@ -182,9 +175,19 @@ public class Controller implements Initializable
         for (int i = 0; i < function.getArgumentsNumber(); i++)
         {
             argumentLimits.add(new ArgumentLimit(function.getArgument(i).getArgumentName()));
+            addArgumentColumnToSolutionTableView(i);
         }
 
         argumentLimitsTableView.setItems(argumentLimits);
+    }
+
+    private void addArgumentColumnToSolutionTableView(int argumentIndex)
+    {
+        TableColumn<SolutionGui, Double> solutionArgumentColumn = new TableColumn<>(function.getArgument(argumentIndex).getArgumentName());
+        SolutionTableView.getColumns().add(solutionArgumentColumn);
+        final int fixedArgumentIndex = argumentIndex;
+        solutionArgumentColumn.setCellValueFactory(cellData -> cellData.getValue().getArgument(fixedArgumentIndex).asObject());
+        solutionArgumentColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
     }
 
     @FXML

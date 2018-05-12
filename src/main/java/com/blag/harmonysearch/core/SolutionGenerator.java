@@ -15,7 +15,7 @@ import static com.blag.harmonysearch.contants.HarmonySearchConstants.DEFAULT_ARG
  * Generates solutions
  */
 @AllArgsConstructor
-class SolutionGenerator
+public class SolutionGenerator
 {
     @Getter
     private final double harmonyMemoryConsiderationRatio;
@@ -101,7 +101,7 @@ class SolutionGenerator
     /**
      * Improvises new solution based on algorithm parameters
      */
-    Solution improviseSolution()
+    public Solution improviseSolution()
     {
         double[] improvisedArguments = improviseArguments();
         return calculateSolution(improvisedArguments);

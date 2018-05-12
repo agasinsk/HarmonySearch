@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  */
 @Getter
 @Setter
-class HarmonyMemory
+public class HarmonyMemory
 {
     private BoundedTreeSet<Solution> solutions;
 
@@ -24,12 +24,12 @@ class HarmonyMemory
         solutions = new BoundedTreeSet<>(harmonyMemorySize, new SolutionValueComparator());
     }
 
-    Solution getBestSolution()
+    public Solution getBestSolution()
     {
         return solutions.first();
     }
 
-    Solution getWorstSolution()
+    public Solution getWorstSolution()
     {
         return solutions.last();
     }
@@ -54,7 +54,7 @@ class HarmonyMemory
         return solutions.getCapacity();
     }
 
-    void swapWithWorstSolution(Solution solution)
+    public void swapWithWorstSolution(Solution solution)
     {
         Solution worstSolution = getWorstSolution();
         solutions.remove(worstSolution);

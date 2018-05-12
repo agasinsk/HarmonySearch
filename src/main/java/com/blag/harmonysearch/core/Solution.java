@@ -17,7 +17,7 @@ public class Solution
         this.arguments = arguments;
     }
 
-    boolean isBetterThan(Solution otherSolution)
+    public boolean isBetterThan(Solution otherSolution)
     {
         return getValue() < otherSolution.getValue();
     }

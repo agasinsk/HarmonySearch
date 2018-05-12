@@ -13,14 +13,14 @@ import java.util.List;
 @Setter
 public class HarmonySearcher
 {
-    private final long maxImprovisationCount;
+    protected final long maxImprovisationCount;
 
-    private HarmonyMemory harmonyMemory;
-    private Function function;
+    protected HarmonyMemory harmonyMemory;
+    protected Function function;
 
-    private SolutionGenerator solutionGenerator;
-    private int improvisationCount;
-    private Solution currentBestSolution;
+    protected SolutionGenerator solutionGenerator;
+    protected int improvisationCount;
+    protected Solution currentBestSolution;
 
     public HarmonySearcher(Function function, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio)
     {
@@ -78,7 +78,7 @@ public class HarmonySearcher
     /**
      * Initializes harmony memory with random solutions
      */
-    void initializeHarmonyMemory()
+    protected void initializeHarmonyMemory()
     {
         for (int i = 0; i < harmonyMemory.getMaxCapacity(); i++)
         {
@@ -90,7 +90,7 @@ public class HarmonySearcher
     /**
      * Checks if algorithm should continue working
      */
-    private boolean searchingShouldContinue()
+    protected boolean searchingShouldContinue()
     {
         return improvisationCount < maxImprovisationCount;
     }
