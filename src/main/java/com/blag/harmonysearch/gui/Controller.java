@@ -133,6 +133,8 @@ public class Controller implements Initializable
         leftStatusLabel.setText("Busy");
 
         harmonySearcher.searchForHarmony();
+
+        showAlert(Alert.AlertType.INFORMATION, "Koniec dzialania", "Znaleziono rozwiazanie:\n" + solutionTableView.getItems().get(0).toString());
     }
 
     private void showAlert(Alert.AlertType alertType, String alertTitle, String alertContent)

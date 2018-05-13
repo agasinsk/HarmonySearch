@@ -49,7 +49,7 @@ public class HarmonySearcherGui extends HarmonySearcher
             if (!harmonyMemory.getBestSolution().equals(currentBestSolution))
             {
                 currentBestSolution = harmonyMemory.getBestSolution();
-                bestSolutions.add(new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
+                bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
             }
             improvisationCount++;
         }
