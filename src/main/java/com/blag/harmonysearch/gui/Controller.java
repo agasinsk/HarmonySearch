@@ -32,29 +32,16 @@ public class Controller implements Initializable
     @FXML
     private TableColumn<ArgumentLimit, Double> argumentMinValue;
     @FXML
-<<<<<<< HEAD
-    private TableColumn<ArgumentLimit, Double> ArgumentMaxValue;
-    @FXML
-    private TableView<SolutionGui> SolutionTableView;
-=======
     private TableColumn<ArgumentLimit, Double> argumentMaxValue;
 
     @FXML
     private TableView<SolutionGui> solutionTableView;
-
->>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
     @FXML
     private TableColumn<SolutionGui, Integer> solutionIteration;
     @FXML
-<<<<<<< HEAD
-    private TableColumn<SolutionGui, Double> SolutionValue;
-    @FXML
-    private TableColumn<SolutionGui, String> SolutionArguments;
-=======
     private TableColumn<SolutionGui, Double> solutionValue;
 
 
->>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
     @FXML
     private Button startButton;
     @FXML
@@ -69,8 +56,7 @@ public class Controller implements Initializable
     private Spinner<Double> pitchAdjustingRatioSpinner;
     @FXML
     private Label leftStatusLabel;
-    @FXML
-    private Label rightStatusLabel;
+
     @FXML
     private StackPane pane;
 
@@ -149,17 +135,10 @@ public class Controller implements Initializable
         solutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
         solutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
 
-<<<<<<< HEAD
-        SolutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        SolutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-
-        plot = new Plot();
-        pane.getChildren().add(plot.getImageView());
-
-=======
         solutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         solutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
->>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
+        plot = new Plot();
+        pane.getChildren().add(plot.getImageView());
     }
 
     @FXML
@@ -179,14 +158,10 @@ public class Controller implements Initializable
 
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
-<<<<<<< HEAD
-        SolutionTableView.setItems(harmonySearcher.getBestSolutions());
-        plot.setParameters(this.function,argumentLimits);
-        pane.getChildren().add(plot.getImageView());
-
-=======
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
->>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
+
+        plot.setParameters(this.function, argumentLimits);
+        pane.getChildren().add(plot.getImageView());
         leftStatusLabel.setText("Busy");
 
         harmonySearcher.searchForHarmony();
