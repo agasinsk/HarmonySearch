@@ -19,10 +19,10 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        URL resource = getClass().getResource("/fxml/main.fxml");
-        Parent root = FXMLLoader.load(resource);
+        Parent root = FXMLLoader.load(this.getClass().getResource("/fxml/main.fxml"));
         primaryStage.setTitle("Harmony Search");
         primaryStage.setScene(new Scene(root, 1280, 800));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

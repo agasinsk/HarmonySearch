@@ -1,0 +1,7 @@
+com\blag\harmonysearch\core\SolutionGeneratorTest.class
+com\blag\harmonysearch\helpers\FunctionStringValidatorTest.class
+com\blag\harmonysearch\BaseTest.class
+com\blag\harmonysearch\core\RandomGeneratorTest.class
+com\blag\harmonysearch\core\HarmonyMemoryTest.class
+com\blag\harmonysearch\core\ArgumentLimitTest.class
+com\blag\harmonysearch\core\HarmonySearcherTest.class

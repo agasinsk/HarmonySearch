@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.StackPane;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import org.mariuszgromada.math.mxparser.Function;
@@ -24,7 +25,6 @@ public class Controller implements Initializable
 {
     @FXML
     private ComboBox<String> functionComboBox;
-
     @FXML
     private TableView<ArgumentLimit> argumentLimitsTableView;
     @FXML
@@ -36,22 +36,16 @@ public class Controller implements Initializable
 
     @FXML
     private TableView<SolutionGui> solutionTableView;
-
     @FXML
     private TableColumn<SolutionGui, Integer> solutionIteration;
     @FXML
     private TableColumn<SolutionGui, Double> solutionValue;
 
-
     @FXML
     private Button startButton;
 
     @FXML
-    private Button pauseButton;
-
-    @FXML
     public Button defaultParameterValuesButton;
-
     @FXML
     private Spinner<Integer> harmonyMemorySizeSpinner;
     @FXML
@@ -60,9 +54,12 @@ public class Controller implements Initializable
     private Spinner<Double> harmonyMemoryConsiderationRatioSpinner;
     @FXML
     private Spinner<Double> pitchAdjustingRatioSpinner;
-
     @FXML
     private Label leftStatusLabel;
+
+
+    @FXML
+    private StackPane pane;
 
 
     private Function function;
@@ -70,7 +67,11 @@ public class Controller implements Initializable
     private ObservableList<ArgumentLimit> argumentLimits;
     private HarmonySearcherGui harmonySearcher;
     private ObservableList<String> defaultFunctions;
+
     private Thread harmonySearchThread;
+
+    private Plot plot;
+
 
     /**
      * Initializes the controller class.
@@ -142,6 +143,8 @@ public class Controller implements Initializable
 
         solutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         solutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        plot = new Plot();
+        pane.getChildren().add(plot.getImageView());
     }
 
     @FXML
@@ -162,6 +165,9 @@ public class Controller implements Initializable
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
+
+        plot.setParameters(this.function, argumentLimits);
+        pane.getChildren().add(plot.getImageView());
         leftStatusLabel.setText("Busy");
 
         //harmonySearcher.searchForHarmony();
