@@ -45,6 +45,10 @@ public class Controller implements Initializable
 
     @FXML
     private Button startButton;
+
+    @FXML
+    private Button pauseButton;
+
     @FXML
     public Button defaultParameterValuesButton;
 
@@ -59,14 +63,14 @@ public class Controller implements Initializable
 
     @FXML
     private Label leftStatusLabel;
-    @FXML
-    private Label rightStatusLabel;
+
 
     private Function function;
     private FunctionStringValidator functionValidator;
     private ObservableList<ArgumentLimit> argumentLimits;
     private HarmonySearcherGui harmonySearcher;
     private ObservableList<String> defaultFunctions;
+    private Thread harmonySearchThread;
 
     /**
      * Initializes the controller class.
@@ -160,11 +164,23 @@ public class Controller implements Initializable
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
         leftStatusLabel.setText("Busy");
 
-        harmonySearcher.searchForHarmony();
+        //harmonySearcher.searchForHarmony();
 
-        showAlert(Alert.AlertType.INFORMATION, "Koniec dzialania", "Znaleziono rozwiazanie:\n" + solutionTableView.getItems().get(0).toString());
+        startHarmonySearcherTask();
 
         leftStatusLabel.setText("Waiting for input");
+    }
+
+    public void startHarmonySearcherTask()
+    {
+        // Create a Runnable
+        Runnable task = () -> harmonySearcher.searchForHarmony();
+        // Run the task in a background thread
+        harmonySearchThread = new Thread(task);
+        // Terminate the running thread if the application exits
+        harmonySearchThread.setDaemon(true);
+        // Start the thread
+        harmonySearchThread.start();
     }
 
     private void showAlert(Alert.AlertType alertType, String alertTitle, String alertContent)
@@ -250,5 +266,40 @@ public class Controller implements Initializable
     public void selectFunction(ActionEvent actionEvent)
     {
         tryValidateFunctionString(actionEvent);
+    }
+
+    @FXML
+    public void stopHarmonySearch(ActionEvent actionEvent) throws InterruptedException
+    {
+        if (harmonySearchThread.isAlive())
+        {
+            harmonySearchThread.join();
+            showAlert(Alert.AlertType.CONFIRMATION, "Zatrzymano Harmony Search", "Zatrzymano Harmony Search");
+        }
+    }
+
+    @FXML
+    public void goToNextIteration(ActionEvent actionEvent)
+    {
+    }
+
+    @FXML
+    public void pauseHarmonySearch(ActionEvent actionEvent) throws InterruptedException
+    {
+        if (harmonySearchThread.isAlive())
+        {
+            if (!pauseButton.getText().equals("Wznow"))
+            {
+
+                harmonySearchThread.wait();
+                pauseButton.setText("Wznow");
+
+            }
+            else
+            {
+                harmonySearchThread.notify();
+                pauseButton.setText("Pauza");
+            }
+        }
     }
 }

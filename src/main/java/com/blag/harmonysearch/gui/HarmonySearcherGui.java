@@ -2,6 +2,7 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.core.*;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
@@ -46,11 +47,17 @@ public class HarmonySearcherGui extends HarmonySearcher
             }
 
             // update current best solution
-            if (!harmonyMemory.getBestSolution().equals(currentBestSolution))
+
+            // Update the list on the JavaFx Application Thread
+            Platform.runLater(() ->
             {
-                currentBestSolution = harmonyMemory.getBestSolution();
-                bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
-            }
+                if (!harmonyMemory.getBestSolution().equals(currentBestSolution))
+                {
+                    currentBestSolution = harmonyMemory.getBestSolution();
+                    bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
+                }
+            });
+
             improvisationCount++;
         }
         return harmonyMemory.getBestSolution();

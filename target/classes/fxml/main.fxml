@@ -18,13 +18,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-      prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+      prefWidth="1280.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.blag.harmonysearch.gui.Controller">
     <children>
         <MenuBar prefHeight="17.0" prefWidth="932.0" VBox.vgrow="NEVER">
@@ -85,7 +84,7 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                             </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="startButton" layoutX="124.0" layoutY="695.0" mnemonicParsing="false"
+                        <Button fx:id="startButton" layoutX="74.0" layoutY="666.0" mnemonicParsing="false"
                                 onAction="#startHarmonySearcher" prefHeight="25.0" prefWidth="69.0" text="Start"/>
                         <Label layoutX="8.0" layoutY="62.0" prefHeight="17.0" prefWidth="34.0" text="f(x) ="/>
                         <Spinner fx:id="harmonyMemorySizeSpinner" editable="true" layoutX="126.0" layoutY="166.0"
@@ -127,6 +126,13 @@
                         <ComboBox fx:id="functionComboBox" editable="true" layoutX="42.0" layoutY="58.0"
                                   onAction="#selectFunction" prefHeight="25.0" prefWidth="257.0"
                                   promptText="wybierz funkcję"/>
+                        <Button fx:id="pauseButton" layoutX="118.0" layoutY="702.0" mnemonicParsing="false"
+                                onAction="#pauseHarmonySearch"
+                                text="Pauza"/>
+                        <Button fx:id="stopButton" layoutX="154.0" layoutY="666.0" mnemonicParsing="false"
+                                onAction="#stopHarmonySearch" text="Stop"/>
+                        <Button fx:id="nextButton" layoutX="158.0" layoutY="702.0" mnemonicParsing="false"
+                                onAction="#goToNextIteration" text="&gt;&gt;"/>
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -156,8 +162,7 @@
         </SplitPane>
         <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
             <children>
-                <Label fx:id="leftStatusLabel" maxHeight="1.7976931348623157E308" text="Awaiting"
-                       HBox.hgrow="ALWAYS">
+                <Label fx:id="leftStatusLabel" maxHeight="1.7976931348623157E308" text="Awaiting" HBox.hgrow="ALWAYS">
                     <font>
                         <Font size="11.0" fx:id="x3"/>
                     </font>
