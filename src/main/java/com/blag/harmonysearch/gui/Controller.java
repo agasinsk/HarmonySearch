@@ -42,9 +42,6 @@ public class Controller implements Initializable
     private TableColumn<SolutionGui, Double> solutionValue;
 
     @FXML
-    private Button startButton;
-
-    @FXML
     public Button defaultParameterValuesButton;
     @FXML
     private Spinner<Integer> harmonyMemorySizeSpinner;
@@ -61,17 +58,14 @@ public class Controller implements Initializable
     @FXML
     private StackPane pane;
 
-
     private Function function;
     private FunctionStringValidator functionValidator;
     private ObservableList<ArgumentLimit> argumentLimits;
     private HarmonySearcherGui harmonySearcher;
-    private ObservableList<String> defaultFunctions;
 
     private Thread harmonySearchThread;
 
     private Plot plot;
-
 
     /**
      * Initializes the controller class.
@@ -85,7 +79,9 @@ public class Controller implements Initializable
         harmonyMemoryConsiderationRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_HARMONY_MEMORY_CONSIDERATION_RATIO, 0.01));
         pitchAdjustingRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_PITCH_ADJUSTMENT_RATIO, 0.01));
 
-        defaultFunctions = FXCollections.observableArrayList();
+        // Function combo box
+
+        ObservableList<String> defaultFunctions = FXCollections.observableArrayList();
         defaultFunctions.add(DefaultFunctionStrings.FourMinFunction);
         defaultFunctions.add(DefaultFunctionStrings.GeemFunction);
         defaultFunctions.add(DefaultFunctionStrings.GimmelblauFunction);
@@ -143,6 +139,8 @@ public class Controller implements Initializable
 
         solutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         solutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
+        // Function plot
         plot = new Plot();
         pane.getChildren().add(plot.getImageView());
     }
@@ -166,18 +164,20 @@ public class Controller implements Initializable
 
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
 
+        // Generate function plot
         plot.setParameters(this.function, argumentLimits);
-        pane.getChildren().add(plot.getImageView());
-        leftStatusLabel.setText("Busy");
 
-        //harmonySearcher.searchForHarmony();
+        pane.getChildren().clear();
+        pane.getChildren().add(plot.getImageView());
+
+        leftStatusLabel.setText("Busy");
 
         startHarmonySearcherTask();
 
-        leftStatusLabel.setText("Waiting for input");
+        leftStatusLabel.setText("Waiting");
     }
 
-    public void startHarmonySearcherTask()
+    void startHarmonySearcherTask()
     {
         // Create a Runnable
         Runnable task = () -> harmonySearcher.searchForHarmony();
@@ -281,31 +281,6 @@ public class Controller implements Initializable
         {
             harmonySearchThread.join();
             showAlert(Alert.AlertType.CONFIRMATION, "Zatrzymano Harmony Search", "Zatrzymano Harmony Search");
-        }
-    }
-
-    @FXML
-    public void goToNextIteration(ActionEvent actionEvent)
-    {
-    }
-
-    @FXML
-    public void pauseHarmonySearch(ActionEvent actionEvent) throws InterruptedException
-    {
-        if (harmonySearchThread.isAlive())
-        {
-            if (!pauseButton.getText().equals("Wznow"))
-            {
-
-                harmonySearchThread.wait();
-                pauseButton.setText("Wznow");
-
-            }
-            else
-            {
-                harmonySearchThread.notify();
-                pauseButton.setText("Pauza");
-            }
         }
     }
 }

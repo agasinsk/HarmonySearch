@@ -110,13 +110,7 @@
                         <ComboBox fx:id="functionComboBox" editable="true" layoutX="42.0" layoutY="58.0"
                                   onAction="#selectFunction" prefHeight="25.0" prefWidth="257.0"
                                   promptText="wybierz funkcję"/>
-                        <Button fx:id="pauseButton" layoutX="118.0" layoutY="702.0" mnemonicParsing="false"
-                                onAction="#pauseHarmonySearch"
-                                text="Pauza"/>
-                        <Button fx:id="stopButton" layoutX="154.0" layoutY="666.0" mnemonicParsing="false"
-                                onAction="#stopHarmonySearch" text="Stop"/>
-                        <Button fx:id="nextButton" layoutX="158.0" layoutY="702.0" mnemonicParsing="false"
-                                onAction="#goToNextIteration" text="&gt;&gt;"/>
+
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
