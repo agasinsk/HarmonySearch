@@ -99,10 +99,35 @@ public class Controller implements Initializable
         argumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
 
         argumentMinValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        argumentMinValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setOrigin(t.getNewValue()));
+        argumentMinValue.setOnEditCommit(t ->
+        {
+            Double newValue = t.getNewValue();
+            if (newValue > argumentMaxValue.getCellData(t.getRowValue()))
+            {
+                showAlert(Alert.AlertType.ERROR, "Blad", "Mininum argumentu wieksze od maximum!");
+                t.getTableView().refresh();
+            }
+            else
+            {
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setOrigin(t.getNewValue());
+            }
+        });
 
         argumentMaxValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        argumentMaxValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue()));
+        argumentMaxValue.setOnEditCommit(t ->
+        {
+            Double newValue = t.getNewValue();
+            if (newValue < argumentMinValue.getCellData(t.getRowValue()))
+            {
+                showAlert(Alert.AlertType.ERROR, "Blad", "Maximum argumentu mniejsze od minimum!");
+                t.getTableView().refresh();
+            }
+            else
+            {
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue());
+            }
+        });
+
 
         // Solutions table view
         solutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));

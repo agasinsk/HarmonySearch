@@ -30,9 +30,13 @@ public class SolutionGui
 
         for (int i = 0; i < arguments.length; i++)
         {
-            builder.append("x")
-                    .append(String.valueOf(i + 1))
-                    .append(" = ")
+            builder.append("x");
+
+            if (arguments.length > 1)
+            {
+                builder.append(String.valueOf(i + 1));
+            }
+            builder.append(" = ")
                     .append(String.valueOf(arguments[i]))
                     .append("\n");
         }
