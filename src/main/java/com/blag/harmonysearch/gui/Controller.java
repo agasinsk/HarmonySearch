@@ -2,9 +2,7 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.DefaultFunctionStrings;
 import com.blag.harmonysearch.core.ArgumentLimit;
-import com.blag.harmonysearch.core.Solution;
 import com.blag.harmonysearch.helpers.FunctionStringValidator;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,21 +28,19 @@ public class Controller implements Initializable
     @FXML
     private TableView<ArgumentLimit> argumentLimitsTableView;
     @FXML
-    private TableColumn<ArgumentLimit, String> ArgumentName;
+    private TableColumn<ArgumentLimit, String> argumentName;
     @FXML
-    private TableColumn<ArgumentLimit, Double> ArgumentMinValue;
+    private TableColumn<ArgumentLimit, Double> argumentMinValue;
     @FXML
-    private TableColumn<ArgumentLimit, Double> ArgumentMaxValue;
+    private TableColumn<ArgumentLimit, Double> argumentMaxValue;
 
     @FXML
-    private TableView<SolutionGui> SolutionTableView;
+    private TableView<SolutionGui> solutionTableView;
 
     @FXML
-    private TableColumn<SolutionGui, Integer> SolutionIteration;
+    private TableColumn<SolutionGui, Integer> solutionIteration;
     @FXML
-    private TableColumn<SolutionGui, Double> SolutionValue;
-    @FXML
-    private TableColumn<SolutionGui, String> SolutionArguments;
+    private TableColumn<SolutionGui, Double> solutionValue;
 
 
     @FXML
@@ -98,22 +94,22 @@ public class Controller implements Initializable
         argumentLimits = FXCollections.observableArrayList();
 
         argumentLimitsTableView.setEditable(true);
-        ArgumentName.setCellValueFactory(new PropertyValueFactory<>("argumentName"));
-        ArgumentMinValue.setCellValueFactory(new PropertyValueFactory<>("origin"));
-        ArgumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
+        argumentName.setCellValueFactory(new PropertyValueFactory<>("argumentName"));
+        argumentMinValue.setCellValueFactory(new PropertyValueFactory<>("origin"));
+        argumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
 
-        ArgumentMinValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        ArgumentMinValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setOrigin(t.getNewValue()));
+        argumentMinValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        argumentMinValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setOrigin(t.getNewValue()));
 
-        ArgumentMaxValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        ArgumentMaxValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue()));
+        argumentMaxValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        argumentMaxValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue()));
 
         // Solutions table view
-        SolutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
-        SolutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
+        solutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
+        solutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
 
-        SolutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        SolutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        solutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        solutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
     }
 
     @FXML
@@ -133,7 +129,7 @@ public class Controller implements Initializable
 
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
-        SolutionTableView.setItems(harmonySearcher.getBestSolutions());
+        solutionTableView.setItems(harmonySearcher.getBestSolutions());
         leftStatusLabel.setText("Busy");
 
         harmonySearcher.searchForHarmony();
@@ -171,6 +167,10 @@ public class Controller implements Initializable
     private void showArgumentLimitsTableView()
     {
         argumentLimitsTableView.getItems().clear();
+        if (solutionTableView.getColumns().size() > 2)
+        {
+            solutionTableView.getColumns().remove(2, argumentLimitsTableView.getColumns().size() + 1);
+        }
 
         for (int i = 0; i < function.getArgumentsNumber(); i++)
         {
@@ -184,7 +184,7 @@ public class Controller implements Initializable
     private void addArgumentColumnToSolutionTableView(int argumentIndex)
     {
         TableColumn<SolutionGui, Double> solutionArgumentColumn = new TableColumn<>(function.getArgument(argumentIndex).getArgumentName());
-        SolutionTableView.getColumns().add(solutionArgumentColumn);
+        solutionTableView.getColumns().add(solutionArgumentColumn);
         final int fixedArgumentIndex = argumentIndex;
         solutionArgumentColumn.setCellValueFactory(cellData -> cellData.getValue().getArgument(fixedArgumentIndex).asObject());
         solutionArgumentColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));

@@ -14,7 +14,6 @@ public class SolutionGui
     private double[] arguments;
     private int iterationNumber;
 
-
     public SimpleDoubleProperty getArgument(int whichOne)
     {
         return new SimpleDoubleProperty(arguments[whichOne]);
