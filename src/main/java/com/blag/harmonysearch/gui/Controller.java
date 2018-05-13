@@ -163,13 +163,6 @@ public class Controller implements Initializable
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
-
-        // Generate function plot
-        plot.setParameters(this.function, argumentLimits);
-
-        pane.getChildren().clear();
-        pane.getChildren().add(plot.getImageView());
-
         leftStatusLabel.setText("Busy");
 
         startHarmonySearcherTask();
@@ -198,7 +191,7 @@ public class Controller implements Initializable
     }
 
     @FXML
-    void tryValidateFunctionString(ActionEvent event)
+    private void tryValidateFunctionString(ActionEvent event)
     {
         String functionString = functionComboBox.getValue();
         function = functionValidator.validateFunctionString(functionString);
@@ -216,6 +209,16 @@ public class Controller implements Initializable
         }
 
         showArgumentLimitsTableView();
+        showFunctionPlot();
+    }
+
+    private void showFunctionPlot()
+    {
+        // Generate function plot
+        plot.setParameters(this.function, argumentLimits);
+
+        pane.getChildren().clear();
+        pane.getChildren().add(plot.getImageView());
     }
 
     private void showArgumentLimitsTableView()
