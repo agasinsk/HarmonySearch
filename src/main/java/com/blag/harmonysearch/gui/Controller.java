@@ -128,7 +128,6 @@ public class Controller implements Initializable
             }
         });
 
-
         // Solutions table view
         solutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
         solutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
@@ -160,6 +159,8 @@ public class Controller implements Initializable
         harmonySearcher.searchForHarmony();
 
         showAlert(Alert.AlertType.INFORMATION, "Koniec dzialania", "Znaleziono rozwiazanie:\n" + solutionTableView.getItems().get(0).toString());
+
+        leftStatusLabel.setText("Waiting for input");
     }
 
     private void showAlert(Alert.AlertType alertType, String alertTitle, String alertContent)
@@ -196,7 +197,7 @@ public class Controller implements Initializable
         argumentLimitsTableView.getItems().clear();
         if (solutionTableView.getColumns().size() > 2)
         {
-            solutionTableView.getColumns().remove(2, argumentLimitsTableView.getColumns().size() + 1);
+            resetSolutionTableView();
         }
 
         for (int i = 0; i < function.getArgumentsNumber(); i++)
@@ -206,6 +207,21 @@ public class Controller implements Initializable
         }
 
         argumentLimitsTableView.setItems(argumentLimits);
+    }
+
+    private void resetSolutionTableView()
+    {
+        solutionTableView.getItems().clear();
+        solutionTableView.getColumns().clear();
+        TableColumn<SolutionGui, Integer> solutionIterationColumn = new TableColumn<>("Iteracja");
+        solutionIterationColumn.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
+        solutionIterationColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        solutionTableView.getColumns().add(solutionIterationColumn);
+
+        TableColumn<SolutionGui, Double> solutionValueColumn = new TableColumn<>("f(x)");
+        solutionValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
+        solutionValueColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        solutionTableView.getColumns().add(solutionValueColumn);
     }
 
     private void addArgumentColumnToSolutionTableView(int argumentIndex)
