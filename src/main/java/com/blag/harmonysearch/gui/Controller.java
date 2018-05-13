@@ -2,9 +2,7 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.DefaultFunctionStrings;
 import com.blag.harmonysearch.core.ArgumentLimit;
-import com.blag.harmonysearch.core.Solution;
 import com.blag.harmonysearch.helpers.FunctionStringValidator;
-import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,19 +28,33 @@ public class Controller implements Initializable
     @FXML
     private TableView<ArgumentLimit> argumentLimitsTableView;
     @FXML
-    private TableColumn<ArgumentLimit, String> ArgumentName;
+    private TableColumn<ArgumentLimit, String> argumentName;
     @FXML
-    private TableColumn<ArgumentLimit, Double> ArgumentMinValue;
+    private TableColumn<ArgumentLimit, Double> argumentMinValue;
     @FXML
+<<<<<<< HEAD
     private TableColumn<ArgumentLimit, Double> ArgumentMaxValue;
     @FXML
     private TableView<SolutionGui> SolutionTableView;
+=======
+    private TableColumn<ArgumentLimit, Double> argumentMaxValue;
+
     @FXML
-    private TableColumn<SolutionGui, Integer> SolutionIteration;
+    private TableView<SolutionGui> solutionTableView;
+
+>>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
     @FXML
+    private TableColumn<SolutionGui, Integer> solutionIteration;
+    @FXML
+<<<<<<< HEAD
     private TableColumn<SolutionGui, Double> SolutionValue;
     @FXML
     private TableColumn<SolutionGui, String> SolutionArguments;
+=======
+    private TableColumn<SolutionGui, Double> solutionValue;
+
+
+>>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
     @FXML
     private Button startButton;
     @FXML
@@ -87,6 +99,10 @@ public class Controller implements Initializable
         defaultFunctions.add(DefaultFunctionStrings.GimmelblauFunction);
         defaultFunctions.add(DefaultFunctionStrings.RosenbrockFunction);
         defaultFunctions.add(DefaultFunctionStrings.ThreeDimensionalFunction);
+        defaultFunctions.add(DefaultFunctionStrings.ZangwillFunction);
+        defaultFunctions.add(DefaultFunctionStrings.GoldSteinPriceFunction);
+        defaultFunctions.add(DefaultFunctionStrings.sinFunction);
+        defaultFunctions.add(DefaultFunctionStrings.sinExpFunction);
         functionComboBox.setItems(defaultFunctions);
 
         functionValidator = new FunctionStringValidator();
@@ -95,26 +111,55 @@ public class Controller implements Initializable
         argumentLimits = FXCollections.observableArrayList();
 
         argumentLimitsTableView.setEditable(true);
-        ArgumentName.setCellValueFactory(new PropertyValueFactory<>("argumentName"));
-        ArgumentMinValue.setCellValueFactory(new PropertyValueFactory<>("origin"));
-        ArgumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
+        argumentName.setCellValueFactory(new PropertyValueFactory<>("argumentName"));
+        argumentMinValue.setCellValueFactory(new PropertyValueFactory<>("origin"));
+        argumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
 
-        ArgumentMinValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        ArgumentMinValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setOrigin(t.getNewValue()));
+        argumentMinValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        argumentMinValue.setOnEditCommit(t ->
+        {
+            Double newValue = t.getNewValue();
+            if (newValue > argumentMaxValue.getCellData(t.getRowValue()))
+            {
+                showAlert(Alert.AlertType.ERROR, "Blad", "Mininum argumentu wieksze od maximum!");
+                t.getTableView().refresh();
+            }
+            else
+            {
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setOrigin(t.getNewValue());
+            }
+        });
 
-        ArgumentMaxValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-        ArgumentMaxValue.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue()));
+        argumentMaxValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        argumentMaxValue.setOnEditCommit(t ->
+        {
+            Double newValue = t.getNewValue();
+            if (newValue < argumentMinValue.getCellData(t.getRowValue()))
+            {
+                showAlert(Alert.AlertType.ERROR, "Blad", "Maximum argumentu mniejsze od minimum!");
+                t.getTableView().refresh();
+            }
+            else
+            {
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).setBound(t.getNewValue());
+            }
+        });
 
         // Solutions table view
-        SolutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
-        SolutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
+        solutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
+        solutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
 
+<<<<<<< HEAD
         SolutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         SolutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
         plot = new Plot();
         pane.getChildren().add(plot.getImageView());
 
+=======
+        solutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        solutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+>>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
     }
 
     @FXML
@@ -134,13 +179,21 @@ public class Controller implements Initializable
 
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
+<<<<<<< HEAD
         SolutionTableView.setItems(harmonySearcher.getBestSolutions());
         plot.setParameters(this.function,argumentLimits);
         pane.getChildren().add(plot.getImageView());
 
+=======
+        solutionTableView.setItems(harmonySearcher.getBestSolutions());
+>>>>>>> 52ae50572a7149e416db5d06a3bc6f1aead591e2
         leftStatusLabel.setText("Busy");
 
         harmonySearcher.searchForHarmony();
+
+        showAlert(Alert.AlertType.INFORMATION, "Koniec dzialania", "Znaleziono rozwiazanie:\n" + solutionTableView.getItems().get(0).toString());
+
+        leftStatusLabel.setText("Waiting for input");
     }
 
     private void showAlert(Alert.AlertType alertType, String alertTitle, String alertContent)
@@ -175,6 +228,10 @@ public class Controller implements Initializable
     private void showArgumentLimitsTableView()
     {
         argumentLimitsTableView.getItems().clear();
+        if (solutionTableView.getColumns().size() > 2)
+        {
+            resetSolutionTableView();
+        }
 
         for (int i = 0; i < function.getArgumentsNumber(); i++)
         {
@@ -185,10 +242,25 @@ public class Controller implements Initializable
         argumentLimitsTableView.setItems(argumentLimits);
     }
 
+    private void resetSolutionTableView()
+    {
+        solutionTableView.getItems().clear();
+        solutionTableView.getColumns().clear();
+        TableColumn<SolutionGui, Integer> solutionIterationColumn = new TableColumn<>("Iteracja");
+        solutionIterationColumn.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
+        solutionIterationColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        solutionTableView.getColumns().add(solutionIterationColumn);
+
+        TableColumn<SolutionGui, Double> solutionValueColumn = new TableColumn<>("f(x)");
+        solutionValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
+        solutionValueColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        solutionTableView.getColumns().add(solutionValueColumn);
+    }
+
     private void addArgumentColumnToSolutionTableView(int argumentIndex)
     {
         TableColumn<SolutionGui, Double> solutionArgumentColumn = new TableColumn<>(function.getArgument(argumentIndex).getArgumentName());
-        SolutionTableView.getColumns().add(solutionArgumentColumn);
+        solutionTableView.getColumns().add(solutionArgumentColumn);
         final int fixedArgumentIndex = argumentIndex;
         solutionArgumentColumn.setCellValueFactory(cellData -> cellData.getValue().getArgument(fixedArgumentIndex).asObject());
         solutionArgumentColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
