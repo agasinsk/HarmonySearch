@@ -76,4 +76,9 @@ public class HarmonyMemory
         Optional<Double> randomArgument = solutions.stream().map(s -> s.getArgument(argumentIndex)).findAny();
         return randomArgument.orElseGet(() -> (double) 0);
     }
+
+    public int count()
+    {
+        return solutions.size();
+    }
 }

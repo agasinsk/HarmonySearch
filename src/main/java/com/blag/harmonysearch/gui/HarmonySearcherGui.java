@@ -51,7 +51,7 @@ public class HarmonySearcherGui extends HarmonySearcher
             // Update the list on the JavaFx Application Thread
             Platform.runLater(() ->
             {
-                if (!harmonyMemory.getBestSolution().equals(currentBestSolution))
+                if (harmonyMemory.count() > 0 && !harmonyMemory.getBestSolution().equals(currentBestSolution))
                 {
                     currentBestSolution = harmonyMemory.getBestSolution();
                     bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));

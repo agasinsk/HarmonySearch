@@ -8,8 +8,8 @@ import lombok.Getter;
 @Getter
 public class Solution
 {
-    private double[] arguments;
-    private double value;
+    protected double[] arguments;
+    protected double value;
 
     public Solution(double value, double... arguments)
     {
