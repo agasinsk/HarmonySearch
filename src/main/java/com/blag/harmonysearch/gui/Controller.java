@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.StackPane;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import org.mariuszgromada.math.mxparser.Function;
@@ -26,7 +27,6 @@ public class Controller implements Initializable
 {
     @FXML
     private ComboBox<String> functionComboBox;
-
     @FXML
     private TableView<ArgumentLimit> argumentLimitsTableView;
     @FXML
@@ -35,23 +35,18 @@ public class Controller implements Initializable
     private TableColumn<ArgumentLimit, Double> ArgumentMinValue;
     @FXML
     private TableColumn<ArgumentLimit, Double> ArgumentMaxValue;
-
     @FXML
     private TableView<SolutionGui> SolutionTableView;
-
     @FXML
     private TableColumn<SolutionGui, Integer> SolutionIteration;
     @FXML
     private TableColumn<SolutionGui, Double> SolutionValue;
     @FXML
     private TableColumn<SolutionGui, String> SolutionArguments;
-
-
     @FXML
     private Button startButton;
     @FXML
     public Button defaultParameterValuesButton;
-
     @FXML
     private Spinner<Integer> harmonyMemorySizeSpinner;
     @FXML
@@ -60,17 +55,19 @@ public class Controller implements Initializable
     private Spinner<Double> harmonyMemoryConsiderationRatioSpinner;
     @FXML
     private Spinner<Double> pitchAdjustingRatioSpinner;
-
     @FXML
     private Label leftStatusLabel;
     @FXML
     private Label rightStatusLabel;
+    @FXML
+    private StackPane pane;
 
     private Function function;
     private FunctionStringValidator functionValidator;
     private ObservableList<ArgumentLimit> argumentLimits;
     private HarmonySearcherGui harmonySearcher;
     private ObservableList<String> defaultFunctions;
+    private Plot plot;
 
     /**
      * Initializes the controller class.
@@ -114,6 +111,10 @@ public class Controller implements Initializable
 
         SolutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         SolutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+
+        plot = new Plot();
+        pane.getChildren().add(plot.getImageView());
+
     }
 
     @FXML
@@ -134,6 +135,9 @@ public class Controller implements Initializable
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
         SolutionTableView.setItems(harmonySearcher.getBestSolutions());
+        plot.setParameters(this.function,argumentLimits);
+        pane.getChildren().add(plot.getImageView());
+
         leftStatusLabel.setText("Busy");
 
         harmonySearcher.searchForHarmony();
