@@ -86,6 +86,10 @@ public class Controller implements Initializable
         defaultFunctions.add(DefaultFunctionStrings.GimmelblauFunction);
         defaultFunctions.add(DefaultFunctionStrings.RosenbrockFunction);
         defaultFunctions.add(DefaultFunctionStrings.ThreeDimensionalFunction);
+        defaultFunctions.add(DefaultFunctionStrings.ZangwillFunction);
+        defaultFunctions.add(DefaultFunctionStrings.GoldSteinPriceFunction);
+        defaultFunctions.add(DefaultFunctionStrings.sinFunction);
+        defaultFunctions.add(DefaultFunctionStrings.sinExpFunction);
         functionComboBox.setItems(defaultFunctions);
 
         functionValidator = new FunctionStringValidator();

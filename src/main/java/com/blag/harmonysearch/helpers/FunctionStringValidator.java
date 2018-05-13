@@ -40,7 +40,12 @@ public class FunctionStringValidator
         Set<String> arguments = new HashSet<String>();
         while (matcher.find())
         {
-            arguments.add(matcher.group());
+            String matchedArgument = matcher.group();
+            if (arguments.contains("x1") && matchedArgument.equals("x"))
+            {
+                continue;
+            }
+            arguments.add(matchedArgument);
         }
 
         String functionDefinitionString = getFunctionDefinitionString(functionString, arguments);
