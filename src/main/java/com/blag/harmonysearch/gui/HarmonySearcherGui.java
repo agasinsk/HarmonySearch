@@ -1,13 +1,15 @@
 package com.blag.harmonysearch.gui;
 
-import com.blag.harmonysearch.core.*;
+import com.blag.harmonysearch.core.ArgumentLimit;
+import com.blag.harmonysearch.core.HarmonyMemory;
+import com.blag.harmonysearch.core.HarmonySearcher;
+import com.blag.harmonysearch.core.Solution;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Getter;
 import org.mariuszgromada.math.mxparser.Function;
 
-import java.lang.management.PlatformLoggingMXBean;
 import java.util.List;
 
 @Getter
@@ -49,18 +51,15 @@ public class HarmonySearcherGui extends HarmonySearcher
                 harmonyMemory.swapWithWorstSolution(newSolution);
             }
 
-            // update current best solution
-
-            // Update the list on the JavaFx Application Thread
+            // update current best solution and the list on the JavaFx Application Thread
             Platform.runLater(() ->
             {
                 if (harmonyMemory.count() > 0 && !harmonyMemory.getBestSolution().equals(currentBestSolution))
                 {
                     currentBestSolution = harmonyMemory.getBestSolution();
                     bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
-                    plot.setObservableList(bestSolutions);
+                    plot.drawPoint(currentBestSolution);
                 }
-
 
             });
 
@@ -68,7 +67,9 @@ public class HarmonySearcherGui extends HarmonySearcher
         }
         return harmonyMemory.getBestSolution();
     }
-    public HarmonyMemory getHarmonyMemory(){
+
+    public HarmonyMemory getHarmonyMemory()
+    {
         return harmonyMemory;
     }
 

@@ -2,8 +2,6 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.DefaultFunctionStrings;
 import com.blag.harmonysearch.core.ArgumentLimit;
-import com.blag.harmonysearch.core.HarmonyMemory;
-import com.blag.harmonysearch.core.Solution;
 import com.blag.harmonysearch.helpers.FunctionStringValidator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -162,20 +160,17 @@ public class Controller implements Initializable
         startHarmonySearcherTask();
 
         leftStatusLabel.setText("Waiting");
-
     }
 
     private void startHarmonySearcherTask()
     {
         // Create a Runnable
-        Runnable task = () -> harmonySearcher.searchForHarmony();
-        // Run the task in a background thread
-        harmonySearchThread = new Thread(task);
+        Runnable harmonySearchTask = () -> harmonySearcher.searchForHarmony();
+
+        this.harmonySearchThread = new Thread(harmonySearchTask);
         // Terminate the running thread if the application exits
         harmonySearchThread.setDaemon(true);
-        // Start the thread
         harmonySearchThread.start();
-
     }
 
     private void showAlert(Alert.AlertType alertType, String alertTitle, String alertContent)
@@ -214,19 +209,18 @@ public class Controller implements Initializable
         plot.setParameters(this.function, argumentLimits);
         stackPanePlot.getChildren().clear();
         stackPanePlot.getChildren().add(plot.getImageView());
-
-
-
     }
 
     private void showArgumentLimitsTableView()
     {
+        // Clear the argument limits and solutions tables
         argumentLimitsTableView.getItems().clear();
         if (solutionTableView.getColumns().size() > 2)
         {
             resetSolutionTableView();
         }
 
+        // Populate argument limits table and add columns to solutions table
         for (int i = 0; i < function.getArgumentsNumber(); i++)
         {
             argumentLimits.add(new ArgumentLimit(function.getArgument(i).getArgumentName()));
@@ -240,6 +234,7 @@ public class Controller implements Initializable
     {
         solutionTableView.getItems().clear();
         solutionTableView.getColumns().clear();
+        
         TableColumn<SolutionGui, Integer> solutionIterationColumn = new TableColumn<>("Iteracja");
         solutionIterationColumn.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
         solutionIterationColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));

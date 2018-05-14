@@ -85,6 +85,7 @@ public class HarmonySearcher
             Solution randomSolution = solutionGenerator.generateRandomSolution();
             harmonyMemory.add(randomSolution);
         }
+        currentBestSolution = harmonyMemory.getBestSolution();
     }
 
     /**

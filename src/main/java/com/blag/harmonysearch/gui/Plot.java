@@ -2,8 +2,11 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.HarmonySearchConstants;
 import com.blag.harmonysearch.core.ArgumentLimit;
+import com.blag.harmonysearch.core.Solution;
 import javafx.collections.ObservableList;
 import javafx.scene.image.ImageView;
+import lombok.Getter;
+import lombok.Setter;
 import org.jzy3d.chart.AWTChart;
 import org.jzy3d.colors.Color;
 import org.jzy3d.colors.ColorMapper;
@@ -17,8 +20,6 @@ import org.jzy3d.plot3d.primitives.Scatter;
 import org.jzy3d.plot3d.primitives.Shape;
 import org.jzy3d.plot3d.rendering.canvas.Quality;
 import org.mariuszgromada.math.mxparser.Function;
-import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Setter
@@ -72,10 +73,10 @@ public class Plot
         {
             this.function = function;
 
-            for (int i = 0; i < argumentLimits.size(); i++)
+            for (ArgumentLimit argumentLimit : argumentLimits)
             {
-                this.origin = Math.min(this.origin, argumentLimits.get(i).getOrigin());
-                this.bound = Math.max(this.bound, argumentLimits.get(i).getBound());
+                this.origin = Math.min(this.origin, argumentLimit.getOrigin());
+                this.bound = Math.max(this.bound, argumentLimit.getBound());
             }
         }
         else
@@ -96,24 +97,38 @@ public class Plot
 
     private Scatter getScatter()
     {
-        if(observableList==null)
+        if (observableList == null)
             return this.scatter;
 
         int size = observableList.size();
         float x;
         float y;
         float z;
-        Coord3d[] coord3d = new Coord3d[size];
-        for(int i=0; i<size;i++){
+        Coord3d[] coordinates = new Coord3d[size];
+        for (int i = 0; i < size; i++)
+        {
             SolutionGui solutionGui = observableList.get(i);
-            x=solutionGui.getArgument(1).floatValue();
-            y=solutionGui.getArgument(1).floatValue();
-            z=(float) solutionGui.getValue();
-            coord3d[i] = new Coord3d(x, y, z);
+            x = solutionGui.getArgument(1).floatValue();
+            y = solutionGui.getArgument(2).floatValue();
+            z = (float) solutionGui.getValue();
+            coordinates[i] = new Coord3d(x, y, z);
         }
 
-        scatter.setData(coord3d);
+        scatter.setData(coordinates);
         scatter.setWidth(5);
         return this.scatter;
+    }
+
+    public void drawPoint(Solution currentBestSolution)
+    {
+        float x = (float) currentBestSolution.getArguments()[0];
+        float y = (float) currentBestSolution.getArguments()[1];
+        float z = (float) currentBestSolution.getValue();
+        Coord3d[] coordinates = new Coord3d[]{
+                new Coord3d(x, y, z)
+        };
+
+        scatter.setData(coordinates);
+        scatter.setWidth(5);
     }
 }
