@@ -1,7 +1,6 @@
 package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.core.*;
-
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,7 +39,6 @@ public class HarmonySearcherGui extends HarmonySearcher
         {
             Solution worstSolution = harmonyMemory.getWorstSolution();
             Solution newSolution = solutionGenerator.improviseSolution();
-
             if (newSolution.isBetterThan(worstSolution))
             {
                 harmonyMemory.swapWithWorstSolution(newSolution);
@@ -56,11 +54,16 @@ public class HarmonySearcherGui extends HarmonySearcher
                     currentBestSolution = harmonyMemory.getBestSolution();
                     bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
                 }
+
+
             });
 
             improvisationCount++;
         }
         return harmonyMemory.getBestSolution();
+    }
+    public HarmonyMemory getHarmonyMemory(){
+        return harmonyMemory;
     }
 
 }

@@ -50,4 +50,14 @@ public class BoundedTreeSet<E> extends TreeSet<E>
     {
         return size() + c.size() < capacity && super.addAll(c);
     }
+
+    @Override
+    public E first() {
+        return super.first();
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return super.iterator();
+    }
 }

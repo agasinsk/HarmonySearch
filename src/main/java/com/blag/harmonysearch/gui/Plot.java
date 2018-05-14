@@ -2,12 +2,13 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.HarmonySearchConstants;
 import com.blag.harmonysearch.core.ArgumentLimit;
+import com.blag.harmonysearch.core.HarmonyMemory;
+import com.blag.harmonysearch.core.HarmonySearcher;
 import com.blag.harmonysearch.core.Solution;
 import com.blag.harmonysearch.helpers.BoundedTreeSet;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 import javafx.scene.image.ImageView;
-import lombok.Getter;
-import lombok.Setter;
 import org.jzy3d.chart.AWTChart;
 import org.jzy3d.colors.Color;
 import org.jzy3d.colors.ColorMapper;
@@ -17,14 +18,14 @@ import org.jzy3d.maths.Coord3d;
 import org.jzy3d.maths.Range;
 import org.jzy3d.plot3d.builder.Builder;
 import org.jzy3d.plot3d.builder.Mapper;
+import org.jzy3d.plot3d.primitives.Scatter;
 import org.jzy3d.plot3d.primitives.Shape;
-import org.jzy3d.plot3d.primitives.vbo.builders.VBOBuilderListCoord3d;
-import org.jzy3d.plot3d.primitives.vbo.drawable.ScatterVBO;
 import org.jzy3d.plot3d.rendering.canvas.Quality;
 import org.mariuszgromada.math.mxparser.Function;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 
 @Getter
 @Setter
@@ -34,11 +35,12 @@ public class Plot
     private JavaFXChartFactory factory;
     private double origin;
     private double bound;
-    private BoundedTreeSet<Solution> solutions;
-    private Shape surface;
+    private Shape shape;
+    private Scatter scatter;
     private AWTChart chart;
     private ImageView imageView;
     private Function function;
+    private ObservableList<SolutionGui> observableList;
 
     public Plot()
     {
@@ -54,8 +56,9 @@ public class Plot
         this.factory = new JavaFXChartFactory();
         this.origin = -HarmonySearchConstants.DEFAULT_ARGUMENT_LIMIT;
         this.bound = HarmonySearchConstants.DEFAULT_ARGUMENT_LIMIT;
+        this.scatter = new Scatter();
+        this.observableList = null;
     }
-
 
     public ImageView getImageView()
     {
@@ -64,8 +67,8 @@ public class Plot
         quality.setAnimated(true);
 
         AWTChart chart = (AWTChart) factory.newChart(quality, "offscreen");
-        chart.getScene().getGraph().add(this.getSurface());
-        //chart.getScene().getGraph().add(this.getDemoChartVBO());
+        chart.getScene().getGraph().add(this.getShape());
+        chart.getScene().getGraph().add(this.getScatter());
         imageView = factory.bindImageView(chart);
         return imageView;
     }
@@ -88,26 +91,37 @@ public class Plot
         }
     }
 
-    private Shape getSurface()
+    private Shape getShape()
     {
         int steps = (int) (this.bound - this.origin) * 5;
-        surface = Builder.buildOrthonormal(this.mapper, new Range((float) origin, (float) bound), steps);
-        surface.setColorMapper(new ColorMapper(new ColorMapRainbow(), surface.getBounds().getZmin(), surface.getBounds().getZmax(), new Color(1, 1, 1, .5f)));
-        surface.setFaceDisplayed(true);
-        surface.setWireframeDisplayed(false);
-        return surface;
+        shape = Builder.buildOrthonormal(this.mapper, new Range((float) origin, (float) bound), steps);
+        shape.setColorMapper(new ColorMapper(new ColorMapRainbow(), shape.getBounds().getZmin(), shape.getBounds().getZmax(), new Color(1, 1, 1, .5f)));
+        shape.setFaceDisplayed(true);
+        shape.setWireframeDisplayed(false);
+        return shape;
     }
 
-    private ScatterVBO getDemoChartVBO()
+    private Scatter getScatter()
     {
+        if (observableList==null)
+            return this.scatter;
 
-        int size = 100;
+        int size = observableList.size();
+        float x;
+        float y;
+        float z;
+        Coord3d[] coord3d = new Coord3d[size];
         System.out.println(size);
-        List<Coord3d> coords = new ArrayList<Coord3d>(size);
-        for (int i = 0; i < size; i++)
-        {
-            coords.add(new Coord3d(i, i, i));
+        for(int i=0; i<size;i++){
+            SolutionGui solutionGui = observableList.get(i);
+            x=solutionGui.getArgument(1).floatValue();
+            y=solutionGui.getArgument(1).floatValue();
+            z=(float) solutionGui.getValue();
+            coord3d[i] = new Coord3d(x, y, z);
         }
-        return new ScatterVBO(new VBOBuilderListCoord3d(coords));
+
+        scatter.setData(coord3d);
+        scatter.setWidth(5);
+        return this.scatter;
     }
 }

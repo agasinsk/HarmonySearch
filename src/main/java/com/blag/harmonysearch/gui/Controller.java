@@ -2,6 +2,8 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.DefaultFunctionStrings;
 import com.blag.harmonysearch.core.ArgumentLimit;
+import com.blag.harmonysearch.core.HarmonyMemory;
+import com.blag.harmonysearch.core.Solution;
 import com.blag.harmonysearch.helpers.FunctionStringValidator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,14 +35,12 @@ public class Controller implements Initializable
     private TableColumn<ArgumentLimit, Double> argumentMinValue;
     @FXML
     private TableColumn<ArgumentLimit, Double> argumentMaxValue;
-
     @FXML
     private TableView<SolutionGui> solutionTableView;
     @FXML
     private TableColumn<SolutionGui, Integer> solutionIteration;
     @FXML
     private TableColumn<SolutionGui, Double> solutionValue;
-
     @FXML
     public Button defaultParameterValuesButton;
     @FXML
@@ -53,18 +53,14 @@ public class Controller implements Initializable
     private Spinner<Double> pitchAdjustingRatioSpinner;
     @FXML
     private Label leftStatusLabel;
-
-
     @FXML
-    private StackPane pane;
+    private StackPane stackPanePlot;
 
     private Function function;
     private FunctionStringValidator functionValidator;
     private ObservableList<ArgumentLimit> argumentLimits;
     private HarmonySearcherGui harmonySearcher;
-
     private Thread harmonySearchThread;
-
     private Plot plot;
 
     /**
@@ -80,7 +76,6 @@ public class Controller implements Initializable
         pitchAdjustingRatioSpinner.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 1, DEFAULT_PITCH_ADJUSTMENT_RATIO, 0.01));
 
         // Function combo box
-
         ObservableList<String> defaultFunctions = FXCollections.observableArrayList();
         defaultFunctions.add(DefaultFunctionStrings.FourMinFunction);
         defaultFunctions.add(DefaultFunctionStrings.GeemFunction);
@@ -92,17 +87,14 @@ public class Controller implements Initializable
         defaultFunctions.add(DefaultFunctionStrings.sinFunction);
         defaultFunctions.add(DefaultFunctionStrings.sinExpFunction);
         functionComboBox.setItems(defaultFunctions);
-
         functionValidator = new FunctionStringValidator();
 
         // Argument limits table
         argumentLimits = FXCollections.observableArrayList();
-
         argumentLimitsTableView.setEditable(true);
         argumentName.setCellValueFactory(new PropertyValueFactory<>("argumentName"));
         argumentMinValue.setCellValueFactory(new PropertyValueFactory<>("origin"));
         argumentMaxValue.setCellValueFactory(new PropertyValueFactory<>("bound"));
-
         argumentMinValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         argumentMinValue.setOnEditCommit(t ->
         {
@@ -142,7 +134,7 @@ public class Controller implements Initializable
 
         // Function plot
         plot = new Plot();
-        pane.getChildren().add(plot.getImageView());
+        stackPanePlot.getChildren().add(plot.getImageView());
     }
 
     @FXML
@@ -163,14 +155,17 @@ public class Controller implements Initializable
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
+
         leftStatusLabel.setText("Busy");
 
         startHarmonySearcherTask();
 
         leftStatusLabel.setText("Waiting");
+
+        plot.setObservableList(harmonySearcher.getBestSolutions());
     }
 
-    void startHarmonySearcherTask()
+    private void startHarmonySearcherTask()
     {
         // Create a Runnable
         Runnable task = () -> harmonySearcher.searchForHarmony();
@@ -180,6 +175,7 @@ public class Controller implements Initializable
         harmonySearchThread.setDaemon(true);
         // Start the thread
         harmonySearchThread.start();
+
     }
 
     private void showAlert(Alert.AlertType alertType, String alertTitle, String alertContent)
@@ -216,9 +212,11 @@ public class Controller implements Initializable
     {
         // Generate function plot
         plot.setParameters(this.function, argumentLimits);
+        stackPanePlot.getChildren().clear();
+        stackPanePlot.getChildren().add(plot.getImageView());
 
-        pane.getChildren().clear();
-        pane.getChildren().add(plot.getImageView());
+
+
     }
 
     private void showArgumentLimitsTableView()
@@ -251,6 +249,9 @@ public class Controller implements Initializable
         solutionValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
         solutionValueColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         solutionTableView.getColumns().add(solutionValueColumn);
+
+
+
     }
 
     private void addArgumentColumnToSolutionTableView(int argumentIndex)
