@@ -2,12 +2,7 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.HarmonySearchConstants;
 import com.blag.harmonysearch.core.ArgumentLimit;
-import com.blag.harmonysearch.core.HarmonyMemory;
-import com.blag.harmonysearch.core.HarmonySearcher;
-import com.blag.harmonysearch.core.Solution;
-import com.blag.harmonysearch.helpers.BoundedTreeSet;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
 import javafx.scene.image.ImageView;
 import org.jzy3d.chart.AWTChart;
 import org.jzy3d.colors.Color;
@@ -24,8 +19,6 @@ import org.jzy3d.plot3d.rendering.canvas.Quality;
 import org.mariuszgromada.math.mxparser.Function;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Iterator;
 
 @Getter
 @Setter
@@ -103,7 +96,7 @@ public class Plot
 
     private Scatter getScatter()
     {
-        if (observableList==null)
+        if(observableList==null)
             return this.scatter;
 
         int size = observableList.size();
@@ -111,7 +104,6 @@ public class Plot
         float y;
         float z;
         Coord3d[] coord3d = new Coord3d[size];
-        System.out.println(size);
         for(int i=0; i<size;i++){
             SolutionGui solutionGui = observableList.get(i);
             x=solutionGui.getArgument(1).floatValue();

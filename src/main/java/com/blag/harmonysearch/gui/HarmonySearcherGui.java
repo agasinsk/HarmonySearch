@@ -7,23 +7,28 @@ import javafx.collections.ObservableList;
 import lombok.Getter;
 import org.mariuszgromada.math.mxparser.Function;
 
+import java.lang.management.PlatformLoggingMXBean;
 import java.util.List;
 
 @Getter
 public class HarmonySearcherGui extends HarmonySearcher
 {
     private ObservableList<SolutionGui> bestSolutions;
+    private Plot plot;
 
     public HarmonySearcherGui(Function function, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio)
     {
         super(function, harmonyMemorySize, maxImprovisationCount, harmonyMemoryConsiderationRatio, pitchAdjustmentRatio);
         bestSolutions = FXCollections.observableArrayList();
+        plot = new Plot();
+
     }
 
     public HarmonySearcherGui(Function function, int harmonyMemorySize, long maxImprovisationCount, double harmonyMemoryConsiderationRatio, double pitchAdjustmentRatio, List<ArgumentLimit> argumentGenerationLimits)
     {
         super(function, harmonyMemorySize, maxImprovisationCount, harmonyMemoryConsiderationRatio, pitchAdjustmentRatio, argumentGenerationLimits);
         bestSolutions = FXCollections.observableArrayList();
+        plot = new Plot();
     }
 
     /**
@@ -53,6 +58,7 @@ public class HarmonySearcherGui extends HarmonySearcher
                 {
                     currentBestSolution = harmonyMemory.getBestSolution();
                     bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
+                    plot.setObservableList(bestSolutions);
                 }
 
 

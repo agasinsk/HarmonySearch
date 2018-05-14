@@ -155,6 +155,7 @@ public class Controller implements Initializable
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
+        plot.setObservableList(harmonySearcher.getPlot().getObservableList());
 
         leftStatusLabel.setText("Busy");
 
@@ -162,7 +163,6 @@ public class Controller implements Initializable
 
         leftStatusLabel.setText("Waiting");
 
-        plot.setObservableList(harmonySearcher.getBestSolutions());
     }
 
     private void startHarmonySearcherTask()
@@ -249,9 +249,6 @@ public class Controller implements Initializable
         solutionValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
         solutionValueColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         solutionTableView.getColumns().add(solutionValueColumn);
-
-
-
     }
 
     private void addArgumentColumnToSolutionTableView(int argumentIndex)
