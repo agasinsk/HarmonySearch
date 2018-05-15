@@ -176,7 +176,7 @@ public class Controller implements Initializable
                 Platform.runLater(() ->
                 {
                     String bestSolutionString = harmonySearcher.getBestSolutions().get(0).toString();
-                    showAlert(Alert.AlertType.CONFIRMATION, "Koniec dzialania", "Znaleziono rozwiazanaie:\n" + bestSolutionString);
+                    showAlert(Alert.AlertType.CONFIRMATION, "Koniec dzialania", "Znaleziono rozwiazanie:\n" + bestSolutionString);
                 });
             }
 
