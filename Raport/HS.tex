@@ -1,0 +1,71 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = pl_PL
+
+% $Id:$
+%% Konfiguracja:
+\newcommand{\formakursu}{Projekt}
+\newcommand{\kurs}{Teoria i metody optymalizacji}
+\newcommand{\doctype}{Harmony Search}
+\newcommand{\osobaA}{Artur \textsc{Gasi\'nski}, 218685}
+\newcommand{\osobaB}{Bartosz \textsc{Lenartowicz}, 218518}
+\newcommand{\termin}{wt 9:15-11:00}
+%wpisz imię i nazwisko prowadzącego
+\newcommand{\prowadzacy}{Dr in\.{z}. Ewa \textsc{\'Szlachcic}}
+\documentclass[10pt, a4paper]{article}
+\usepackage{listings}
+
+\include{preambula}
+\begin{document}
+\def\tablename{Tabela}	%zmienienie nazwy tabel z Tablica na Tabela
+\begin{titlepage}
+	\begin{center}
+		\textsc{\LARGE \formakursu}\\[1cm]		
+		\textsc{\Large \kurs}\\[0.5cm]		
+		\rule{\textwidth}{0.08cm}\\[1cm]
+		{\huge \bfseries \doctype}\\[1cm]
+		\rule{\textwidth}{0.08cm}\\[1cm]
+		\begin{flushright} \large
+		\emph{Autor: }\\
+		\osobaA\\
+		\osobaB\\[0.4cm]
+		\emph{Termin: }\termin\\[0.4cm]
+		\emph{Prowadzący:} \\
+		\prowadzacy \\
+		\end{flushright}
+		\vfill
+		{\large \today}
+	\end{center}	
+\end{titlepage}
+\newpage
+\tableofcontents
+\newpage
+
+\section{Wstęp}
+\label{sec:Wstep}
+\begin{figure}[htbp]
+	\centering
+	%\includegraphics[width=0.80\textwidth]{images/nazwa.png}
+	%\caption{Podpis}
+	\label{fig:nazwa}
+\end{figure}
+
+\section{Opis działania algorytmu}
+\label{sec:opis}
+
+\section{Przykładowe rozwiązania}
+\label{sec:przyklady}
+
+\section{Problemy podczas pracy}
+\label{sec:problemy}
+
+\section{Podsumowanie}
+\label{sec:Podsumowanie}
+
+\newpage
+
+\addcontentsline{toc}{section}{Bibilografia}
+\bibliography{bibliografia}
+\bibliographystyle{plain}
+
+\end{document}
+
