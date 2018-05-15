@@ -23,6 +23,7 @@ public class HarmonySearcherGui extends HarmonySearcher
         super(function, harmonyMemorySize, maxImprovisationCount, harmonyMemoryConsiderationRatio, pitchAdjustmentRatio);
         bestSolutions = FXCollections.observableArrayList();
         plot = new Plot();
+        plot.setFunction(function);
 
     }
 
@@ -31,6 +32,7 @@ public class HarmonySearcherGui extends HarmonySearcher
         super(function, harmonyMemorySize, maxImprovisationCount, harmonyMemoryConsiderationRatio, pitchAdjustmentRatio, argumentGenerationLimits);
         bestSolutions = FXCollections.observableArrayList();
         plot = new Plot();
+        plot.setParameters(function,argumentGenerationLimits);
     }
 
     /**

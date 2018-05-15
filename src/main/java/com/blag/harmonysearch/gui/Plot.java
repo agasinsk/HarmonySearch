@@ -21,6 +21,8 @@ import org.jzy3d.plot3d.primitives.Shape;
 import org.jzy3d.plot3d.rendering.canvas.Quality;
 import org.mariuszgromada.math.mxparser.Function;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class Plot
@@ -38,7 +40,7 @@ public class Plot
 
     public Plot()
     {
-        this.function = new Function("0", "0", "x1");
+        this.function = null;
         this.mapper = new Mapper()
         {
             @Override
@@ -52,6 +54,7 @@ public class Plot
         this.bound = HarmonySearchConstants.DEFAULT_ARGUMENT_LIMIT;
         this.scatter = new Scatter();
         this.observableList = null;
+        shape = new Shape();
     }
 
     public ImageView getImageView()
@@ -62,17 +65,19 @@ public class Plot
 
         AWTChart chart = (AWTChart) factory.newChart(quality, "offscreen");
         chart.getScene().getGraph().add(this.getShape());
-        chart.getScene().getGraph().add(this.getScatter());
+        //chart.getScene().getGraph().add(this.getScatter());
+        chart.getScene().getGraph().add(this.scatter);
         imageView = factory.bindImageView(chart);
         return imageView;
     }
 
-    public void setParameters(Function function, ObservableList<ArgumentLimit> argumentLimits)
+    public void setParameters(Function function, List<ArgumentLimit> argumentLimits)
     {
         if (argumentLimits.size() <= 2)
         {
             this.function = function;
-
+            this.origin=0;
+            this.bound=0;
             for (ArgumentLimit argumentLimit : argumentLimits)
             {
                 this.origin = Math.min(this.origin, argumentLimit.getOrigin());

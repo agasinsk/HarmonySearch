@@ -133,8 +133,7 @@ public class Controller implements Initializable
         solutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
         // Function plot
-        plot = new Plot();
-        stackPanePlot.getChildren().add(plot.getImageView());
+        this.showFunctionPlot(new Plot());
     }
 
     @FXML
@@ -155,7 +154,7 @@ public class Controller implements Initializable
         harmonySearcher = new HarmonySearcherGui(this.function, HMS, iterCount, HMCR, PAR, argumentLimits);
 
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
-        plot.setObservableList(harmonySearcher.getPlot().getObservableList());
+        showFunctionPlot(harmonySearcher.getPlot());
 
         leftStatusLabel.setText("Busy");
 
@@ -210,15 +209,15 @@ public class Controller implements Initializable
         }
 
         showArgumentLimitsTableView();
-        showFunctionPlot();
+        //showFunctionPlot(harmonySearcher.getPlot());
     }
 
-    private void showFunctionPlot()
+    private void showFunctionPlot(Plot addPlot)
     {
         // Generate function plot
-        plot.setParameters(this.function, argumentLimits);
+        addPlot.setParameters(this.function, argumentLimits);
         stackPanePlot.getChildren().clear();
-        stackPanePlot.getChildren().add(plot.getImageView());
+        stackPanePlot.getChildren().add(addPlot.getImageView());
     }
 
     private void showArgumentLimitsTableView()
