@@ -2,7 +2,9 @@ package com.blag.harmonysearch.gui;
 
 import com.blag.harmonysearch.contants.DefaultFunctionStrings;
 import com.blag.harmonysearch.core.ArgumentLimit;
+import com.blag.harmonysearch.core.Solution;
 import com.blag.harmonysearch.helpers.FunctionStringValidator;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -165,7 +167,20 @@ public class Controller implements Initializable
     private void startHarmonySearcherTask()
     {
         // Create a Runnable
-        Runnable harmonySearchTask = () -> harmonySearcher.searchForHarmony();
+        Runnable harmonySearchTask = new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                harmonySearcher.searchForHarmony();
+                Platform.runLater(() ->
+                {
+                    String bestSolutionString = harmonySearcher.getBestSolutions().get(0).toString();
+                    showAlert(Alert.AlertType.CONFIRMATION, "Koniec dzialania", "Znaleziono rozwiazanaie:\n" + bestSolutionString);
+                });
+            }
+
+        };
 
         this.harmonySearchThread = new Thread(harmonySearchTask);
         // Terminate the running thread if the application exits
@@ -234,7 +249,7 @@ public class Controller implements Initializable
     {
         solutionTableView.getItems().clear();
         solutionTableView.getColumns().clear();
-        
+
         TableColumn<SolutionGui, Integer> solutionIterationColumn = new TableColumn<>("Iteracja");
         solutionIterationColumn.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
         solutionIterationColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
