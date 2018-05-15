@@ -92,7 +92,7 @@ public class Plot
 
     private Shape getShape()
     {
-        int steps = 100;
+        int steps = (int) (this.bound - this.origin) * 5;
         shape = Builder.buildOrthonormal(this.mapper, new Range((float) origin, (float) bound), steps);
         shape.setColorMapper(new ColorMapper(new ColorMapRainbow(), shape.getBounds().getZmin(), shape.getBounds().getZmax(), new Color(1, 1, 1, .5f)));
         shape.setFaceDisplayed(true);
