@@ -167,19 +167,14 @@ public class Controller implements Initializable
     private void startHarmonySearcherTask()
     {
         // Create a Runnable
-        Runnable harmonySearchTask = new Runnable()
+        Runnable harmonySearchTask = () ->
         {
-            @Override
-            public void run()
+            harmonySearcher.searchForHarmony();
+            Platform.runLater(() ->
             {
-                harmonySearcher.searchForHarmony();
-                Platform.runLater(() ->
-                {
-                    String bestSolutionString = harmonySearcher.getBestSolutions().get(0).toString();
-                    showAlert(Alert.AlertType.CONFIRMATION, "Koniec dzialania", "Znaleziono rozwiazanie:\n" + bestSolutionString);
-                });
-            }
-
+                String bestSolutionString = harmonySearcher.getBestSolutions().get(0).toString();
+                showAlert(Alert.AlertType.CONFIRMATION, "Koniec dzialania", "Znaleziono rozwiazanie:\n" + bestSolutionString);
+            });
         };
 
         this.harmonySearchThread = new Thread(harmonySearchTask);
