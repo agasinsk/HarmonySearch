@@ -23,11 +23,8 @@ com\blag\harmonysearch\gui\Main.class
 org\jzy3d\javafx\controllers\mouse\JavaFXCameraMouseController$1.class
 com\blag\harmonysearch\helpers\ArgumentMatching.class
 org\jzy3d\javafx\controllers\mouse\JavaFXCameraMouseController$3.class
-com\blag\harmonysearch\gui\SolutionObservable.class
 org\jzy3d\javafx\controllers\mouse\JavaFXCameraMouseController.class
 com\blag\harmonysearch\core\SolutionGenerator.class
-com\blag\harmonysearch\gui\Plot$2.class
-com\blag\harmonysearch\gui\SolutionObserver.class
 com\blag\harmonysearch\helpers\Extensions.class
 org\jzy3d\javafx\controllers\keyboard\JavaFXCameraKeyController$1.class
 com\blag\harmonysearch\helpers\BoundedTreeSet.class
