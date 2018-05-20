@@ -14,6 +14,33 @@
 \documentclass[10pt, a4paper]{article}
 \usepackage{listings}
 
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage[edges]{forest}
+\usepackage{url}
+\usepackage{hyperref}
+
+\definecolor{foldercolor}{RGB}{124,166,198}
+\tikzset{pics/folder/.style={code={%
+			\node[inner sep=0pt, minimum size=#1](-foldericon){};
+			\node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
+			\node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
+	},
+	pics/folder/.default={20pt},
+	folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
+}
+\forestset{is file/.style={edge path'/.expanded={%
+			([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor)},
+		inner sep=1pt},
+	this folder size/.style={edge path'/.expanded={%
+			([xshift=\forestregister{folder indent}]!u.parent anchor) |- (.child anchor) pic[solid]{folder=#1}}, inner ysep=0.6*#1},
+	folder tree indent/.style={before computing xy={l=#1}},
+	folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
+	folder icons/.default={12pt},
+}
+
+
 \include{preambula}
 \begin{document}
 \def\tablename{Tabela}	%zmienienie nazwy tabel z Tablica na Tabela
@@ -40,13 +67,14 @@
 \tableofcontents
 \newpage
 
+
+
 \begin{figure}[htbp]
 	\centering
-%	\includegraphics[width=0.80\textwidth]{images/nazwa.png}
-%	\caption{Podpis}
-%	\label{fig:nazwa}
+	%	\includegraphics[width=0.80\textwidth]{images/nazwa.png}
+	%	\caption{Podpis}
+	%	\label{fig:nazwa}
 \end{figure}
-
 \section{Wstęp}
 \label{sec:wstep}
 Większość metod optymalizacji procesów produkcyjnych czy logistycznych sprowadza się do przedstawienia zależności pomiędzy procesami, którymi firma jest w stanie manipulować, za pomocą zmiennych. Następnie tworzone jest równanie matematyczne opisujące system firmy. Takie równanie nosi nazwę funkcji celu. By właściwie zoptymalizować proces należy znaleźć, w zależności co poddane jest optymalizacji, minimum bądź maksimum globalne takiej funkcji. Obliczanie minimalnej bądź maksymalnej wartości funkcji, zależnej od wielu zmiennych w pożądanym czasie, nie jest zadaniem łatwym. Istnieją specjalne algorytmy do rozwiązywania zadań tego typu. Niniejsza praca została napisana by przedstawić jeden z takich algorytmów -- Harmony Search. Wpierw w rozdziale \ref{sec:opis} został przedstawiony opis tego algorytmu. Rozdział \ref{sec:implementacja} przedstawia implementacje Harmony Search w programie komputerowym. (...)
@@ -98,13 +126,44 @@ Pierwszy z parametrów {\tt HMS} ({\em ang. harmony memory size}) reguluje iloś
 \label{subsubsec:rozwiazania}
 Po prawej stronie okna głównego można dostrzec najlepsze rozwiązania wyszukane przez program. Gdy znajdowane jest rozwiązanie lepsze od najlepszego rozwiązania zapamiętanego w {\tt HMS} dodawane jest ono jako pierwszy wiersz w tabeli. Poprzednie rozwiązania przesuwane są o jedno miejsce niżej. Pozwala to śledzić jaka wartości jest aktualnie największa oraz od razu ukazuje się obok numer iteracji tego rozwiązania. Gdy algorytm długo oblicza najlepszy wynik okno pozwala śledzić postęp obliczeń. Dodatkowo po wykonaniu wszystkich iteracji zostaje wyświetlony komunikat z najlepszym rozwiązaniem (pierwszym od góry), co przedstawia rysunek \ref{fig:3}.
 
+\subsection{Pliki}
+\label{subsec:pliki}
+Program był pisany w środowisku programistycznym {\em IntelliJ IDEA}. Jak wcześniej wspomniano do stworzenia GUI programu użyto technologii {\em JavaFx} umożliwiającej tworzenie aplikacji okienkowych. Dodatkowo by ułatwić zarządzanie bibliotekami wewnątrz programu użyto wsparcia ze strony {\em Maven}. Główny kod programu został umieszczony katalogu {\tt src}. Katalog zawiera w sobie dwa inne katalogi {\tt resourses} oraz {\tt java}. Katalog {\tt resourses} posiada jeden folder w którym umieszczony jest plik {\tt main.fxml} odpowiedzialny GUI programu. W tym pliku zapisane są informacje o ułożeniu i wielkości elementów, które widzi użytkownik. Można powiedzieć że plik odpowiada za foreground programu. \\
+Cała background programu czyli jego mechanika jest umieszczona w folderze {\tt java}. Posiada on dwa podfoldery {\tt org.jzy3d} oraz {\tt com.blag.harmonysearch}. Pierwszy katalog odpowiedzialny jest za generowanie wykresów w oknie opisywanym w rozdziale \ref{subsubsec:wykres}. Są to pliki zewnętrzne pobrane ze strony \cite{bib:jzy3d}. Katalog {\tt com.blag.harmonysearch} zawiera cztery foldery. Każdy z nich posiada pliki napisane na potrzeby tego projektu. Dla czytelności opisu zostaną one przedstawione jako kolejne podrozdziały.
+
+\newline \newline
+\begin{forest}
+	for tree={font=\sffamily, grow'=0, folder icons, edge=densely dotted}
+	[/src/VIDEO/
+	[ \ \ \ 17-11-26, this folder size=25pt
+	[ \ \ CAM1, this folder size=18pt
+	[17-11-27\_19.00.00.h264, is file]
+	[17-11-27\_19.00.00.h264, is file]]]
+	[ \ \ \ 17-11-25, this folder size=25pt]
+	[ \ \ \ 17-11-25, this folder size=25pt]
+	]
+\end{forest}
+\newline
+
+\subsubsection{Katalog contants}
+\ref{subsubsec:contants}
+
+\subsubsection{Katalog core}
+\ref{subsubsec:core}
+
+\subsubsection{Katalog gui}
+\ref{subsubsec:gui}
+
+\subsubsection{Katalog helpers}
+\ref{subsubsec:helpers}
+
 \section{Przykładowe rozwiązania}
 \label{sec:przyklady}
 W tej części zostały przedstawione trzy przykłady funkcji dwóch zmiennych {\em $x_{1}$} i {\em $x_{2}$} wraz z obliczonymi rozwiązaniami. 
 
 \subsection{Funkcja czterech minimum}
 \label{subsec:fcn4min}
-Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Posiada ona następujący wzór: $$f(x) = x_{1}^{4}+x_{2}^{4}-0,62x_{1}^{2}-0,62x_{2}^{2} $$ Na przykładzie tej funkcji zostało również omówione GUI programu w rozdziale \ref{subsec:gui}. Rysunek \ref{fig:4} prezentuje wykres funkcji wraz z najlepszą wartością. Dokładną wartość można odczytać po prawej stronie i jest to 4993 iteracja równa $f(0.5560,0.5635) = -0.1914$. Poniżej zaprezentowany jest wykres funkcji. 
+Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Posiada ona następujący wzór: $$f(x) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2} $$ Na przykładzie tej funkcji zostało również omówione GUI programu w rozdziale \ref{subsec:gui}. Rysunek \ref{fig:4} prezentuje wykres funkcji wraz z najlepszą wartością. Dokładną wartość można odczytać po prawej stronie i jest to 4993 iteracja równa $f(0.5560,0.5635) = -0.1914$. Poniżej zaprezentowany jest wykres funkcji. 
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.90\textwidth]{images/3.PNG}
