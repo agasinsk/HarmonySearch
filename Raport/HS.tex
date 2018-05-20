@@ -14,20 +14,14 @@
 \documentclass[10pt, a4paper]{article}
 \usepackage{listings}
 
-\usepackage{indentfirst}
-\usepackage{graphicx}
-\usepackage{verbatim}
 \usepackage[edges]{forest}
-\usepackage{url}
-\usepackage{hyperref}
-
-\definecolor{foldercolor}{RGB}{124,166,198}
+\definecolor{foldercolor}{RGB}{200,200,200}
 \tikzset{pics/folder/.style={code={%
 			\node[inner sep=0pt, minimum size=#1](-foldericon){};
-			\node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.05*#1] at (-foldericon.west){};
+			\node[folder style, inner sep=0pt, minimum width=0.3*#1, minimum height=0.6*#1, above right, xshift=0.1*#1] at (-foldericon.west){};
 			\node[folder style, inner sep=0pt, minimum size=#1] at (-foldericon.center){};}
 	},
-	pics/folder/.default={20pt},
+	pics/folder/.default={10pt},
 	folder style/.style={draw=foldercolor!80!black,top color=foldercolor!40,bottom color=foldercolor}
 }
 \forestset{is file/.style={edge path'/.expanded={%
@@ -39,7 +33,6 @@
 	folder icons/.style={folder, this folder size=#1, folder tree indent=3*#1},
 	folder icons/.default={12pt},
 }
-
 
 \include{preambula}
 \begin{document}
@@ -67,25 +60,17 @@
 \tableofcontents
 \newpage
 
-
-
-\begin{figure}[htbp]
-	\centering
-	%	\includegraphics[width=0.80\textwidth]{images/nazwa.png}
-	%	\caption{Podpis}
-	%	\label{fig:nazwa}
-\end{figure}
 \section{Wstęp}
 \label{sec:wstep}
-Większość metod optymalizacji procesów produkcyjnych czy logistycznych sprowadza się do przedstawienia zależności pomiędzy procesami, którymi firma jest w stanie manipulować, za pomocą zmiennych. Następnie tworzone jest równanie matematyczne opisujące system firmy. Takie równanie nosi nazwę funkcji celu. By właściwie zoptymalizować proces należy znaleźć, w zależności co poddane jest optymalizacji, minimum bądź maksimum globalne takiej funkcji. Obliczanie minimalnej bądź maksymalnej wartości funkcji, zależnej od wielu zmiennych w pożądanym czasie, nie jest zadaniem łatwym. Istnieją specjalne algorytmy do rozwiązywania zadań tego typu. Niniejsza praca została napisana by przedstawić jeden z takich algorytmów -- Harmony Search. Wpierw w rozdziale \ref{sec:opis} został przedstawiony opis tego algorytmu. Rozdział \ref{sec:implementacja} przedstawia implementacje Harmony Search w programie komputerowym. (...)
+Większość metod optymalizacji procesów produkcyjnych czy logistycznych sprowadza się do przedstawienia zależności pomiędzy procesami za pomocą funkcji. Pod postacią zmiennych tego równania ukazane są czynności, którymi firma jest w stanie manipulować. Takie równanie nosi nazwę funkcji celu. By właściwie zoptymalizować proces należy znaleźć, w zależności co poddane jest optymalizacji, minimum bądź maksimum globalne takiej funkcji. Obliczanie minimalnej bądź maksymalnej wartości, zależnej od wielu zmiennych w pożądanym czasie, nie jest zadaniem łatwym. Istnieją specjalne algorytmy do rozwiązywania zadań tego typu. Niniejsza praca została napisana by przedstawić jeden z takich algorytmów -- Harmony Search. Wpierw w rozdziale \ref{sec:opis} został przedstawiony opis tego algorytmu. Rozdział \ref{sec:implementacja} przedstawia szczegółowo napisany program komputerowy działający na bazie tego algorytmu. Następnie w rozdziale \ref{sec:przyklady} zostały przedstawione przykłady rozwiązań obliczonych przez program. W rozdziale \ref{sec:problemy} przedstawiono problemy z jakimi borykano się podczas tworzenia programu. Rozdziałem \ref{sec:podsumowanie} zamykającym pracę jest rozdział przedstawiający podsumowanie pracy nad algorytmem.
 
 \section{Opis działania algorytmu}
 \label{sec:opis}
-Algorytm Harmony Search został przedstawiony w 2001 przez Zong Woo Geem, Joong Hoon Kim oraz G.V. Loganathan w pracy "A New Heuristic Optimization Algorithm: Harmony Search" \cite{bib:orginal}. Inspiracją dla algorytmu było szukanie przez muzyków jazzowych podczas improwizacji najlepszych harmonii dźwięków. Umożliwia on znajdowanie minimów lokalnych funkcji wielu zmiennych. Główna zasada polega wyszukiwaniu rozwiązań na podstawie wartości wcześniej obliczonych oraz modyfikacji nowych zmiennych z określonym z góry prawdopodobieństwem. Szczegółowe przedstawianie algorytmu mija się z celem ponieważ przebieg algorytmu został przetłumaczony na język polski np. w pracy \cite{bib:tlumaczenie}. W następnym rozdziale \ref{sec:implementacja} zostanie przedstawiona szczegółowo implementacja algorytmu. 
+Algorytm Harmony Search został przedstawiony w 2001 przez Zong Woo Geem, Joong Hoon Kim oraz G.V. Loganathan w pracy "A New Heuristic Optimization Algorithm: Harmony Search" \cite{bib:orginal}. Inspiracją dla algorytmu było szukanie przez muzyków jazzowych podczas improwizacji najlepszych harmonii dźwięków. Jego matematyczny odpowiednik umożliwia on znajdowanie minimów lokalnych funkcji wielu zmiennych. Główna zasada polega wyszukiwaniu rozwiązań na podstawie wartości wcześniej obliczonych oraz modyfikacji nowych zmiennych z określonym z góry prawdopodobieństwem. Szczegółowe przedstawianie algorytmu mija się z celem ponieważ przebieg algorytmu został przetłumaczony na język polski np. w pracy \cite{bib:tlumaczenie}. Algorytm zdobył dużą popularność ponieważ w bardzo krótkim czasie właściwie wyszukuje rozwiązanie.
 
 \section{Implementacja}
 \label{sec:implementacja}
-Program do obliczania minimum funkcji na podstawie algorytmu Harmony Search został napisany w języku Java. Technologią dostarczającą GUI dla użytkownika była {\em JavaFx}. Program korzystał również z zewnętrznej biblioteki do obliczania wartości funkcji w punkcie \cite{bib:mathparser}. Wykres prezentujący najlepsze rozwiązanie zaznaczone na wykroju z przestrzeni rozwiązań funkcji został stworzony za pomocą biblioteki {\em jzy3D} \cite{bib:jzy3d}.
+Program do obliczania minimum funkcji na podstawie algorytmu Harmony Search został napisany w języku Java. Technologią dostarczającą GUI dla użytkownika była {\em JavaFx}. Korzystał on również z zewnętrznej biblioteki do obliczania wartości funkcji w punkcie \cite{bib:mathparser}. Wykres prezentujący najlepsze rozwiązanie zaznaczone na wykroju z przestrzeni rozwiązań funkcji został stworzony za pomocą biblioteki {\em jzy3D}. Poniżej zostanie szczegółowo omówiony wygląd czyli {\tt GUI} programu oraz struktura plików i katalogów.
 
 \subsection{GUI}
 \label{subsec:gui}
@@ -128,34 +113,60 @@ Po prawej stronie okna głównego można dostrzec najlepsze rozwiązania wyszuka
 
 \subsection{Pliki}
 \label{subsec:pliki}
-Program był pisany w środowisku programistycznym {\em IntelliJ IDEA}. Jak wcześniej wspomniano do stworzenia GUI programu użyto technologii {\em JavaFx} umożliwiającej tworzenie aplikacji okienkowych. Dodatkowo by ułatwić zarządzanie bibliotekami wewnątrz programu użyto wsparcia ze strony {\em Maven}. Główny kod programu został umieszczony katalogu {\tt src}. Katalog zawiera w sobie dwa inne katalogi {\tt resourses} oraz {\tt java}. Katalog {\tt resourses} posiada jeden folder w którym umieszczony jest plik {\tt main.fxml} odpowiedzialny GUI programu. W tym pliku zapisane są informacje o ułożeniu i wielkości elementów, które widzi użytkownik. Można powiedzieć że plik odpowiada za foreground programu. \\
-Cała background programu czyli jego mechanika jest umieszczona w folderze {\tt java}. Posiada on dwa podfoldery {\tt org.jzy3d} oraz {\tt com.blag.harmonysearch}. Pierwszy katalog odpowiedzialny jest za generowanie wykresów w oknie opisywanym w rozdziale \ref{subsubsec:wykres}. Są to pliki zewnętrzne pobrane ze strony \cite{bib:jzy3d}. Katalog {\tt com.blag.harmonysearch} zawiera cztery foldery. Każdy z nich posiada pliki napisane na potrzeby tego projektu. Dla czytelności opisu zostaną one przedstawione jako kolejne podrozdziały.
+Program był pisany w środowisku programistycznym {\em IntelliJ IDEA}. Jak wcześniej wspomniano do stworzenia GUI programu użyto technologii {\em JavaFx} umożliwiającej tworzenie aplikacji okienkowych. Dodatkowo by ułatwić zarządzanie bibliotekami wewnątrz programu użyto wsparcia ze strony {\em Maven}. By ułatwić zrozumienie tekstu stworzono graficzną wersję struktury plików i katalogów. Główny kod programu został umieszczony katalogu {\tt src}. Katalog zawiera w sobie dwa inne katalogi {\tt resourses} oraz {\tt java}. Katalog {\tt resourses} posiada jeden folder w którym umieszczony jest plik {\tt main.fxml} odpowiedzialny GUI programu. W tym pliku zapisane są informacje o ułożeniu i wielkości elementów, które widzi użytkownik. Można powiedzieć że plik odpowiada za foreground programu. \\
+Cała background programu czyli jego mechanika jest umieszczona w folderze {\tt java}. Posiada on dwa podfoldery {\tt org.jzy3d} oraz {\tt com.blag.harmonysearch}. Pierwszy katalog odpowiedzialny jest za generowanie wykresów w oknie opisywanym w rozdziale \ref{subsubsec:wykres}. Są to pliki zewnętrzne pobrane ze strony \cite{bib:jzy3d}. Katalog {\tt com.blag.harmonysearch} zawiera cztery foldery. Każdy z nich posiada pliki napisane na potrzeby tego projektu. Dla czytelności opisu zostaną one przedstawione jako kolejne podrozdziały. 
 
-\newline \newline
+\subsubsection{Katalog {\tt contants}}
+\label{subsubsec:contants}
+W tym katalogu zadeklarowane są tylko dwa pliki. W pliku {\tt DefaultFunctionStrings} zadeklarowano przykładowe funkcję wspominane w \ref{subsubsec:parametry}. Plik {\tt HarmonySearchConstans} odpowiada za domyślne parametry. 
+
+\subsubsection{Katalog {\tt core}}
+\label{subsubsec:core}
+W katalogu {\tt core} znajdują się najważniejsze pliki odpowiedzialne za działanie programu. Klasa {\tt ArgumentGenerationRules} jest klasą przechowującą zasady generowania argumentów. Klasa {\tt ArgumentLimit} implementuje zakres z jakiego wyszukiwane będą elementy. Główną klasą gdzie przechowywane są wartości jest klasa {\tt HarmonyMemory}. Posiada ona tablice rozwiązań, której wielkość jest regulowana z GUI programu. Klasą gdzie zadeklarowany jest główny algorytm czyli gdzie wykonywane są operacje obliczeń jest klasa {\tt HarmonySearcher}. Wylosowane rozwiązanie przekazywane jest jako lista złożona z typu {\tt Solution}. Klasa {\tt SolutionGenerator} umożliwia wygenerowanie nowych wartości {\em x} dla którego zostanie obliczone rozwiązanie. Ostatnia klasa w tym pliku {\tt SolutionValueComparator}, porównuje czy rozwiązanie dla wylosowanych {\em x} jest lepsze od rozwiązań zadeklarowanych w tablicy. 
+\\
 \begin{forest}
-	for tree={font=\sffamily, grow'=0, folder icons, edge=densely dotted}
-	[/src/VIDEO/
-	[ \ \ \ 17-11-26, this folder size=25pt
-	[ \ \ CAM1, this folder size=18pt
-	[17-11-27\_19.00.00.h264, is file]
-	[17-11-27\_19.00.00.h264, is file]]]
-	[ \ \ \ 17-11-25, this folder size=25pt]
-	[ \ \ \ 17-11-25, this folder size=25pt]
-	]
+	for tree={font=\tt, grow'=0, folder icons, edge=densely dotted}
+	[/src/main/
+	[\ \ java
+	[\ \ com.blag.harmonysearch
+	[\ \ contans
+	[     DefaultFunctionStrings, is file]
+	[     HarmonySearchConstans, is file]]
+	[\ \ core
+	[     ArgumentGenerationRules, is file]
+	[     ArgumentLimit, is file]
+	[     HarmonyMemory, is file]
+	[     HarmonySearcher, is file]
+	[     Solution, is file]
+	[     SolutionGenerator, is file]
+	[     SolutionValueComparator, is file]]
+	[\ \ gui
+	[     Controller, is file]
+	[     HarmonySearcherGui, is file]
+	[     Main, is file]
+	[     Plot, is file]
+	[     SolutionGui, is file]]
+	[\ \ helpers
+	[     ArgumentMatching, is file]
+	[     BoundedTreeSet, is file]
+	[     Extensions, is file]
+	[     FunctionStringValidator, is file]
+	[     RandomGenerator, is file]]]
+	[ \ \ org.jzy3d
+	[(...),is file]]]
+	[ \ \ resources
+	[ \ \ fxml
+	[     main.fxml, is file]]]]
 \end{forest}
 \newline
 
-\subsubsection{Katalog contants}
-\ref{subsubsec:contants}
+\subsubsection{Katalog {\tt gui}}
+\label{subsubsec:gui}
+W katalogu znajdują się klasy odpowiedzialne za kontrolowanie tego co ma wypisać bądź wyrysować się na ekranie. Katalog {\tt Controller} dostarcza bezpośrednio wartości do pliku {\tt main.fxml}. Do obliczeń pobiera wartości z klasy {\tt HarmonySearcherGui}. Klasa {\tt Main} aktywowana jest po rozpoczęciu pracy programu jako pierwsza i pobudza całość programu do działania. Wykres tworzony jest dzięki obiektowi klasy {\tt plot}, a w obiekcie klasy {\tt SolitionGui} wyświetlane są wyniki. Klasy {\tt Gui} są rozszerzeniem klas z folderu {\tt core} opisanych w \ref{subsubsec:core}.
 
-\subsubsection{Katalog core}
-\ref{subsubsec:core}
-
-\subsubsection{Katalog gui}
-\ref{subsubsec:gui}
-
-\subsubsection{Katalog helpers}
-\ref{subsubsec:helpers}
+\subsubsection{Katalog {\tt helpers}}
+\label{subsubsec:helpers}
+Katalog zawiera głównie klasy pomocne będące rozszerzeniem klas podstawowych {\em Javy}. Klasy rozwijają Listy, drzewa, generatory i wiele innych klas o funkcjonalności niezbędne do działania programu. Zostały wykorzystane jako wsparcie w implementacji w plikach z katalogu {\tt core}.
 
 \section{Przykładowe rozwiązania}
 \label{sec:przyklady}
