@@ -170,7 +170,7 @@ Katalog zawiera głównie klasy pomocne będące rozszerzeniem klas podstawowych
 
 \section{Przykładowe rozwiązania}
 \label{sec:przyklady}
-W tej części zostały przedstawione trzy przykłady funkcji dwóch zmiennych {\em $x_{1}$} i {\em $x_{2}$} wraz z obliczonymi rozwiązaniami. 
+W tej części zostały przedstawione trzy przykłady funkcji dwóch zmiennych {\em $x_{1}$} i {\em $x_{2}$} wraz z obliczonymi rozwiązaniami.
 
 \subsection{Funkcja czterech minimum}
 \label{subsec:fcn4min}
@@ -194,7 +194,7 @@ Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima loka
 
 \subsection{Funkcja sinus-cosinus z eksponentom}
 \label{subsec:sinexp}
-Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cosinusa z eksponent. Przypadek jest o tyle ciekawy, że większość wartości funkcji jest dla {\em $x_{1}, x_{2}$} jest do siebie zbliżona. Blisko jej wartość ulega dużemu odchyłowi.  Wzór funkcji przedstawiony jest jako: $$x_{1}e^{-(x_{1}^{2}+x_{2}^2)}$$. Rysunek \ref{fig:6} prezentuje działanie programu z obliczoną wartością minimalną. Jak możemy dostrzec program dobrze wyliczył jej wartość co potwierdza jego odporność na działanie funkcji, dla której większość argumentów jest stała. 
+Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cosinusa z eksponent. Przypadek jest o tyle ciekawy, że większość wartości funkcji jest dla {\em $x_{1}, x_{2}$} jest do siebie zbliżona. Blisko jej wartość ulega dużemu odchyłowi.  Wzór funkcji przedstawiony jest jako: $$f(x)=x_{1}e^{-(x_{1}^{2}+x_{2}^2)}$$. Rysunek \ref{fig:6} prezentuje działanie programu z obliczoną wartością minimalną. Jak możemy dostrzec program dobrze wyliczył jej wartość co potwierdza jego odporność na działanie funkcji, dla której większość argumentów jest stała. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.90\textwidth]{images/5.PNG}
@@ -208,12 +208,11 @@ Jednym z problemów z jakim musiał poradzić sobie program było prezentowanie 
 
 \section{Podsumowanie}
 \label{sec:podsumowanie}
-
+Program obliczający minimum funkcji wielu zmiennych według algorytmu {\em Harmony Search} działa tak jak założono na początku. Spełniły się domniemania na temat szybkości funkcji. oczywistym jest, że program najdokładniej przybliży rozwiązanie gdy zakres wartości {\em x} będzie jak najbliższy minimum funkcji. Dodatkowo gdy zmniejszymy ilość iteracji program zakończy szybciej swoje działanie, kosztem gorszego przybliżenia.
 
 \newpage
 \addcontentsline{toc}{section}{Bibilografia}
 \bibliography{bibliografia}
 \bibliographystyle{plain}
-
 \end{document}
 
