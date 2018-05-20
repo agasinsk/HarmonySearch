@@ -40,16 +40,16 @@
 \tableofcontents
 \newpage
 
+\begin{figure}[htbp]
+	\centering
+%	\includegraphics[width=0.80\textwidth]{images/nazwa.png}
+%	\caption{Podpis}
+%	\label{fig:nazwa}
+\end{figure}
+
 \section{Wstęp}
 \label{sec:wstep}
 Większość metod optymalizacji procesów produkcyjnych czy logistycznych sprowadza się do przedstawienia zależności pomiędzy procesami, którymi firma jest w stanie manipulować, za pomocą zmiennych. Następnie tworzone jest równanie matematyczne opisujące system firmy. Takie równanie nosi nazwę funkcji celu. By właściwie zoptymalizować proces należy znaleźć, w zależności co poddane jest optymalizacji, minimum bądź maksimum globalne takiej funkcji. Obliczanie minimalnej bądź maksymalnej wartości funkcji, zależnej od wielu zmiennych w pożądanym czasie, nie jest zadaniem łatwym. Istnieją specjalne algorytmy do rozwiązywania zadań tego typu. Niniejsza praca została napisana by przedstawić jeden z takich algorytmów -- Harmony Search. Wpierw w rozdziale \ref{sec:opis} został przedstawiony opis tego algorytmu. Rozdział \ref{sec:implementacja} przedstawia implementacje Harmony Search w programie komputerowym. (...)
-
-\begin{figure}[htbp]
-	\centering
-	%\includegraphics[width=0.80\textwidth]{images/nazwa.png}
-	%\caption{Podpis}
-	\label{fig:nazwa}
-\end{figure}
 
 \section{Opis działania algorytmu}
 \label{sec:opis}
@@ -58,28 +58,89 @@ Algorytm Harmony Search został przedstawiony w 2001 przez Zong Woo Geem, Joong 
 \section{Implementacja}
 \label{sec:implementacja}
 Program do obliczania minimum funkcji na podstawie algorytmu Harmony Search został napisany w języku Java. Technologią dostarczającą GUI dla użytkownika była {\em JavaFx}. Program korzystał również z zewnętrznej biblioteki do obliczania wartości funkcji w punkcie \cite{bib:mathparser}. Wykres prezentujący najlepsze rozwiązanie zaznaczone na wykroju z przestrzeni rozwiązań funkcji został stworzony za pomocą biblioteki {\em jzy3D} \cite{bib:jzy3d}.
-\subsection{GUI}
-\label{subsub:gui}
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.80\textwidth]{images/nazwa.png}
-	\caption{Podpis}
-	\label{fig:nazwa}
+\subsection{GUI}
+\label{subsec:gui}
+By ułatwić wprowadzanie funkcji do programu oraz bezproblemowo odczytywać wyniki obliczone przez program zostało stworzone GUI programu. Na rysunkach \ref{fig:1}, \ref{fig:2} i \ref{fig:3} przedstawiono etapy działania programu. Poszczególne elementy GUI podczas działania programu nie zmieniają swojego położenia. Jedynie pustych w miejscach zostają wyświetlone ich parametry, dlatego by omówić elementy posłużono się rysunkiem \ref{fig:3}, gdzie widnieje obraz programu po obliczeniach. Główne okno programu zostało podzielone pionowo na trzy części. Pierwsza część od lewej przeznaczona jest do wpisania funkcji i jej parametrów, środkowa prezentuje wykres, a część prawa w tabelce wyniki obliczeń programu. Wszystkie części zostaną szczegółowo opisane poniżej.
+\begin{figure}[h] 
+	\begin{minipage}[b]{.5\linewidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{images/1.PNG} 
+		\caption{Wpisywanie funkcji}
+		\label{fig:1}
+	\end{minipage} 
+	\begin{minipage}[b]{.5\linewidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{images/3.PNG} 
+		\caption{Wykres z zaznaczonym rozwiązaniem}
+		\label{fig:2}
+	\end{minipage}
+	\newline
+	\newline
+	\begin{minipage}[b]{1\linewidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{images/2.PNG} 
+		\caption{Obliczone rozwiązanie wraz z komunikatem}
+		\label{fig:3}
+	\end{minipage}
 \end{figure}
 
+\subsubsection{Parametry}
+\label{subsubsec:parametry}
+W części parametrów można dostrzec, że zaraz pod paskiem edycji znajduje miejsce do wpisania funkcji. Jest to ta sama funkcja której minimum należy wyznaczyć. Okno umożliwia również wybór takiej funkcji z wcześniej zadeklarowanych w programie. Dokonuje się tego klikając w rozwijane menu. Zostało to przedstawione na rysunku \ref{fig:1}. Po wybraniu funkcji automatycznie zostaną domyślnie uzupełnione wszystkie parametry obliczeń. Oczywiście możliwa jest dostosowanie algorytmu do własnych potrzeb. Poniżej okna funkcji znajduje się przycisk ,,{\tt Resetuj wartości parametrów}'' umożliwiający, jak mówi nazwa, reset do parametrów domyślnych. Poniżej przycisku zostały umieszczone po sobie cztery główne parametry algorytmu {\em Harmony Search}. \\
+Pierwszy z parametrów {\tt HMS} ({\em ang. harmony memory size}) reguluje ilość zapamiętywanych rozwiązań podczas wyszukiwania. Domyślnie rozmiar jest zadeklarowany na $20$. Poniżej znajduje się okno o nazwie {\tt iteracje}. Domyślnie jest zadeklarowana maksymalna wartość iteracji równa $10000$. W każdej iteracji programu algorytm wyszukuje nowe rozwiązanie i sprawdza je z tymi zapisanymi w {\tt HMS}. Czym większa ilość iteracji tym algorytm powinien obliczać dokładniejsze rozwiązanie, kosztem wydłużonego czasu obliczeń. Następnie pod polem {\tt iteracje} znajduje się pole {\tt HMCR} ({\em ang. harmony memory consideration ratio}). Tłumaczenie określa go jako współczynnik wyboru tonu z pamięci. Jest to współczynnik prawdopodobieństwa wybierany z zakresu $(0, 1)$. Czym {\tt HMCR} jest większe tym wyszukiwane wartości {\em x} następnych rozwiązań będą zbliżone do tych istniejących już w tablicy {\tt HMS}. Poniżej znajduje się drugi parametr prawdopodobieństwa dla funkcji o nazwie {\tt PAR} {\em(ang. pitch adjustment ratio)} tłumaczony jako współczynnik dostosowywania tonu. Wybierany jest również z zakresu $(0, 1)$. Na samym dole kolumny znajduje się tabela {\tt Przedziały losowania argumentów}. W tabeli deklarowany jest przedziały wszystkich wartości {\em x} dla których ma być poszukiwane rozwiązanie. Domyślnie parametry dla wszystkich {\em x} brane są z przedziału $(-10, 10)$. Algorytm z dużą dokładnością znajdzie najmniejsze minimum lokalne dla funkcji z podanego przedziału. Po wybraniu wszystkich parametrów można przystąpić do uruchomienia algorytmu przyciskiem {\tt Start} znajdującym się na na dole kolumny.
+
+\subsubsection{Wykres}
+\label{subsubsec:wykres}
+Środkowy obszar okna głównego przeznaczony jest do wyświetlania wykresu funkcji. Jak wspomniane zostało na początku rozdziału \ref{sec:implementacja}, do rysowania wykresów została użyta zewnętrzna biblioteka {\em jzy3D}. Umożliwia ona tworzenie wykresów dwu i trzy wymiarowych.  Wykresy można obracać w dowolny sposób. Oś {\em X} i {\em Y} wykresu wyskalowana jest do najmniejszego i największego parametru wszystkich wartość {\em x}. Dodatkowo wartości zostały pokolorowane w tak, że mniejsze wartości funkcji mają kolory zimniejsze, a wyższe kolory cieplejsze, analogicznie do tego jak przedstawia się wysokość n.p.m. w kartografii. Dodatkowo czarną kropką zaznaczona została najmniejsza obliczona wartość funkcji. 
+
+\subsubsection{Tabela Rozwiązań}
+\label{subsubsec:rozwiazania}
+Po prawej stronie okna głównego można dostrzec najlepsze rozwiązania wyszukane przez program. Gdy znajdowane jest rozwiązanie lepsze od najlepszego rozwiązania zapamiętanego w {\tt HMS} dodawane jest ono jako pierwszy wiersz w tabeli. Poprzednie rozwiązania przesuwane są o jedno miejsce niżej. Pozwala to śledzić jaka wartości jest aktualnie największa oraz od razu ukazuje się obok numer iteracji tego rozwiązania. Gdy algorytm długo oblicza najlepszy wynik okno pozwala śledzić postęp obliczeń. Dodatkowo po wykonaniu wszystkich iteracji zostaje wyświetlony komunikat z najlepszym rozwiązaniem (pierwszym od góry), co przedstawia rysunek \ref{fig:3}.
 
 \section{Przykładowe rozwiązania}
 \label{sec:przyklady}
+W tej części zostały przedstawione trzy przykłady funkcji dwóch zmiennych {\em $x_{1}$} i {\em $x_{2}$} wraz z obliczonymi rozwiązaniami. 
+
+\subsection{Funkcja czterech minimum}
+\label{subsec:fcn4min}
+Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Posiada ona następujący wzór: $$f(x) = x_{1}^{4}+x_{2}^{4}-0,62x_{1}^{2}-0,62x_{2}^{2} $$ Na przykładzie tej funkcji zostało również omówione GUI programu w rozdziale \ref{subsec:gui}. Rysunek \ref{fig:4} prezentuje wykres funkcji wraz z najlepszą wartością. Dokładną wartość można odczytać po prawej stronie i jest to 4993 iteracja równa $f(0.5560,0.5635) = -0.1914$. Poniżej zaprezentowany jest wykres funkcji. 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.90\textwidth]{images/3.PNG}
+		\caption{Wykres funkcji czterech minimum}
+		\label{fig:4}
+\end{figure}
+
+\subsection{Funkcja Himmelblau}
+\label{subsec:himmelblau}
+Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima lokalne zlokalizowane po jednym w każdej ćwiartce na przedziale $x_{1,2} \in (-5,5)$. Funkcja posiada wzór: $$ f)x) = (x_{1}^{2}+x_{2}-11)^{2}+(x_{1}+x_{2}^{2}-7)^{2}-200$$. Dla pokazania, że funkcja wyszukuje rozwiązania z innego przedziału jak domyślny ograniczono się do przedziału z pierwszej ćwiartki $x_{1}, x_{2} \in (0,10)$. Na wykresie \ref{fig:5} zaprezentowany został wykres funkcji wraz z naniesionym najlepszym rozwiązaniem. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.90\textwidth]{images/4.PNG}
+	\caption{Wykres funkcji Himmelblau}
+	\label{fig:5}
+\end{figure}
+
+\subsection{Funkcja sinus-cosinus z eksponentom}
+\label{subsec:sinexp}
+Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cosinusa z eksponent. Przypadek jest o tyle ciekawy, że większość wartości funkcji jest dla {\em $x_{1}, x_{2}$} jest do siebie zbliżona. Blisko jej wartość ulega dużemu odchyłowi.  Wzór funkcji przedstawiony jest jako: $$x_{1}e^{-(x_{1}^{2}+x_{2}^2)}$$. Rysunek \ref{fig:6} prezentuje działanie programu z obliczoną wartością minimalną. Jak możemy dostrzec program dobrze wyliczył jej wartość co potwierdza jego odporność na działanie funkcji, dla której większość argumentów jest stała. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.90\textwidth]{images/5.PNG}
+	\caption{Wykres funkcji sinusa-cosinusa z eksponentom}
+	\label{fig:6}
+\end{figure}
 
 \section{Problemy podczas pracy}
 \label{sec:problemy}
+Jednym z problemów z jakim musiał poradzić sobie program było prezentowanie danych. Algorytm jest zdolny do obliczania funkcji wielu zmiennych dla {\em $x_{n} , n \in N$}. Prezentowanie zmiennych w tabelach jest rzeczą dającą się w prosty sposób rozwinąć. Jednak rysowanie wykresu dla $n \leq 2$ ilości zmiennych nie jest możliwy. Najładniejsze wykresy powstają dla $n = 2$ dlatego funkcje o dwóch zmiennych zostały przedstawione w rozdziale \ref{sec:przyklady}. \\
 
 \section{Podsumowanie}
 \label{sec:podsumowanie}
 
-\newpage
 
+\newpage
 \addcontentsline{toc}{section}{Bibilografia}
 \bibliography{bibliografia}
 \bibliographystyle{plain}

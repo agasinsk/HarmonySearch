@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.5.15)  17 MAY 2018 17:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.5.15)  20 MAY 2018 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -871,7 +871,16 @@ Non-PDF special ignored!
 
 
 {d:/Programy/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./HS.toc)
+(./HS.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+ (d:/Programy/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+
+(d:/Programy/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write5
 \openout5 = `HS.toc'.
 
@@ -880,45 +889,145 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \newpage
-              [1] [2] (./HS.bbl
+              [1]
+<images/1.PNG, id=102, 974.89218pt x 632.3625pt>
+File: images/1.PNG Graphic file (type png)
+<use images/1.PNG>
+Package pdftex.def Info: images/1.PNG  used on input line 68.
+(pdftex.def)             Requested size: 182.09833pt x 118.11417pt.
+<images/3.PNG, id=103, 972.63374pt x 628.59843pt>
+File: images/3.PNG Graphic file (type png)
+<use images/3.PNG>
+Package pdftex.def Info: images/3.PNG  used on input line 74.
+(pdftex.def)             Requested size: 182.09833pt x 117.67967pt.
+<images/2.PNG, id=105, 972.63374pt x 630.10406pt>
+File: images/2.PNG Graphic file (type png)
+<use images/2.PNG>
+Package pdftex.def Info: images/2.PNG  used on input line 82.
+(pdftex.def)             Requested size: 409.71692pt x 265.42068pt.
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 66--86
+[][] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--86
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 90.
+(d:/Programy/texlive/2018/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [2] [3pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.96 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.2
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.96 
+     pdfTeX warning (ext4): destination with the same identifier (name{figure.3
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.96 
+      <./images/1.PNG> <./images/3.PNG> <./images/2.PNG>]
+File: images/3.PNG Graphic file (type png)
+<use images/3.PNG>
+Package pdftex.def Info: images/3.PNG  used on input line 110.
+(pdftex.def)             Requested size: 409.71692pt x 264.78645pt.
+ [4pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.117 ...2}-11)^{2}+(x_{1}+x_{2}^{2}-7)^{2}-200$$.
+                                                   Dla pokazania, że funkcj...
+]
+<images/4.PNG, id=142, 978.65625pt x 636.12656pt>
+File: images/4.PNG Graphic file (type png)
+<use images/4.PNG>
+Package pdftex.def Info: images/4.PNG  used on input line 120.
+(pdftex.def)             Requested size: 409.71692pt x 266.31715pt.
+<images/5.PNG, id=144, 977.15062pt x 634.62094pt>
+File: images/5.PNG Graphic file (type png)
+<use images/5.PNG>
+Package pdftex.def Info: images/5.PNG  used on input line 130.
+(pdftex.def)             Requested size: 409.71692pt x 266.09354pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+
+ []
+
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.143 \newpage
+               <./images/4.PNG>] (./HS.bbl
 Overfull \hbox (49.39209pt too wide) in paragraph at lines 12--17
 []\T1/cmr/m/n/10 Mariusz Gro-mada.  Ma-th-par-ser.  https://mvnrepository.com/a
 rtifact/org.mariuszgromada.math/MathParser.org-
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
- [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
+ [6pdfTeX warning (ext4): destination with the same identifier (name{figure.6})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.148 \end{document}
+                     <./images/5.PNG>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
  (./HS.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `HS.out' has not changed.
-(rerunfilecheck)             Checksum: 3CACA397EAB59646BCC6421BF179C601;883.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 77.
+(rerunfilecheck)             Checksum: C5E2E95DD850578A25C849D775029629;1899.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 148.
  ) 
 Here is how much of TeX's memory you used:
- 13660 strings out of 492649
- 187897 string characters out of 6129127
- 333479 words of memory out of 5000000
- 17324 multiletter control sequences out of 15000+600000
- 12418 words of font info for 26 fonts, out of 8000000 for 9000
+ 13773 strings out of 492649
+ 189881 string characters out of 6129127
+ 341479 words of memory out of 5000000
+ 17395 multiletter control sequences out of 15000+600000
+ 15892 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,5n,42p,986b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,9n,42p,1735b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/Programy/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
-}<d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb>
-<d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><
-d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><d
-:/Programy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><d:
-/Programy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><d:/
-Programy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><d:/P
-rogramy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><d:/Pr
-ogramy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/Pro
-gramy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on HS.pdf (4 pages, 153516 bytes).
+}<d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+><d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
+<d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:
+/Programy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/P
+rogramy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/P
+rogramy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/Pr
+ogramy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><d:/Pro
+gramy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><d:/Prog
+ramy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/Progr
+amy/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><d:/Progra
+my/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><d:/Program
+y/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><d:/Programy
+/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb><d:/Programy/
+texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><d:/Programy/t
+exlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/Programy/te
+xlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><d:/Programy/tex
+live/2018/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><d:/Programy/texl
+ive/2018/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on HS.pdf (7 pages, 636854 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 234 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
