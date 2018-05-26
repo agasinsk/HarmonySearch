@@ -52,7 +52,7 @@
                 <AnchorPane prefHeight="551.0" prefWidth="246.0">
                     <children>
                         <Label alignment="CENTER" layoutX="93.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0"
-                               style="&#10;" text="Harmony Search" textAlignment="CENTER" wrapText="false">
+                               style="&#10;" text="Parametry" textAlignment="CENTER" wrapText="false">
                             <font>
                                 <Font size="18.0" fx:id="x1"/>
                             </font>
@@ -118,7 +118,12 @@
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                     <content>
-                        <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="751.0" prefWidth="603.0">
+                        <AnchorPane id="plot" minHeight="-1.0" minWidth="-1.0" prefHeight="751.0" prefWidth="603.0">
+                            <Label alignment="CENTER" layoutX="93.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0"
+                                   style="&#10;" text="Wykres funkcji" textAlignment="CENTER" wrapText="false">
+                                <font><Font size="18.0"/></font>
+                                <textFill><Color blue="0.624" green="0.624" red="0.624" /></textFill>
+                            </Label>
                             <children>
                                 <StackPane fx:id="stackPanePlot" alignment="CENTER" layoutX="14.0" layoutY="14.0"
                                            prefHeight="751.0" prefWidth="613.0" AnchorPane.bottomAnchor="0.0"
