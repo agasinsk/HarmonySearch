@@ -18,7 +18,7 @@
 \contentsline {subsubsection}{\numberline {4.2.1}Zmiana zakresu dla argument\IeC {\'o}w}{9}{subsubsection.4.2.1}
 \contentsline {subsection}{\numberline {4.3}Funkcja Himmelblau}{10}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Funkcja trzech zmiennych}{10}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Funkcja ceny z\IeC {\l }ota}{10}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.5}Funkcja ceny z\IeC {\l }ota}{11}{subsection.4.5}
 \contentsline {subsection}{\numberline {4.6}Dwuwymiarowa funkcja sinusoidalna}{11}{subsection.4.6}
 \contentsline {subsection}{\numberline {4.7}Dwuwymiarowa funkcja sinusoidalna z eksponentom}{11}{subsection.4.7}
 \contentsline {subsection}{\numberline {4.8}Podsumowanie test\IeC {\'o}w}{12}{subsection.4.8}
