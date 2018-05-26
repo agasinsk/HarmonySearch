@@ -1,5 +1,9 @@
 \begin{thebibliography}{1}
 
+\bibitem{bib:goldstein}
+Virtual library of simulation experiments.
+\newblock https://www.sfu.ca/~ssurjano/goldpr.html.
+
 \bibitem{bib:jzy3d}
 Jzy3d.
 \newblock http://www.jzy3d.org/, 2016.
