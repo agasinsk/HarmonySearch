@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.5.15)  26 MAY 2018 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.5.15)  27 MAY 2018 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1521,19 +1521,14 @@ Non-PDF special ignored!
 
 {d:/Programy/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./HS.toc
-LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 7.
  (d:/Programy/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+LaTeX Font Info:    Try loading font information for U+msb on input line 7.
 
 (d:/Programy/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 10.
-
-(d:/Programy/texlive/2018/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ))
 \tf@toc=\write7
 \openout7 = `HS.toc'.
@@ -1544,39 +1539,38 @@ been already used, duplicate ignored
                    \relax 
 l.41 \newpage
               [1]
-
-LaTeX Warning: Reference `sec:podsumowanie' on page 2 undefined on input line 4
-7.
-
-[2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) 
-has been already used, duplicate ignored
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 51.
+ (d:/Programy/texlive/2018/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+) [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1}
+) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.70 
+l.72 
      ]
-<images/1.PNG, id=183, 972.63374pt x 630.10406pt>
+<images/1.PNG, id=152, 972.63374pt x 630.10406pt>
 File: images/1.PNG Graphic file (type png)
 <use images/1.PNG>
-Package pdftex.def Info: images/1.PNG  used on input line 77.
+Package pdftex.def Info: images/1.PNG  used on input line 79.
 (pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/3.PNG, id=184, 972.63374pt x 630.10406pt>
+<images/3.PNG, id=153, 972.63374pt x 630.10406pt>
 File: images/3.PNG Graphic file (type png)
 <use images/3.PNG>
-Package pdftex.def Info: images/3.PNG  used on input line 83.
+Package pdftex.def Info: images/3.PNG  used on input line 85.
 (pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/2.PNG, id=185, 971.12813pt x 628.59843pt>
+<images/2.PNG, id=154, 971.12813pt x 628.59843pt>
 File: images/2.PNG Graphic file (type png)
 <use images/2.PNG>
-Package pdftex.def Info: images/2.PNG  used on input line 91.
+Package pdftex.def Info: images/2.PNG  used on input line 93.
 (pdftex.def)             Requested size: 409.71692pt x 265.1989pt.
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 75--95
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 77--97
 [][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--95
+Underfull \hbox (badness 10000) in paragraph at lines 77--97
 
  []
 
@@ -1585,174 +1579,154 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.101 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-3}) has been already used, duplicate ignored
+l.99 \section
+             {Parametry}pdfTeX warning (ext4): destination with the same identi
+fier (name{figure.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.101 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-4}) has been already used, duplicate ignored
+l.99 \section
+             {Parametry}pdfTeX warning (ext4): destination with the same identi
+fier (name{figure.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.101 
-       <./images/1.PNG> <./images/3.PNG> <./images/2.PNG>] [4]
-Underfull \hbox (badness 2980) in paragraph at lines 121--158
-\T1/cmtt/m/n/10 ArgumentGenerationRules \T1/cmr/m/n/10 jest klas� prze-cho-wu-j
-�c� za-sady ge-ne-ro-wa-nia ar-gu-men-t�w. Klasa
- []
+l.99 \section
+             {Parametry} <./images/1.PNG> <./images/3.PNG> <./images/2.PNG>]
 
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 104.
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--158
-
- []
-
-[5] [6]
-<images/11.PNG, id=218, 972.63374pt x 630.10406pt>
+<images/11.PNG, id=167, 972.63374pt x 630.10406pt>
 File: images/11.PNG Graphic file (type png)
 <use images/11.PNG>
-Package pdftex.def Info: images/11.PNG  used on input line 176.
+Package pdftex.def Info: images/11.PNG  used on input line 121.
 (pdftex.def)             Requested size: 409.71692pt x 265.42068pt.
-<images/12.PNG, id=220, 972.63374pt x 630.10406pt>
-File: images/12.PNG Graphic file (type png)
-<use images/12.PNG>
-Package pdftex.def Info: images/12.PNG  used on input line 186.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/17.PNG, id=221, 972.63374pt x 630.10406pt>
-File: images/17.PNG Graphic file (type png)
-<use images/17.PNG>
-Package pdftex.def Info: images/17.PNG  used on input line 191.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/16.PNG, id=222, 972.63374pt x 630.10406pt>
+[4]
+<images/16.PNG, id=175, 972.63374pt x 630.10406pt>
 File: images/16.PNG Graphic file (type png)
 <use images/16.PNG>
-Package pdftex.def Info: images/16.PNG  used on input line 197.
+Package pdftex.def Info: images/16.PNG  used on input line 132.
 (pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/14.PNG, id=223, 972.63374pt x 630.10406pt>
+<images/12.PNG, id=176, 972.63374pt x 630.10406pt>
+File: images/12.PNG Graphic file (type png)
+<use images/12.PNG>
+Package pdftex.def Info: images/12.PNG  used on input line 137.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+<images/14.PNG, id=177, 972.63374pt x 630.10406pt>
 File: images/14.PNG Graphic file (type png)
 <use images/14.PNG>
-Package pdftex.def Info: images/14.PNG  used on input line 202.
+Package pdftex.def Info: images/14.PNG  used on input line 143.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+<images/17.PNG, id=178, 972.63374pt x 630.10406pt>
+File: images/17.PNG Graphic file (type png)
+<use images/17.PNG>
+Package pdftex.def Info: images/17.PNG  used on input line 148.
 (pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 184--206
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 130--152
 [][] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 184--206
+Underfull \hbox (badness 10000) in paragraph at lines 130--152
 
  []
 
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 184--206
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 130--152
 [] []
  []
 
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
+<images/21.PNG, id=180, 972.63374pt x 630.10406pt>
+File: images/21.PNG Graphic file (type png)
+<use images/21.PNG>
+Package pdftex.def Info: images/21.PNG  used on input line 160.
+(pdftex.def)             Requested size: 409.71692pt x 265.42068pt.
+<images/22.PNG, id=181, 972.63374pt x 630.10406pt>
+File: images/22.PNG Graphic file (type png)
+<use images/22.PNG>
+Package pdftex.def Info: images/22.PNG  used on input line 171.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+<images/23.PNG, id=182, 972.63374pt x 630.10406pt>
+File: images/23.PNG Graphic file (type png)
+<use images/23.PNG>
+Package pdftex.def Info: images/23.PNG  used on input line 175.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 169--178
+[][] []
+ []
+
+
+LaTeX Warning: Reference `fig:5' on page 5 undefined on input line 183.
+
+<images/31.PNG, id=184, 1296.845pt x 840.13875pt>
+File: images/31.PNG Graphic file (type png)
+<use images/31.PNG>
+Package pdftex.def Info: images/31.PNG  used on input line 187.
+(pdftex.def)             Requested size: 227.62206pt x 147.46234pt.
+<images/32.PNG, id=185, 972.63374pt x 630.10406pt>
+File: images/32.PNG Graphic file (type png)
+<use images/32.PNG>
+Package pdftex.def Info: images/32.PNG  used on input line 191.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 185--194
+[][] []
+ []
+
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 ...+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$.
-                                                   Początkowo zakres dla ar...
- <./images/11.PNG>] [8pdfTeX warning (ext4): destination with the same identifi
-er (name{figure.6}) has been already used, duplicate ignored
+l.196 
+       <./images/11.PNG>] [6pdfTeX warning (ext4): destination with the same id
+entifier (name{figure.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 ...+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$.
-                                                   Początkowo zakres dla ar...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
-s been already used, duplicate ignored
+l.196 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+7}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 ...+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$.
-                                                   Początkowo zakres dla ar...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
-s been already used, duplicate ignored
+l.196 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 ...+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$.
-                                                   Początkowo zakres dla ar...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
-s been already used, duplicate ignored
+l.196 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 ...+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$.
-                                                   Początkowo zakres dla ar...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
-as been already used, duplicate ignored
+l.196 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+10}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.211 ...+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$.
-                                                   Początkowo zakres dla ar...
- <./images/12.PNG> <./images/17.PNG> <./images/16.PNG> <./images/14.PNG>]
-<images/21.PNG, id=239, 972.63374pt x 630.10406pt>
-File: images/21.PNG Graphic file (type png)
-<use images/21.PNG>
-Package pdftex.def Info: images/21.PNG  used on input line 214.
-(pdftex.def)             Requested size: 409.71692pt x 265.42068pt.
-<images/22.PNG, id=240, 972.63374pt x 630.10406pt>
-File: images/22.PNG Graphic file (type png)
-<use images/22.PNG>
-Package pdftex.def Info: images/22.PNG  used on input line 225.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/23.PNG, id=241, 972.63374pt x 630.10406pt>
-File: images/23.PNG Graphic file (type png)
-<use images/23.PNG>
-Package pdftex.def Info: images/23.PNG  used on input line 229.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 223--232
-[][] []
- []
-
-[9pdfTeX warning (ext4): destination with the same identifier (name{figure.11})
+l.196 
+       <./images/16.PNG> <./images/12.PNG> <./images/14.PNG> <./images/17.PNG>]
+[7pdfTeX warning (ext4): destination with the same identifier (name{figure.11})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.237 ...2}-11)^{2}+(x_{1}+x_{2}^{2}-7)^{2}-200$$.
-                                                   Dla pokazania, że funkcj...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
-as been already used, duplicate ignored
+l.196 
+      pdfTeX warning (ext4): destination with the same identifier (name{figure.
+12}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.237 ...2}-11)^{2}+(x_{1}+x_{2}^{2}-7)^{2}-200$$.
-                                                   Dla pokazania, że funkcj...
- <./images/21.PNG> <./images/22.PNG> <./images/23.PNG>]
-
-LaTeX Warning: Reference `fig:5' on page 10 undefined on input line 237.
-
-<images/31.PNG, id=249, 1296.845pt x 840.13875pt>
-File: images/31.PNG Graphic file (type png)
-<use images/31.PNG>
-Package pdftex.def Info: images/31.PNG  used on input line 241.
-(pdftex.def)             Requested size: 227.62206pt x 147.46234pt.
-<images/32.PNG, id=250, 972.63374pt x 630.10406pt>
-File: images/32.PNG Graphic file (type png)
-<use images/32.PNG>
-Package pdftex.def Info: images/32.PNG  used on input line 245.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 239--248
-[][] []
- []
-
-<images/41.PNG, id=252, 972.63374pt x 630.10406pt>
-File: images/41.PNG Graphic file (type png)
-<use images/41.PNG>
-Package pdftex.def Info: images/41.PNG  used on input line 256.
-(pdftex.def)             Requested size: 273.14923pt x 176.94711pt.
-
-Overfull \hbox (82.21535pt too wide) detected at line 263
+l.196 
+       <./images/21.PNG> <./images/22.PNG> <./images/23.PNG>]
+Overfull \hbox (82.21535pt too wide) detected at line 201
 \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; x[]\OT1/cmr/m/n/10 ) =
  (1 + (\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 x[] \OT1/cmr/m/n
 /10 + 1)[] \OMS/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (19 \OMS/cmsy/m/n/10 ^^@ \OT1/c
@@ -1767,124 +1741,135 @@ S/cmsy/m/n/10 ^^C \OT1/cmr/m/n/10 (30 + (2\OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10
 /m/n/10 + 27\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ))
  []
 
-[10pdfTeX warning (ext4): destination with the same identifier (name{figure.13}
-) has been already used, duplicate ignored
+<images/71.PNG, id=210, 972.63374pt x 630.10406pt>
+File: images/71.PNG Graphic file (type png)
+<use images/71.PNG>
+Package pdftex.def Info: images/71.PNG  used on input line 205.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+<images/72.PNG, id=211, 972.63374pt x 630.10406pt>
+File: images/72.PNG Graphic file (type png)
+<use images/72.PNG>
+Package pdftex.def Info: images/72.PNG  used on input line 211.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 203--215
+[][] [] 
+ []
+
+<images/81.PNG, id=213, 972.63374pt x 630.10406pt>
+File: images/81.PNG Graphic file (type png)
+<use images/81.PNG>
+Package pdftex.def Info: images/81.PNG  used on input line 223.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+<images/82.PNG, id=214, 972.63374pt x 630.10406pt>
+File: images/82.PNG Graphic file (type png)
+<use images/82.PNG>
+Package pdftex.def Info: images/82.PNG  used on input line 227.
+(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 221--230
+[][] []
+ []
+
+[8pdfTeX warning (ext4): destination with the same identifier (name{figure.13})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.263 ...{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2))$$.
-                                                   Wpierw na rysunku \ref{fi...
+l.235 ...Wzór funkcji przedstawiony jest jako: $$
+                                                  f(x)=x_{1}e^{-(x_{1}^{2}+x...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.263 ...{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2))$$.
-                                                   Wpierw na rysunku \ref{fi...
- <./images/31.PNG (PNG copy)> <./images/32.PNG> <./images/41.PNG>]
-<images/71.PNG, id=262, 972.63374pt x 630.10406pt>
-File: images/71.PNG Graphic file (type png)
-<use images/71.PNG>
-Package pdftex.def Info: images/71.PNG  used on input line 267.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/72.PNG, id=263, 972.63374pt x 630.10406pt>
-File: images/72.PNG Graphic file (type png)
-<use images/72.PNG>
-Package pdftex.def Info: images/72.PNG  used on input line 273.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
+l.235 ...Wzór funkcji przedstawiony jest jako: $$
+                                                  f(x)=x_{1}e^{-(x_{1}^{2}+x...
+pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) h
+as been already used, duplicate ignored
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 265--277
-[][] [] 
- []
-
-<images/81.PNG, id=265, 972.63374pt x 630.10406pt>
-File: images/81.PNG Graphic file (type png)
-<use images/81.PNG>
-Package pdftex.def Info: images/81.PNG  used on input line 285.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/82.PNG, id=266, 972.63374pt x 630.10406pt>
-File: images/82.PNG Graphic file (type png)
-<use images/82.PNG>
-Package pdftex.def Info: images/82.PNG  used on input line 289.
-(pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 283--292
-[][] []
- []
-
-<images/91.PNG, id=268, 972.63374pt x 630.10406pt>
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.235 ...Wzór funkcji przedstawiony jest jako: $$
+                                                  f(x)=x_{1}e^{-(x_{1}^{2}+x...
+ <./images/31.PNG (PNG copy)> <./images/32.PNG> <./images/71.PNG> <./images/72.
+PNG>]
+<images/91.PNG, id=226, 972.63374pt x 630.10406pt>
 File: images/91.PNG Graphic file (type png)
 <use images/91.PNG>
-Package pdftex.def Info: images/91.PNG  used on input line 301.
+Package pdftex.def Info: images/91.PNG  used on input line 239.
 (pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
-<images/92.PNG, id=269, 972.63374pt x 630.10406pt>
+<images/92.PNG, id=227, 972.63374pt x 630.10406pt>
 File: images/92.PNG Graphic file (type png)
 <use images/92.PNG>
-Package pdftex.def Info: images/92.PNG  used on input line 305.
+Package pdftex.def Info: images/92.PNG  used on input line 243.
 (pdftex.def)             Requested size: 227.62206pt x 147.45914pt.
 
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 299--308
+Overfull \hbox (2.22168pt too wide) in paragraph at lines 237--246
 [][] []
  []
 
-[11pdfTeX warning (ext4): destination with the same identifier (name{figure.15}
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.16})
+ has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.257 ...}-0.62x_{1}^{2}-0.62x_{2}^{2}+0.1x_{3}$$.
+                                                   Oczywistym jest, że wykr...
+pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.257 ...}-0.62x_{1}^{2}-0.62x_{2}^{2}+0.1x_{3}$$.
+                                                   Oczywistym jest, że wykr...
+ <./images/81.PNG> <./images/82.PNG> <./images/91.PNG> <./images/92.PNG>]
+<images/41.PNG, id=236, 972.63374pt x 630.10406pt>
+File: images/41.PNG Graphic file (type png)
+<use images/41.PNG>
+Package pdftex.def Info: images/41.PNG  used on input line 260.
+(pdftex.def)             Requested size: 273.14923pt x 176.94711pt.
+
+[10pdfTeX warning (ext4): destination with the same identifier (name{figure.18}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.310 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-16}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.310 
-      pdfTeX warning (ext4): destination with the same identifier (name{figure.
-17}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.310 
-       <./images/71.PNG> <./images/72.PNG> <./images/81.PNG> <./images/82.PNG>]
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
-[12pdfTeX warning (ext4): destination with the same identifier (name{figure.18}
-) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.323 \newpage
-               <./images/91.PNG> <./images/92.PNG>] (./HS.bbl
+l.269 \newpage
+               <./images/41.PNG>] (./HS.bbl
 Overfull \hbox (49.39209pt too wide) in paragraph at lines 16--21
 []\T1/cmr/m/n/10 Mariusz Gro-mada.  Ma-th-par-ser.  https://mvnrepository.com/a
 rtifact/org.mariuszgromada.math/MathParser.org-
  []
 
-) [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 327.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 327.
+) [11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 273.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 273.
  (./HS.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 327.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 327.
-Package rerunfilecheck Info: File `HS.out' has not changed.
-(rerunfilecheck)             Checksum: 81583337ED29FB3BDDF60C2A5256526C;3974.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 273.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 273.
 
+
+Package rerunfilecheck Warning: File `HS.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `HS.out':
+(rerunfilecheck)             Before: 7C74F89FF1B3A5273EB1E74EC4BE3524;4141
+(rerunfilecheck)             After:  CDEBA4BA5BDDF940B9742701E0524B3B;4141.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 327.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 273.
  ) 
 Here is how much of TeX's memory you used:
- 46408 strings out of 492649
- 937584 string characters out of 6129127
- 1022329 words of memory out of 5000000
- 49674 multiletter control sequences out of 15000+600000
+ 42717 strings out of 492649
+ 872889 string characters out of 6129127
+ 974934 words of memory out of 5000000
+ 45990 multiletter control sequences out of 15000+600000
  545094 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 156i,13n,191p,2833b,4137s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,13n,71p,1735b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/Programy/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
 }<d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 ><d:/Programy/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
@@ -1906,10 +1891,10 @@ exlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/Programy/te
 xlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><d:/Programy/tex
 live/2018/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><d:/Programy/texl
 ive/2018/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on HS.pdf (14 pages, 2138918 bytes).
+Output written on HS.pdf (12 pages, 2130337 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
- 64 named destinations out of 1000 (max. 500000)
- 327 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 328 PDF objects out of 1000 (max. 8388607)
+ 271 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 281 words of extra memory for PDF output out of 10000 (max. 10000000)
 

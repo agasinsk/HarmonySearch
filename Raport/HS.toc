@@ -1,27 +1,22 @@
 \babel@toc {polish}{}
-\contentsline {section}{\numberline {1}Wst\IeC {\k e}p}{2}{section.1}
-\contentsline {section}{\numberline {2}Opis dzia\IeC {\l }ania algorytmu}{2}{section.2}
-\contentsline {section}{\numberline {3}Implementacja}{2}{section.3}
-\contentsline {subsection}{\numberline {3.1}GUI}{3}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Parametry}{4}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Wykres}{4}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Tabela Rozwi\IeC {\k a}za\IeC {\'n}}{4}{subsubsection.3.1.3}
-\contentsline {subsection}{\numberline {3.2}Pliki}{4}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Katalog {\tt contants}}{5}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Katalog {\tt core}}{5}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}Katalog {\tt gui}}{6}{subsubsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.4}Katalog {\tt helpers}}{7}{subsubsection.3.2.4}
-\contentsline {section}{\numberline {4}Przyk\IeC {\l }adowy rozwi\IeC {\k a}za\IeC {\'n} oraz testy}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Funkcja czterech minimum}{7}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}Zmiana zakresu dla argument\IeC {\'o}w}{7}{subsubsection.4.1.1}
-\contentsline {subsection}{\numberline {4.2}Funkcja Gemm}{9}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Zmiana zakresu dla argument\IeC {\'o}w}{9}{subsubsection.4.2.1}
-\contentsline {subsection}{\numberline {4.3}Funkcja Himmelblau}{10}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Funkcja trzech zmiennych}{10}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Funkcja ceny z\IeC {\l }ota}{11}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Dwuwymiarowa funkcja sinusoidalna}{11}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Dwuwymiarowa funkcja sinusoidalna z eksponentom}{11}{subsection.4.7}
-\contentsline {subsection}{\numberline {4.8}Podsumowanie test\IeC {\'o}w}{12}{subsection.4.8}
-\contentsline {section}{\numberline {5}Problemy podczas pracy}{12}{section.5}
-\contentsline {section}{\numberline {6}Wnioski ko\IeC {\'n}cowe}{12}{section.6}
-\contentsline {section}{Bibilografia}{13}{section.6}
+\contentsline {section}{\numberline {1}Sformu\IeC {\l }owanie zadania optymalizacji}{2}{section.1}
+\contentsline {section}{\numberline {2}Szczeg\IeC {\'o}\IeC {\l }owe om\IeC {\'o}wienie algorytmu optymalizacji}{2}{section.2}
+\contentsline {section}{\numberline {3}Informacje og\IeC {\'o}lne o programie}{2}{section.3}
+\contentsline {section}{\numberline {4}\IeC {\'S}rodowisko programistyczne, zastosowane biblioteki i gotowe modu\IeC {\l }y}{3}{section.4}
+\contentsline {section}{\numberline {5}Parametry}{4}{section.5}
+\contentsline {subsubsection}{\numberline {5.0.1}Wykres}{4}{subsubsection.5.0.1}
+\contentsline {subsubsection}{\numberline {5.0.2}Tabela Rozwi\IeC {\k a}za\IeC {\'n}}{4}{subsubsection.5.0.2}
+\contentsline {section}{\numberline {6}Przyk\IeC {\l }adowy rozwi\IeC {\k a}za\IeC {\'n} oraz testy}{4}{section.6}
+\contentsline {subsection}{\numberline {6.1}Funkcja czterech minimum}{4}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Wyznaczenie wszystkich minim\IeC {\'o}w}{5}{subsubsection.6.1.1}
+\contentsline {subsection}{\numberline {6.2}Funkcja Gemm}{5}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Zmiana zakresu dla argument\IeC {\'o}w}{5}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Funkcja Himmelblau}{5}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Funkcja ceny z\IeC {\l }ota}{8}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Dwuwymiarowa funkcja sinusoidalna}{8}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Dwuwymiarowa funkcja sinusoidalna z eksponentom}{9}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Podsumowanie test\IeC {\'o}w}{9}{subsection.6.7}
+\contentsline {section}{\numberline {7}Ilustracja wynik\IeC {\'o}w pracy algorytmu optymalizacji}{10}{section.7}
+\contentsline {subsection}{\numberline {7.1}Funkcja trzech zmiennych}{10}{subsection.7.1}
+\contentsline {section}{\numberline {8}Wnioski ko\IeC {\'n}cowe}{10}{section.8}
+\contentsline {section}{Bibilografia}{11}{section.8}
