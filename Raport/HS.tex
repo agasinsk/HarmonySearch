@@ -122,78 +122,96 @@ W tej części zostały przedstawione przykłady funkcji wraz z wynikami obliczo
 
 \subsection{Funkcja czterech minimów}
 \label{subsec:fcn4min}
-Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Posiada ona następujący wzór: $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}. $$  Rysunek \ref{fig:11} prezentuje trójwymiarowy wykres funkcji na przedziale $x_{1}, x_{2} \in <-1,1>$ wraz z zaznaczoną najmniejszą obliczoną wartością $f(-0.56,0.56)=-0.19$. Dokładną wartość można odczytać po prawej stronie w tabeli {\tt Rozwiązania}. 
+Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Wyraża się ona wzorem: $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}. $$  Rysunek \ref{fig:11} prezentuje trójwymiarowy wykres funkcji na przedziale $x_{1}, x_{2} \in <-1,1>$ wraz z zaznaczoną najmniejszą obliczoną wartością $f(x^*)=-0.19219, x^{*}(i) = [ \pm0.55672; \pm 0.55672], i = 1,...,4 $. 
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=.9\textwidth]{images/11.PNG}
-		\caption{Wykres funkcji czterech minimum $x_{1}, x_{2} \in <-1,1>$}
+		\caption{Wykres funkcji czterech minimów $x_{1}, x_{2} \in <-1,1>$}
 		\label{fig:11}
 \end{figure}
 
 \subsubsection{Wyznaczenie wszystkich minimów}
 \label{subsubsec:fcn4min2}
-By wyznaczyć wszystkie minima funkcji należało zawęzić przedziały w taki sposób, by w każdym przedziale było jedno minimum lokalne. Przypadki prezentowane na rysunkach \ref{fig:12}, kolejno pokazują każde obliczone minimum zależnie od podanego przedziału. Jak możemy dostrzec na wykresach algorytm znalazł poprawne rozwiązanie w każdym przedziale. Wartości minimum zaznaczone są na wykresach w~postaci czarnej kropki oraz wpisane są w najwyższy wiersz tabeli {\tt Rozwiązania} pokazanej po prawej stronie. 
+By wyznaczyć wszystkie minima funkcji należało zawęzić przedziały losowania argumentów w taki sposób, by w każdym przedziale było jedno minimum lokalne. Przypadki prezentowane na rysunkach \ref{fig:12}, kolejno pokazują każde obliczone minimum zależnie od podanego przedziału. Jak możemy dostrzec na wykresach algorytm znalazł poprawne rozwiązanie w każdym przedziale. Wartości minimum zaznaczone są na wykresach w~postaci czarnej kropki oraz wpisane są w najwyższy wiersz tabeli {\tt Rozwiązania} pokazanej po prawej stronie. 
 \begin{figure}[htbp]
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/16.PNG}
-		\caption{$x_{1}\in<-1,0>,  x_{2}\in<0,1>$}
+		\includegraphics[width=\linewidth]{images/16e.PNG}
+		\caption{Funkcja czterech minimów: $x_{1}\in<-1,0>,  x_{2}\in<0,1>$}
 	\end{minipage}
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/12.PNG}
-		\caption{$x_{1}\in<0,1>,  x_{2}\in<0,1>$}
+		\includegraphics[width=\linewidth]{images/12e.PNG}
+		\caption{Funkcja czterech minimów: $x_{1}\in<0,1>,  x_{2}\in<0,1>$}
 	\end{minipage} 
-	\newline \newline
-	\begin{minipage}[b]{.5\textwidth}
+\end{figure}
+\begin{figure}[htbp]
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/14.PNG}
-		\caption{$x_{1}\in<-1,0>,  x_{2}\in<-1,0>$}
+		\includegraphics[width=\linewidth]{images/14e.PNG}
+		\caption{Funkcja czterech minimów: $x_{1}\in<-1,0>,  x_{2}\in<-1,0>$}
 	\end{minipage}
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/17.PNG} 
-		\caption{$x_{1}\in<0,1>,  x_{2}\in<-1,0>$}
+		\includegraphics[width=\linewidth]{images/17e.PNG} 
+		\caption{Funkcja czterech minimów: $x_{1}\in<0,1>,  x_{2}\in<-1,0>$}
 	\end{minipage}
 	\label{fig:12}
-	\caption{Wykres funkcji czterech minimum dla różnych przedziałów}
+	\caption{Wykres funkcji czterech minimów dla różnych przedziałów}
 \end{figure}
- 
-\subsection{Funkcja Geema}
+
+\pagebreak 
+
+\subsection{Funkcja testowa Geema}
 \label{subsec:gemm}
-Kolejny przykład przedstawiał funkcję opisaną wzorem: $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$ Początkowo zakres dla argumentów funkcji został przyjęty jako $x_{1},x_{2} \in <-0.5,1>$. Wykres funkcji wraz z rozwiązaniem zaprezentowany jest na rysunku \ref{fig:21}. 
+Kolejny przykład przedstawiał funkcję opisaną wzorem: $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}.$$ Jest to funkcja zwana szeciogarbnym wielbłądem: ma 6 minimów lokalnych, w tym 2 globalne: $f(x^*)=f(x^{**}=1.0316285, x^{*} = [ 0.08984, -0.71266], x^{**} = [- 0.08984, 0.71266]$. Początkowo zakres dla argumentów funkcji został przyjęty jako $x_{1},x_{2} \in <-0.5,1>$. Wykres funkcji wraz z rozwiązaniem zaprezentowany jest na rysunku \ref{fig:21}. 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=.9\textwidth]{images/21.PNG}
+	\includegraphics[width=1\textwidth]{images/21.PNG}
 	\caption{Wykres funkcji Geema dla $x_{1}, x_{2} \in <-0.5,1>$}
 	\label{fig:21}
 \end{figure}
 
 \subsubsection{Zmiana zakresu dla argumentów}
 \label{subsubsec:gemm2}
-Jak w poprzednim przykładzie tak i tutaj postanowiono zmienić zakres wyszukiwania argumentów na $x_{1}, x_{2} \in <-2,2>$. Porównując oba rozwiązania można stwierdzić, że odnalezione punkty nie różnią się zbytnio. 
+Jak w poprzednim przykładzie tak i tutaj postanowiono zmienić zakres wyszukiwania argumentów na $x_{1}, x_{2} \in <-1,1>$. Zostały znalezione obydwa globalne minima.
 \begin{figure}[htbp] 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/22.PNG} 
+		\includegraphics[width=\linewidth]{images/Geeme.PNG} 
 	\end{minipage} 
-	\begin{minipage}[b]{.5\textwidth}
+	 \newline\newline
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/23.PNG} 
+		\includegraphics[width=\linewidth]{images/Geem2e.PNG} 
 	\end{minipage}
 	\label{fig:22}
-	\caption{Wykresy funkcji Geema dla $x_{1}, x_{2} \in <-2,2>$}
+	\caption{Wykresy funkcji Geema dla $x_{1}, x_{2} \in <-1,1>$}
+\end{figure}
+
+\pagebreak 
+
+\subsection{Funkcja Rastrigina dla $n = 3$ }
+\label{subsec:rastrigin}
+Funkcja Rastrigina jest określona następująco: $$f(x) = \sum_{i=1}^{n} x_{i}^2-cos(18x_{i}), x_{i} \in <-1,1>.$$ Ma ona jedno globalne minimum $f(x^*) = -n, x^* = 0.$ W poniższym przypadku przyjęto $n=3$. Program odnajduje je bezproblemowo, chociaż im więcej iteracji, tym bardziej przybliża się do rzeczywistej wartości minimum.
+\begin{figure}[htbp] 
+	\begin{minipage}[b]{1\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/Rastrigine.PNG} 
+	\end{minipage}
+	\label{fig:23}
+	\caption{Wykres funkcji Rastrigina i znalezione minimum globalne}
 \end{figure}
 
 \subsection{Funkcja Himmelblau}
 \label{subsec:himmelblau}
 Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima lokalne zlokalizowane po jednym w każdej ćwiartce na przedziale $x_{1,2} \in (-5,5)$. Funkcja posiada wzór: $$ f(x_{1},x_{2}) = (x_{1}^{2}+x_{2}-11)^{2}+(x_{1}+x_{2}^{2}-7)^{2}-200.$$ Dla pokazania, że funkcja wyszukuje rozwiązania z innego przedziału jak domyślny ograniczono się do przedziału z pierwszej ćwiartki $x_{1}, x_{2} \in (0,10)$. Na wykresie \ref{fig:31} zaprezentowany został wykres funkcji wraz z naniesionym najlepszym rozwiązaniem. 
 \begin{figure}[htbp] 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{images/31.PNG} 
 	\end{minipage} 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{images/32.PNG} 
 	\end{minipage}
@@ -202,73 +220,74 @@ Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima loka
 \end{figure}
 
 
-\subsection{Funkcja ceny złota}
+\subsection{Funkcja Goldsteina-Price’a z czterema minimami lokalnymi}
 \label{subsec:cenyzlota}
-Funkcja ceny złota posiada kilka minimów lokalnych umiejscowionych blisko siebie. Opisuje ją wzór: $$f(x_{1},x_{2}) = [1+(x_{1}+x_{2}+1)^2(19-14x_{1}+3x_{1}^2-14x_{2}+6x_{1}x_{2}+3x_{2}^2)][30+(2x_{1}-3x_{2})^2(18-32x_{1}+12x_{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2)]$$ Wpierw na rysunku \ref{fig:71} ostało przedstawione rozwiązanie dla  $x_{1}, x_{2} \in <-3,3>$. Następnie na rysunku \ref{fig:72} zakres został zmieniony na $x_{1}, x_{2} \in <-2,0>$. Zarówno dla jednego, jak i~drugiego zakresu program obliczył właściwe rozwiązanie. 
+Funkcja Goldsteina-Price’a posiada kilka minimów lokalnych umiejscowionych blisko siebie. Opisuje ją wzór: $$f(x_{1},x_{2}) = [1+(x_{1}+x_{2}+1)^2(19-14x_{1}+3x_{1}^2-14x_{2}+6x_{1}x_{2}+3x_{2}^2)][30+(2x_{1}-3x_{2})^2(18-32x_{1}+12x_{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2)]$$ Odpowiednio manewrując parametrami algorytmu, program był w stanie obliczyć wszystkie 4 minima funkcji. Na wykresach \ref{fig:101} oraz \ref{fig:102} pokazano wyznaczone rozwiązania.
 \begin{figure}[htbp] 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/71.PNG}
-		\label{fig:71}
-		\caption{Wykres ceny złota dla \newline $x_{1},x_{2}\in<-3,3>$}
+		\includegraphics[width=\linewidth]{images/goldprice0.PNG}
+		\caption{Wykres funkcji Goldsteina-Price’a z globalnym minimum: $x^*=[0.0; -1.0], f(x^*)=3.0$ }
 	\end{minipage} 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{images/72.PNG} 
-		\label{fig:72}
-		\caption{Wykres ceny złota dla \newline $x_{1}, x_{2} \in <-2,0>$}
+		\includegraphics[width=\linewidth]{images/goldprice1.PNG} 
+		\caption{Wykres funkcji Goldsteina-Price’a z lokalnym minimum: $x^*(1)=[1.2; 0.8], f[x^*(1)] = 840.0$ }
 	\end{minipage}
+	\label{fig:101}
+	\caption{Wykresy funkcji Goldsteina-Price’a z lokalnymi minimami }
+\end{figure}
+
+\begin{figure}[htbp] 
+	\begin{minipage}[b]{1\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/goldprice2.PNG}
+		\caption{Wykres funkcji Goldsteina-Price’a z lokalnym minimum: $x^*(2)=[1.8; 0.2], f[x^*(2)]=84.0$ }
+	\end{minipage} 
+	\begin{minipage}[b]{1\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{images/goldprice3.PNG}
+		\caption{Wykres funkcji Goldsteina-Price’a z lokalnym minimum: $x^*(3)=[-0.6; -0.4], f[x^*(3)] = 30.0$ }
+	\end{minipage}
+	\label{fig:102}
+	\caption{Wykresy funkcji Goldsteina-Price’a z lokalnymi minimami }
 \end{figure}
 
 \subsection{Dwuwymiarowa funkcja sinusoidalna}
 \label{subsec:sin}
 Dwuwymiarowa funkcja sinus posiada bardzo zróżnicowany przebieg oraz wiele równoważnych minimów lokalnych. Wzór funkcji przedstawiony jest równaniem $$f(x_{1},x_{2})=\sin{x_{1}}\sin{x_{2}}e^{-(x_{1}^2+x_{2}^2)}.$$ Rysunek \ref{fig:8} prezentuje wykres funkcji dla argumentów z przedziału $<-1,1>$.
 \begin{figure}[htbp] 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{images/81.PNG}
 	\end{minipage} 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{images/82.PNG} 
 	\end{minipage}
 	\label{fig:8}
-	\caption{Wykres funkcji sinus dla $x_{1}, x_{2} \in <-1,1>$}
+	\caption{Wykres funkcji sinusoidalnej dla $x_{1}, x_{2} \in <-1,1>$}
 \end{figure}
 
 \subsection{Dwuwymiarowa funkcja sinusoidalna z eksponentą}
 \label{subsec:sinexp}
 Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cosinusa z eksponentą. Przypadek jest o tyle ciekawy, że większość wartości funkcji jest dla {\em $x_{1}, x_{2}$} jest do siebie zbliżona. Wzór funkcji przedstawiony jest jako: $$f(x)=x_{1}e^{-(x_{1}^{2}+x_{2}^2)}.$$ Rysunek \ref{fig:9} prezentuje działanie programu z obliczoną wartością minimalną. Program poprawnie wyliczył jej wartość, co potwierdza jego odporność na działanie funkcji, dla której większość argumentów jest stała. 
 \begin{figure}[htbp] 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{images/91.PNG}
 	\end{minipage} 
-	\begin{minipage}[b]{.5\textwidth}
+	\begin{minipage}[b]{1\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{images/92.PNG} 
 	\end{minipage}
 	\label{fig:9}
-	\caption{Wykres funkcji sinus z eksponentą $x_{1}, x_{2} \in <-1,1>$}
+	\caption{Wykres funkcji sinusoidalnej z eksponentą $x_{1}, x_{2} \in <-1,1>$}
 \end{figure}
 
 \subsection{Podsumowanie}
 \label{subsec:podsumowanietestow}
-Sprawdzając działanie algorytmu dla różnych funkcji można stwierdzić, że poprawnie znajduje ich minima lokalne. Dla funkcji jedno i dwu wymiarowych algorytm działa bardzo dobrze. Podczas szukania lokalnych minimów funkcji trzech zmiennych należy stosowanie zawęzić przedziały losowania argumentów. Algorytm działa na tyle szybko, że dla użytkownika nie odczuwalny jest dyskomfort podczas użytkowania programu. Gdy funkcja posiada więcej niż jedno minimum można znaleźć wszystkie z nich, odpowiednio kontrolując przedziały losowania argumentów. Taka sytuacja została zaprezentowana w punkcie \ref{subsubsec:fcn4min2}. 
-
-\pagebreak
-
-\section{Ilustracja wyników pracy algorytmu optymalizacji}
-
-\subsection{Funkcja trzech zmiennych}
-\label{subsec:trzyzmienne}
-By przetestować działanie programu i algorytmu dla funkcji z trzema zmiennymi wybrano funkcję $$f(x_{1},x_{2},x_{3}) = x_{1}^{4}+x_{3}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}+0.1x_{3}.$$ W tysięcznej iteracji obliczono minimalną wartość funkcji $f(-3.43,-7171,1.58)=-3.19$. Można się spodziewać, że w kolejnych iteracjach znaleziona by była mniejsza wartość minimalna lecz ograniczenie spowodowało zatrzymacie cyklu obliczeń. W takim przypadku najlepszym rozwiązaniem jest zmniejszenie obszaru dla zmiennych $x$.
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=.6\textwidth]{images/41.PNG}
-	\caption{Wykres funkcji trzech zmiennych $x_{1}, x_{2}, x_{3} \in <-10,10>$}
-	\label{fig:41}
-\end{figure}
+Sprawdzając działanie programu dla różnych funkcji można stwierdzić, że poprawnie znajduje ich minima lokalne. Algorytm działa na tyle szybko, że dla użytkownika nie odczuwalny jest dyskomfort podczas użytkowania programu. Gdy funkcja posiada więcej niż jedno minimum, można znaleźć wszystkie z nich, odpowiednio kontrolując przedziały losowania argumentów lub liczbę iteracji. Można również sterować prawdopodobieństwami używanymi do generacji kolejnych rozwiązań, co może również pomóc w szybszym lub bardziej dokładnym znalezieniu szukanego minimum danej funkcji.
 
 \pagebreak
 

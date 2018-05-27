@@ -9,14 +9,13 @@
 \contentsline {section}{\numberline {6}Przyk\IeC {\l }ady rozwi\IeC {\k a}za\IeC {\'n} oraz testy}{6}{section.6}
 \contentsline {subsection}{\numberline {6.1}Funkcja czterech minim\IeC {\'o}w}{6}{subsection.6.1}
 \contentsline {subsubsection}{\numberline {6.1.1}Wyznaczenie wszystkich minim\IeC {\'o}w}{6}{subsubsection.6.1.1}
-\contentsline {subsection}{\numberline {6.2}Funkcja Geema}{6}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Zmiana zakresu dla argument\IeC {\'o}w}{8}{subsubsection.6.2.1}
-\contentsline {subsection}{\numberline {6.3}Funkcja Himmelblau}{8}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Funkcja ceny z\IeC {\l }ota}{9}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}Dwuwymiarowa funkcja sinusoidalna}{9}{subsection.6.5}
-\contentsline {subsection}{\numberline {6.6}Dwuwymiarowa funkcja sinusoidalna z eksponent\IeC {\k a}}{9}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Podsumowanie}{10}{subsection.6.7}
-\contentsline {section}{\numberline {7}Ilustracja wynik\IeC {\'o}w pracy algorytmu optymalizacji}{11}{section.7}
-\contentsline {subsection}{\numberline {7.1}Funkcja trzech zmiennych}{11}{subsection.7.1}
-\contentsline {section}{\numberline {8}Wnioski ko\IeC {\'n}cowe}{12}{section.8}
-\contentsline {section}{Bibliografia}{13}{section.8}
+\contentsline {subsection}{\numberline {6.2}Funkcja testowa Geema}{9}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Zmiana zakresu dla argument\IeC {\'o}w}{9}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Funkcja Rastrigina dla $n = 3$ }{11}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Funkcja Himmelblau}{11}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Funkcja Goldsteina-Price\IeC {\textquoteright }a z czterema minimami lokalnymi}{11}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Dwuwymiarowa funkcja sinusoidalna}{11}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Dwuwymiarowa funkcja sinusoidalna z eksponent\IeC {\k a}}{16}{subsection.6.7}
+\contentsline {subsection}{\numberline {6.8}Podsumowanie}{16}{subsection.6.8}
+\contentsline {section}{\numberline {7}Wnioski ko\IeC {\'n}cowe}{18}{section.7}
+\contentsline {section}{Bibliografia}{19}{section.7}
