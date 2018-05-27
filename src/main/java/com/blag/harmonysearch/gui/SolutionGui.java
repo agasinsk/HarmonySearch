@@ -1,6 +1,7 @@
 package com.blag.harmonysearch.gui;
 
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleFloatProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,13 +11,13 @@ import lombok.Setter;
 @Setter
 public class SolutionGui
 {
-    private double value;
+    private float value;
     private double[] arguments;
     private int iterationNumber;
 
-    public SimpleDoubleProperty getArgument(int whichOne)
+    public SimpleFloatProperty getArgument(int whichOne)
     {
-        return new SimpleDoubleProperty(arguments[whichOne]);
+        return new SimpleFloatProperty((float) arguments[whichOne]);
     }
 
     @Override
@@ -24,7 +25,7 @@ public class SolutionGui
     {
         StringBuilder builder = new StringBuilder();
         builder.append("f(x) = ")
-                .append(String.valueOf(value))
+                .append(String.valueOf((float) value))
                 .append("\n");
 
 
@@ -37,7 +38,7 @@ public class SolutionGui
                 builder.append(String.valueOf(i + 1));
             }
             builder.append(" = ")
-                    .append(String.valueOf(arguments[i]))
+                    .append(String.valueOf((float) arguments[i]))
                     .append("\n");
         }
 

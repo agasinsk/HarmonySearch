@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.StackPane;
 import javafx.util.converter.DoubleStringConverter;
+import javafx.util.converter.FloatStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import org.mariuszgromada.math.mxparser.Function;
 
@@ -40,7 +41,7 @@ public class Controller implements Initializable
     @FXML
     private TableColumn<SolutionGui, Integer> solutionIteration;
     @FXML
-    private TableColumn<SolutionGui, Double> solutionValue;
+    private TableColumn<SolutionGui, Float> solutionValue;
     @FXML
     public Button defaultParameterValuesButton;
     @FXML
@@ -86,6 +87,7 @@ public class Controller implements Initializable
         defaultFunctions.add(DefaultFunctionStrings.GoldSteinPriceFunction);
         defaultFunctions.add(DefaultFunctionStrings.sinFunction);
         defaultFunctions.add(DefaultFunctionStrings.sinExpFunction);
+        defaultFunctions.add(DefaultFunctionStrings.RanstriginFunction);
         functionComboBox.setItems(defaultFunctions);
         functionValidator = new FunctionStringValidator();
 
@@ -129,7 +131,7 @@ public class Controller implements Initializable
         solutionValue.setCellValueFactory(new PropertyValueFactory<>("value"));
         solutionIteration.setCellValueFactory(new PropertyValueFactory<>("iterationNumber"));
 
-        solutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        solutionValue.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
         solutionIteration.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
         // Function plot
@@ -249,19 +251,19 @@ public class Controller implements Initializable
         solutionIterationColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         solutionTableView.getColumns().add(solutionIterationColumn);
 
-        TableColumn<SolutionGui, Double> solutionValueColumn = new TableColumn<>("f(x)");
+        TableColumn<SolutionGui, Float> solutionValueColumn = new TableColumn<>("f(x)");
         solutionValueColumn.setCellValueFactory(new PropertyValueFactory<>("value"));
-        solutionValueColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        solutionValueColumn.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
         solutionTableView.getColumns().add(solutionValueColumn);
     }
 
     private void addArgumentColumnToSolutionTableView(int argumentIndex)
     {
-        TableColumn<SolutionGui, Double> solutionArgumentColumn = new TableColumn<>(function.getArgument(argumentIndex).getArgumentName());
+        TableColumn<SolutionGui, Float> solutionArgumentColumn = new TableColumn<>(function.getArgument(argumentIndex).getArgumentName());
         solutionTableView.getColumns().add(solutionArgumentColumn);
         final int fixedArgumentIndex = argumentIndex;
         solutionArgumentColumn.setCellValueFactory(cellData -> cellData.getValue().getArgument(fixedArgumentIndex).asObject());
-        solutionArgumentColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        solutionArgumentColumn.setCellFactory(TextFieldTableCell.forTableColumn(new FloatStringConverter()));
     }
 
     @FXML
