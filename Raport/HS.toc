@@ -1,22 +1,22 @@
 \babel@toc {polish}{}
 \contentsline {section}{\numberline {1}Sformu\IeC {\l }owanie zadania optymalizacji}{2}{section.1}
 \contentsline {section}{\numberline {2}Szczeg\IeC {\'o}\IeC {\l }owe om\IeC {\'o}wienie algorytmu optymalizacji}{2}{section.2}
-\contentsline {section}{\numberline {3}Informacje og\IeC {\'o}lne o programie}{2}{section.3}
+\contentsline {section}{\numberline {3}Informacje og\IeC {\'o}lne o programie}{3}{section.3}
 \contentsline {section}{\numberline {4}\IeC {\'S}rodowisko programistyczne, zastosowane biblioteki i gotowe modu\IeC {\l }y}{3}{section.4}
-\contentsline {section}{\numberline {5}Parametry}{4}{section.5}
-\contentsline {subsubsection}{\numberline {5.0.1}Wykres}{4}{subsubsection.5.0.1}
-\contentsline {subsubsection}{\numberline {5.0.2}Tabela Rozwi\IeC {\k a}za\IeC {\'n}}{4}{subsubsection.5.0.2}
-\contentsline {section}{\numberline {6}Przyk\IeC {\l }adowy rozwi\IeC {\k a}za\IeC {\'n} oraz testy}{4}{section.6}
-\contentsline {subsection}{\numberline {6.1}Funkcja czterech minimum}{4}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}Wyznaczenie wszystkich minim\IeC {\'o}w}{5}{subsubsection.6.1.1}
-\contentsline {subsection}{\numberline {6.2}Funkcja Gemm}{5}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Zmiana zakresu dla argument\IeC {\'o}w}{5}{subsubsection.6.2.1}
-\contentsline {subsection}{\numberline {6.3}Funkcja Himmelblau}{5}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Funkcja ceny z\IeC {\l }ota}{8}{subsection.6.4}
-\contentsline {subsection}{\numberline {6.5}Dwuwymiarowa funkcja sinusoidalna}{8}{subsection.6.5}
-\contentsline {subsection}{\numberline {6.6}Dwuwymiarowa funkcja sinusoidalna z eksponentom}{9}{subsection.6.6}
-\contentsline {subsection}{\numberline {6.7}Podsumowanie test\IeC {\'o}w}{9}{subsection.6.7}
-\contentsline {section}{\numberline {7}Ilustracja wynik\IeC {\'o}w pracy algorytmu optymalizacji}{10}{section.7}
-\contentsline {subsection}{\numberline {7.1}Funkcja trzech zmiennych}{10}{subsection.7.1}
-\contentsline {section}{\numberline {8}Wnioski ko\IeC {\'n}cowe}{10}{section.8}
-\contentsline {section}{Bibilografia}{11}{section.8}
+\contentsline {section}{\numberline {5}Parametry}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}Wykres}{5}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Tabela rozwi\IeC {\k a}za\IeC {\'n}}{5}{subsection.5.2}
+\contentsline {section}{\numberline {6}Przyk\IeC {\l }ady rozwi\IeC {\k a}za\IeC {\'n} oraz testy}{6}{section.6}
+\contentsline {subsection}{\numberline {6.1}Funkcja czterech minim\IeC {\'o}w}{6}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Wyznaczenie wszystkich minim\IeC {\'o}w}{6}{subsubsection.6.1.1}
+\contentsline {subsection}{\numberline {6.2}Funkcja Geema}{6}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Zmiana zakresu dla argument\IeC {\'o}w}{8}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Funkcja Himmelblau}{8}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Funkcja ceny z\IeC {\l }ota}{9}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Dwuwymiarowa funkcja sinusoidalna}{9}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Dwuwymiarowa funkcja sinusoidalna z eksponent\IeC {\k a}}{9}{subsection.6.6}
+\contentsline {subsection}{\numberline {6.7}Podsumowanie}{10}{subsection.6.7}
+\contentsline {section}{\numberline {7}Ilustracja wynik\IeC {\'o}w pracy algorytmu optymalizacji}{11}{section.7}
+\contentsline {subsection}{\numberline {7.1}Funkcja trzech zmiennych}{11}{subsection.7.1}
+\contentsline {section}{\numberline {8}Wnioski ko\IeC {\'n}cowe}{12}{section.8}
+\contentsline {section}{Bibliografia}{13}{section.8}

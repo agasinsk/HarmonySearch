@@ -1,54 +1,52 @@
 This is BibTeX, Version 0.99d (TeX Live 2018/W32TeX)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: HS.aux
-The style file: plain.bst
+The style file: unsrt.bst
 Database file #1: bibliografia.bib
-Warning--entry type for "bib:orginal" isn't style-file defined
---line 3 of file bibliografia.bib
-Warning--to sort, need author or key in bib:jzy3d
-Warning--to sort, need author or key in bib:goldstein
-Warning--empty author in bib:goldstein
-Warning--empty author in bib:jzy3d
-Warning--empty note in bib:tlumaczenie
-You've used 5 entries,
-            2118 wiz_defined-function locations,
-            516 strings with 4419 characters,
-and the built_in function-call counts, 823 in all, are:
-= -- 81
+Warning--empty publisher in bib:orginal
+Warning--empty publisher in bib:tlumaczenie
+Warning--empty year in bib:tlumaczenie
+Warning--empty publisher in bib:mathparser
+Warning--empty publisher in bib:geempdf
+You've used 4 entries,
+            1791 wiz_defined-function locations,
+            460 strings with 3873 characters,
+and the built_in function-call counts, 644 in all, are:
+= -- 45
 > -- 23
 < -- 0
-+ -- 12
++ -- 10
 - -- 6
-* -- 39
-:= -- 151
-add.period$ -- 11
-call.type$ -- 5
-change.case$ -- 18
+* -- 30
+:= -- 103
+add.period$ -- 12
+call.type$ -- 4
+change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 10
-duplicate$ -- 31
-empty$ -- 69
+cite$ -- 9
+duplicate$ -- 40
+empty$ -- 77
 format.name$ -- 6
-if$ -- 162
+if$ -- 143
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 0
-newline$ -- 24
-num.names$ -- 6
-pop$ -- 18
+int.to.str$ -- 4
+missing$ -- 8
+newline$ -- 23
+num.names$ -- 4
+pop$ -- 32
 preamble$ -- 1
-purify$ -- 13
+purify$ -- 0
 quote$ -- 0
-skip$ -- 26
+skip$ -- 8
 stack$ -- 0
-substring$ -- 26
-swap$ -- 1
+substring$ -- 0
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
+type$ -- 0
 warning$ -- 5
-while$ -- 6
-width$ -- 6
-write$ -- 42
-(There were 6 warnings)
+while$ -- 4
+width$ -- 5
+write$ -- 38
+(There were 5 warnings)

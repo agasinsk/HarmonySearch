@@ -9,7 +9,7 @@
 \newcommand{\osobaA}{Artur \textsc{Gasi\'nski}, 218685}
 \newcommand{\osobaB}{Bartosz \textsc{Lenartowicz}, 218518}
 \newcommand{\termin}{wt 9:15-11:00}
-%wpisz imię i nazwisko prowadzącego
+
 \newcommand{\prowadzacy}{Dr in\.{z}. Ewa \textsc{Szlachcic}}
 \documentclass[10pt, a4paper]{article}
 \usepackage{listings}
@@ -42,15 +42,15 @@
 
 \section{Sformułowanie zadania optymalizacji}
 \label{sec:1}
-Większość metod optymalizacji procesów produkcyjnych czy logistycznych sprowadza się do przedstawienia zależności pomiędzy procesami za pomocą funkcji {\em f(x)}. Takie równanie nosi nazwę funkcji celu {\em f(x)}. Pod postacią zmiennych {\em x} tego równania ukazane są procesy, którymi można manipulować.  By właściwie zoptymalizować proces, należy znaleźć minimum bądź maksimum (najlepiej globalne) funkcji {\em f(x)=f*(x*)}. Obliczanie minimalnej bądź maksymalnej wartości {\em f*}, zależnej od wielu zmiennych {\em x} w pożądanym czasie jest problematyczne. Istnieją algorytmy specjalizujące się w  rozwiązywaniu zadań tego typu. Niniejsza praca została napisana by przedstawić jeden z nich -- Harmony Search. Został on przedstawiony w 2001 przez Zong Woo Geem, Joong Hoon Kim oraz G.V. Loganathan w pracy "A New Heuristic Optimization Algorithm: Harmony Search" \cite{bib:orginal}.
+Większość metod optymalizacji procesów produkcyjnych czy logistycznych sprowadza się do przedstawienia zależności pomiędzy procesami za pomocą okrelonej funkcji celu {\em f(x)}. Pod postacią zmiennych {\em x}~tego równania ukazane są parametry procesów, którymi można manipulować.  By właściwie zoptymalizować proces, należy znaleźć minimum bądź maksimum (najlepiej globalne) funkcji {\em f(x)=f*(x*)}. Obliczanie minimalnej bądź maksymalnej wartości {\em f*}, zależnej od wielu zmiennych {\em x} w pożądanym czasie jest problematyczne. Istnieją algorytmy specjalizujące się w  rozwiązywaniu zadań tego typu. Niniejsza praca została napisana by przedstawić jeden z nich -- Harmony Search. Został on przedstawiony w 2001 przez Zong Woo Geema, Joong Hoon Kima oraz G.V. Loganathana w pracy ,,A New Heuristic Optimization Algorithm: Harmony Search'' \cite{bib:orginal}.
 
 \section{Szczegółowe omówienie algorytmu optymalizacji}
 \label{sec:2}
-Inspiracją dla algorytmu było szukanie przez muzyków jazzowych, podczas improwizacji, najlepszych harmonii dźwięków. Jego matematyczny odpowiednik umożliwia znajdowanie minimów lokalnych funkcji {\em f(x)} wielu zmiennych {\em x}. 
+Inspiracją dla algorytmu było szukanie przez muzyków jazzowych najlepszych harmonii dźwięków podczas improwizacji. Jego matematyczny odpowiednik umożliwia optymalizację funkcji {\em f(x)} wielu zmiennych. 
 
-Algorytm do działania wymaga zainicjowania {\em $m=4+2*n$} wartości początkowych. Należy zaznaczyć, że Harmony Search znajduje rozwiązanie z dokładnością {\em $\epsilon$} lub gdy liczba iteracji przekroczy {\em $L=1000000$}. Ilość iteracji {\em $L$} możemy zmniejszyć do dowolnej liczby, {\em $\epsilon$} jest niemodyfikowalne. Jednym z ważniejszych elementów algorytmu jest pamięć harmonii {\tt HM} ({\em ang. harmony memory}). Jest to zbiór zapamiętanych rozwiązań funkcji $f(x)$ wraz z wartościami zmiennych $x$, dla których została obliczona funkcja. Schemat tablicy {\tt HM} umieszczony jest na rysunku \ref{tab:1}. Wielkość pamięci {\em HMS} deklarowana jest z góry przez użytkownika i podczas kolejnych iteracji nie zmienia rozmiaru. Wymagane jest również by na początku działania określić przedział wartości $[a,b]$ dla każdej zmiennej $x_{1}=[a_{1},b_{1}], ... ,x_{n}=[a_{n},b_{n}]$, z którego będą wyszukiwane rozwiązania dlatego należy zadeklarować $2*n$ wartości gdzie $n$ jest ilością zmiennych równania. Dodatkowo wymagane jest określenie dwóch prawdopodobieństw. Pierwsze {\tt HMCR} ({\em ang. harmony memory consideration ratio}) określa współczynnik doboru tonu z pamięci, drugie {\tt PAR} ({\em ang. pitch adjustment ratio}) nazywane jest współczynnikiem dostosowania tonu. Oczywistym jest, że przedział wartości prawdopodobieństw określany jest na $<0,1>$.
+Algorytm do działania wymaga zainicjowania {\em $m=4+2*n$} wartości początkowych. Jedynym kryterium stopu algorytmu jest liczba iteracji $L$. Głównym elementem algorytmu jest pamięć harmonii {\tt HM} ({\em ang. harmony memory}). Jest to zbiór zapamiętanych rozwiązań funkcji $f(x)$ wraz z wartościami argumentów $x$, dla których została obliczona funkcja. Schemat tablicy {\tt HM} umieszczony jest na rysunku \ref{tab:1}. Wielkość pamięci {\em HMS} deklarowana jest z góry przez użytkownika i podczas kolejnych iteracji nie zmienia rozmiaru. Wymagane jest również by na początku działania określić przedział wartości $[a,b]$ dla każdej zmiennej $x_{1}=[a_{1},b_{1}], ... ,x_{n}=[a_{n},b_{n}]$, z którego będą wyszukiwane rozwiązania dlatego należy zadeklarować $2*n$ wartości gdzie $n$ jest ilością zmiennych równania. Dodatkowo wymagane jest określenie dwóch prawdopodobieństw. Pierwsze {\tt HMCR} ({\em ang. harmony memory consideration ratio}) określa współczynnik doboru tonu z pamięci, drugie {\tt PAR} ({\em ang. pitch adjustment ratio}) nazywane jest współczynnikiem dostosowania tonu. Oczywistym jest, że przedział wartości prawdopodobieństw określany jest na $<0,1>$.
 
-Po deklaracji początkowe wartości można przejść do omówienia działania algorytm. Wpierw program wypełnia tablicę pamięci harmonii {\tt HM} początkowymi wartościami. Każda wartość $x$ losowana jest osobno dla każdej funkcji $f$ z swojego przedziału $[a,b]$. Gdy tablica zostanie zapełniona rozpoczyna się część iteracyjna algorytmu. Polega na wyszukiwaniu kolejnego rozwiązania poprzez wyznaczanie zmiennych wedle trzech reguł. Pierwsza mówi, że z prawdopodobieństwem $P_{1}={\tt HMCR}$ wartość nowej zmiennej $x{n}$ wybierana jest z pośród zmiennych zapamiętanych w tablicy {\tt HM}. Druga, że wartością prawdopodobieństwa $P_{2}=(1-{\tt HMCR})$ wartość zmiennej losowana jest z całego przedziału $[a,b]$, a zasada trzecia, że zmienna ustalona w regule pierwszej modyfikowana jest z prawdopodobieństwem $P_{3}=({\tt HMCR}*{\tt PAR})$. W praktyce reguła trzecia sprowadza się do dodania do wylosowanej zmiennej $x$ z reguły pierwszej liczby z przedziału $<-c,c>$. Następnie gdy zostaną wylosowane wszystkie wartości $x_{n}$ obliczana jest dla nich wartość funkcji $f(x)$. Jest ona porównywana z wartościami umieszczonymi w tablicy {\tt HM}. Jeżeli jest mniejsza niż największa wartość z tablicy, zamienia się ją z największą wartością. Na tym kończy się jedna iteracja. Następnie wykonuje się kolejne iteracje do momentu znalezienia rozwiązania $f \pm \epsilon$ lub do osiągnięcia maksymalnej ilości iteracji {\em $L$}. Polski opis algorytmu można również znaleźć np. w pracy \cite{bib:tlumaczenie}.
+Algorytm działa następująco: wpierw program wypełnia tablicę pamięci harmonii {\tt HM} początkowymi wartościami. Każda wartość $x$ losowana jest z swojego ograniczonego przedziału $[a,b]$. Gdy tablica zostanie zapełniona rozpoczyna się część iteracyjna algorytmu. Polega na wyszukiwaniu kolejnego rozwiązania poprzez wyznaczanie kolejnych rozwiązań wedle trzech reguł. Pierwsza mówi, że z prawdopodobieństwem $P_{1}={\tt HMCR}$ wartość nowej zmiennej $x_{n}$ wybierana jest z pośród zmiennych zapamiętanych w tablicy {\tt HM}. Druga, że wartością prawdopodobieństwa $P_{2}=(1-{\tt HMCR})$ wartość zmiennej losowana jest z całego przedziału $[a,b]$, a zasada trzecia, że zmienna ustalona w regule pierwszej modyfikowana jest z prawdopodobieństwem $P_{3}=({\tt HMCR}*{\tt PAR})$. W praktyce reguła trzecia sprowadza się do dodania do wylosowanej zmiennej $x$ z reguły pierwszej liczby z przedziału $<-c,c>$. Następnie gdy zostaną wylosowane wszystkie wartości $x_{n}$ obliczana jest dla nich wartość funkcji $f(x)$. Jest ona porównywana z wartościami umieszczonymi w tablicy {\tt HM}. Jeżeli jest mniejsza niż największa wartość z tablicy, zamienia się ją z największą wartością (najgorszym rozwiązaniem). Na tym kończy się iteracja. Następnie wykonuje się kolejne iteracje do osiągnięcia maksymalnej ilości iteracji {\em $L$}. Polski opis algorytmu można również znaleźć np. w~pracy \cite{bib:tlumaczenie}.
 \begin{figure}[h]
 \begin{tabular}{|ccc|c|}
 	\hline 
@@ -66,9 +66,11 @@ Po deklaracji początkowe wartości można przejść do omówienia działania al
 	\label{tab:1}
 \end{figure}
 
+\pagebreak
+
 \section{Informacje ogólne o programie}
 \label{sec:implementacja}
-Program do obliczania minimum funkcji na podstawie algorytmu Harmony Search został napisany w języku Java. Pisany był w środowisku programistycznym {\em IntelliJ IDEA}. Technologią dostarczającą GUI dla użytkownika była {\em JavaFx} umożliwiająca tworzenie aplikacji okienkowych. Dodatkowo by ułatwić zarządzanie bibliotekami wewnątrz projektu użyto wsparcia ze strony {\em Maven}.  Program korzysta również z zewnętrznej biblioteki do obliczania wartości funkcji w punkcie \cite{bib:mathparser}. Wykres prezentujący najlepsze rozwiązanie zaznaczone na wykroju z przestrzeni rozwiązań funkcji został stworzony za pomocą biblioteki {\em jzy3D}.
+Program do obliczania minimum funkcji na podstawie algorytmu Harmony Search został napisany w~języku Java. Technologią dostarczającą GUI dla użytkownika była {\em JavaFx} umożliwiająca tworzenie aplikacji okienkowych. Dodatkowo by ułatwić zarządzanie bibliotekami wewnątrz projektu użyto wsparcia ze strony {\em Maven}.  Program korzysta z zewnętrznej biblioteki mXparser do parsowania łańcuchów znakowych na funkcje i do obliczania ich wartości w określonych punktach \cite{bib:mathparser}. Wykres prezentujący najlepsze rozwiązanie zaznaczone na wykroju z przestrzeni rozwiązań funkcji został stworzony za pomocą biblioteki {\em jzy3D}.
 
 \section{Środowisko programistyczne, zastosowane biblioteki i gotowe moduły}
 \label{subsec:gui}
@@ -96,26 +98,31 @@ By ułatwić wprowadzanie funkcji do programu oraz bezproblemowo odczytywać wyn
 	\end{minipage}
 \end{figure}
 
+\pagebreak
+
 \section{Parametry}
-\label{subsec:parametry}
-W części parametrów można dostrzec, że zaraz pod paskiem edycji znajduje miejsce do wpisania funkcji. Jest to ta sama funkcja której minimum należy wyznaczyć. Okno umożliwia również wybór takiej funkcji z wcześniej zadeklarowanych w programie. Dokonuje się tego klikając w rozwijane menu. Zostało to przedstawione na rysunku \ref{fig:1}. Po wybraniu funkcji automatycznie zostaną domyślnie uzupełnione wszystkie parametry obliczeń. Oczywiście możliwa jest dostosowanie algorytmu do własnych potrzeb. Poniżej okna funkcji znajduje się przycisk ,,{\tt Resetuj wartości parametrów}'' umożliwiający, jak mówi nazwa, reset do parametrów domyślnych. Poniżej przycisku zostały umieszczone po sobie cztery główne parametry algorytmu {\em Harmony Search}. \\
-Pierwszy z parametrów {\tt HMS} ({\em ang. harmony memory size}) reguluje ilość zapamiętywanych rozwiązań podczas wyszukiwania. Domyślnie rozmiar jest zadeklarowany na $20$. Poniżej znajduje się okno o nazwie {\tt iteracje}. Domyślnie jest zadeklarowana maksymalna wartość iteracji równa $10000$. W każdej iteracji programu algorytm wyszukuje nowe rozwiązanie i sprawdza je z tymi zapisanymi w {\tt HMS}. Czym większa ilość iteracji tym algorytm powinien obliczać dokładniejsze rozwiązanie, kosztem wydłużonego czasu obliczeń. Następnie pod polem {\tt iteracje} znajduje się pole {\tt HMCR} ({\em ang. harmony memory consideration ratio}). Tłumaczenie określa go jako współczynnik wyboru tonu z pamięci. Jest to współczynnik prawdopodobieństwa wybierany z zakresu $(0, 1)$. Czym {\tt HMCR} jest większe tym wyszukiwane wartości {\em x} następnych rozwiązań będą zbliżone do tych istniejących już w tablicy {\tt HMS}. Poniżej znajduje się drugi parametr prawdopodobieństwa dla funkcji o nazwie {\tt PAR} {\em(ang. pitch adjustment ratio)} tłumaczony jako współczynnik dostosowywania tonu. Wybierany jest również z zakresu $(0, 1)$. Na samym dole kolumny znajduje się tabela {\tt Przedziały losowania argumentów}. W tabeli deklarowany jest przedziały wszystkich wartości {\em x} dla których ma być poszukiwane rozwiązanie. Domyślnie parametry dla wszystkich {\em x} brane są z przedziału $(-10, 10)$. Algorytm z dużą dokładnością znajdzie najmniejsze minimum lokalne dla funkcji z podanego przedziału. Po wybraniu wszystkich parametrów można przystąpić do uruchomienia algorytmu przyciskiem {\tt Start} znajdującym się na na dole kolumny.
+\label{sec:parametry}
+W części parametrów można dostrzec, że zaraz pod paskiem edycji znajduje miejsce do wpisania funkcji, której minimum należy wyznaczyć. Okno umożliwia również wybór takiej funkcji z wcześniej zadeklarowanych w programie. Dokonuje się tego, klikając w rozwijane menu. Zostało to przedstawione na rysunku \ref{fig:1}. Po wybraniu funkcji automatycznie zostaną domyślnie uzupełnione wszystkie parametry obliczeń. Oczywiście możliwa jest dostosowanie algorytmu do własnych potrzeb. Poniżej okna funkcji znajduje się przycisk ,,{\tt Resetuj wartości parametrów}'' umożliwiający, jak mówi nazwa przywrócenie domyślnych wartości parametrów. Poniżej przycisku zostały umieszczone po sobie cztery główne parametry algorytmu {\em Harmony Search}. \\
 
-\subsubsection{Wykres}
-\label{subsubsec:wykres}
-Środkowy obszar okna głównego przeznaczony jest do wyświetlania wykresu funkcji. Jak wspomniane zostało na początku rozdziału \ref{sec:implementacja}, do rysowania wykresów została użyta zewnętrzna biblioteka {\em jzy3D}. Umożliwia ona tworzenie wykresów dwu i trzy wymiarowych.  Wykresy można obracać w dowolny sposób. Oś {\em X} i {\em Y} wykresu wyskalowana jest do najmniejszego i największego parametru wszystkich wartość {\em x}. Dodatkowo wartości zostały pokolorowane w tak, że mniejsze wartości funkcji mają kolory zimniejsze, a wyższe kolory cieplejsze, analogicznie do tego jak przedstawia się wysokość n.p.m. w kartografii. Dodatkowo czarną kropką zaznaczona została najmniejsza obliczona wartość funkcji. 
+Pierwszy z parametrów {\tt HMS} ({\em ang. harmony memory size}) reguluje ilość zapamiętywanych rozwiązań podczas wyszukiwania. Domyślnie rozmiar jest zadeklarowany na $20$. Poniżej znajduje się okno o nazwie {\tt iteracje}. Domyślnie jest zadeklarowana maksymalna wartość iteracji równa $10000$. W każdej iteracji programu algorytm wyszukuje nowe rozwiązanie i sprawdza je z~tymi zapisanymi w {\tt HMS}. Im większa liczba iteracji, tym algorytm powinien obliczać dokładniejsze rozwiązanie, kosztem wydłużonego czasu obliczeń. Następnie pod polem {\tt iteracje} znajduje się pole {\tt HMCR} ({\em ang. harmony memory consideration ratio}). Jest to prawdopodobieństwo wyboru rozwiązania z pamięci (z zakresu $(0, 1)$). Im {\tt HMCR} jest większe tym wyszukiwane wartości {\em x} następnych rozwiązań będą zbliżone do tych istniejących już w tablicy {\tt HMS}. Poniżej znajduje się drugi parametr prawdopodobieństwa o nazwie {\tt PAR} {\em(ang. pitch adjustment ratio)} tłumaczony jako współczynnik dostosowywania tonu. Wybierany jest również z zakresu $(0, 1]$. Na samym dole kolumny znajduje się tabela {\tt Przedziały losowania argumentów}. W tabeli deklarowany jest przedziały wszystkich wartości {\em x}, z których zostaną wylosowane początkowe argumenty podczas inicjalizacji pamięci harmonii. Domyślnie parametry dla wszystkich {\em x} brane są z przedziału $(-10, 10)$. Algorytm z~dużą dokładnością znajdzie najmniejsze minimum lokalne dla funkcji z~podanego przedziału. Po wybraniu wszystkich parametrów można przystąpić do uruchomienia algorytmu przyciskiem {\tt Start} znajdującym się na na dole kolumny.
 
-\subsubsection{Tabela Rozwiązań}
-\label{subsubsec:rozwiazania}
-Po prawej stronie okna głównego można dostrzec najlepsze rozwiązania wyszukane przez program. Gdy znajdowane jest rozwiązanie lepsze od najlepszego rozwiązania zapamiętanego w {\tt HMS} dodawane jest ono jako pierwszy wiersz w tabeli. Poprzednie rozwiązania przesuwane są o jedno miejsce niżej. Pozwala to śledzić jaka wartości jest aktualnie największa oraz od razu ukazuje się obok numer iteracji tego rozwiązania. Gdy algorytm długo oblicza najlepszy wynik okno pozwala śledzić postęp obliczeń. Dodatkowo po wykonaniu wszystkich iteracji zostaje wyświetlony komunikat z najlepszym rozwiązaniem (pierwszym od góry), co przedstawia rysunek \ref{fig:3}.
+\subsection{Wykres}
+\label{subsec:wykres}
+Środkowy obszar okna głównego przeznaczony jest do wyświetlania wykresu funkcji. Jak wspomniane zostało na początku rozdziału \ref{sec:implementacja}, do rysowania wykresów została użyta zewnętrzna biblioteka {\em jzy3D}. Umożliwia ona tworzenie wykresów dwu- i trójwymiarowych. Wykresy można obracać w dowolny sposób. Oś {\em X} i {\em Y} wykresu wyskalowana jest do zgodnie z podanymi przedziałami losowania argumentów~{\em x}. Dodatkowo wartości zostały pokolorowane w tak, że mniejsze wartości funkcji mają kolory zimniejsze, a wyższe - kolory cieplejsze, analogicznie do tego jak przedstawia się wysokość n.p.m. w kartografii. Dodatkowo czarną kropką zaznaczona została najmniejsza obliczona wartość funkcji. 
 
-\section{Przykładowy rozwiązań oraz testy}
+\subsection{Tabela rozwiązań}
+\label{subsec:rozwiazania}
+Po prawej stronie okna głównego można dostrzec najlepsze rozwiązania wyszukane przez program. Gdy znajdowane jest rozwiązanie lepsze od najlepszego rozwiązania zapamiętanego w {\tt HMS} dodawane jest ono jako pierwszy wiersz w tabeli. Poprzednie rozwiązania przesuwane są o jedno miejsce niżej. Pozwala to śledzić jaka wartości jest aktualnie największa oraz od razu ukazuje się obok numer iteracji tego rozwiązania. Gdy algorytm długo oblicza najlepszy wynik, okno pozwala śledzić postęp obliczeń. Dodatkowo po wykonaniu wszystkich iteracji zostaje wyświetlony komunikat z~najlepszym rozwiązaniem (pierwszym od góry), co przedstawia rysunek \ref{fig:3}.
+
+\pagebreak
+
+\section{Przykłady rozwiązań oraz testy}
 \label{sec:przyklady}
-W tej części zostały przedstawione trzy przykłady funkcji wraz z wynikami obliczonymi dzięki przedstawianemu programowi. 
+W tej części zostały przedstawione przykłady funkcji wraz z wynikami obliczonymi dzięki przedstawianemu programowi. 
 
-\subsection{Funkcja czterech minimum}
+\subsection{Funkcja czterech minimów}
 \label{subsec:fcn4min}
-Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Posiada ona następujący wzór: $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2} $$.  Rysunek \ref{fig:11} prezentuje trójwymiarowy wykres funkcji na przedziale $x_{1}, x_{2} \in <-1,1>$ wraz z zaznaczoną najmniejszą obliczoną wartością $f(-0.56,56)=-0.19$. Dokładną wartość $10^(-15)$ można odczytać po prawej stronie w tabeli {\tt Rozwiązania}. 
+Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Posiada ona następujący wzór: $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}. $$  Rysunek \ref{fig:11} prezentuje trójwymiarowy wykres funkcji na przedziale $x_{1}, x_{2} \in <-1,1>$ wraz z zaznaczoną najmniejszą obliczoną wartością $f(-0.56,0.56)=-0.19$. Dokładną wartość można odczytać po prawej stronie w tabeli {\tt Rozwiązania}. 
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=.9\textwidth]{images/11.PNG}
@@ -125,7 +132,7 @@ Pierwsza zostanie przedstawiona funkcja posiadająca cztery minima lokalne. Posi
 
 \subsubsection{Wyznaczenie wszystkich minimów}
 \label{subsubsec:fcn4min2}
-By wyznaczyć wszystkie minima funkcji należało zawęzić przedziały w taki sposób by, w każdym przedziale było jedno minimum lokalne. Przypadki prezentowane na rysunkach \ref{fig:12}, kolejno pokazują każde obliczone minimum zależnie od podanego przedziału. Jak możemy dostrzec na wykresach algorytm znalazł poprawne rozwiązanie w każdym przedziale. Wartości minimum zaznaczone są na wykresach w postaci czarnej kropki oraz wpisane są w najwyższy wiersz tabeli {\tt Rozwiązania} pokazanej po prawej stronie. 
+By wyznaczyć wszystkie minima funkcji należało zawęzić przedziały w taki sposób, by w każdym przedziale było jedno minimum lokalne. Przypadki prezentowane na rysunkach \ref{fig:12}, kolejno pokazują każde obliczone minimum zależnie od podanego przedziału. Jak możemy dostrzec na wykresach algorytm znalazł poprawne rozwiązanie w każdym przedziale. Wartości minimum zaznaczone są na wykresach w~postaci czarnej kropki oraz wpisane są w najwyższy wiersz tabeli {\tt Rozwiązania} pokazanej po prawej stronie. 
 \begin{figure}[htbp]
 	\begin{minipage}[b]{.5\textwidth}
 		\centering
@@ -152,19 +159,19 @@ By wyznaczyć wszystkie minima funkcji należało zawęzić przedziały w taki s
 	\caption{Wykres funkcji czterech minimum dla różnych przedziałów}
 \end{figure}
  
-\subsection{Funkcja Gemm}
+\subsection{Funkcja Geema}
 \label{subsec:gemm}
-Kolejny przykład przedstawiał funkcję opisaną równaniem $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$. Początkowo zakres dla argumentów funkcji został przyjęty jako $x_{1},x_{2} \in <-0.5,1>$. Wykres funkcji wraz z rozwiązaniem zaprezentowany jest na \ref{fig:21}. 
+Kolejny przykład przedstawiał funkcję opisaną wzorem: $$f(x_{1},x_{2}) = x_{1}^{4}+x_{2}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}$$ Początkowo zakres dla argumentów funkcji został przyjęty jako $x_{1},x_{2} \in <-0.5,1>$. Wykres funkcji wraz z rozwiązaniem zaprezentowany jest na rysunku \ref{fig:21}. 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.9\textwidth]{images/21.PNG}
-	\caption{Wykres funkcji Gemm dla $x_{1}, x_{2} \in <-0.5,1>$}
+	\caption{Wykres funkcji Geema dla $x_{1}, x_{2} \in <-0.5,1>$}
 	\label{fig:21}
 \end{figure}
 
 \subsubsection{Zmiana zakresu dla argumentów}
 \label{subsubsec:gemm2}
-Jak w poprzednim przykładzie tak i tutaj postanowiono zmienić zakres wyszukiwania argumentów na $x_{1}, x_{2} \in <-2,2>$. Porównując oba rozwiązania można stwierdzić, że odnalezione punkty nie różnią się zbytnio.  
+Jak w poprzednim przykładzie tak i tutaj postanowiono zmienić zakres wyszukiwania argumentów na $x_{1}, x_{2} \in <-2,2>$. Porównując oba rozwiązania można stwierdzić, że odnalezione punkty nie różnią się zbytnio. 
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{.5\textwidth}
 		\centering
@@ -175,12 +182,12 @@ Jak w poprzednim przykładzie tak i tutaj postanowiono zmienić zakres wyszukiwa
 		\includegraphics[width=\linewidth]{images/23.PNG} 
 	\end{minipage}
 	\label{fig:22}
-	\caption{Wykresy funkcji Gemm dla $x_{1}, x_{2} \in <-2,2>$}
+	\caption{Wykresy funkcji Geema dla $x_{1}, x_{2} \in <-2,2>$}
 \end{figure}
 
 \subsection{Funkcja Himmelblau}
 \label{subsec:himmelblau}
-Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima lokalne zlokalizowane po jednym w każdej ćwiartce na przedziale $x_{1,2} \in (-5,5)$. Funkcja posiada wzór: $$ f(x_{1},x_{2}) = (x_{1}^{2}+x_{2}-11)^{2}+(x_{1}+x_{2}^{2}-7)^{2}-200$$. Dla pokazania, że funkcja wyszukuje rozwiązania z innego przedziału jak domyślny ograniczono się do przedziału z pierwszej ćwiartki $x_{1}, x_{2} \in (0,10)$. Na wykresie \ref{fig:5} zaprezentowany został wykres funkcji wraz z naniesionym najlepszym rozwiązaniem. 
+Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima lokalne zlokalizowane po jednym w każdej ćwiartce na przedziale $x_{1,2} \in (-5,5)$. Funkcja posiada wzór: $$ f(x_{1},x_{2}) = (x_{1}^{2}+x_{2}-11)^{2}+(x_{1}+x_{2}^{2}-7)^{2}-200.$$ Dla pokazania, że funkcja wyszukuje rozwiązania z innego przedziału jak domyślny ograniczono się do przedziału z pierwszej ćwiartki $x_{1}, x_{2} \in (0,10)$. Na wykresie \ref{fig:31} zaprezentowany został wykres funkcji wraz z naniesionym najlepszym rozwiązaniem. 
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{.5\textwidth}
 		\centering
@@ -195,10 +202,9 @@ Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima loka
 \end{figure}
 
 
-
 \subsection{Funkcja ceny złota}
 \label{subsec:cenyzlota}
-Funkcja Ceny złota \cite{bib:goldstein} posiada kilka minimów lokalnych umiejscowionych blisko siebie. Opisuje ją jeden z dłuższych wzorów $$f(x_{1},x_{2}) = (1+(x_{1}+x_{2}+1)^2*(19-14x_{1}+3x_{1}^2-14x_{2}+6x_{1}x_{2}+3x_{2}^2))* (30+(2x_{1}-3x_{2})^2*(18-32x_{1}+12x_{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2))$$. Wpierw na rysunku \ref{fig:71} ostało przedstawione rozwiązanie dla  $x_{1}, x_{2} \in <-3,3>$. Następnie na rysunku \ref{fig:72} zakres został zmieniony na $x_{1}, x_{2}, x_{2} \in <-2,0>$. Zarówno dla jednego jak i drugiego zakresu program obliczył właściwe rozwiązanie. 
+Funkcja ceny złota posiada kilka minimów lokalnych umiejscowionych blisko siebie. Opisuje ją wzór: $$f(x_{1},x_{2}) = [1+(x_{1}+x_{2}+1)^2(19-14x_{1}+3x_{1}^2-14x_{2}+6x_{1}x_{2}+3x_{2}^2)][30+(2x_{1}-3x_{2})^2(18-32x_{1}+12x_{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2)]$$ Wpierw na rysunku \ref{fig:71} ostało przedstawione rozwiązanie dla  $x_{1}, x_{2} \in <-3,3>$. Następnie na rysunku \ref{fig:72} zakres został zmieniony na $x_{1}, x_{2} \in <-2,0>$. Zarówno dla jednego, jak i~drugiego zakresu program obliczył właściwe rozwiązanie. 
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{.5\textwidth}
 		\centering
@@ -216,7 +222,7 @@ Funkcja Ceny złota \cite{bib:goldstein} posiada kilka minimów lokalnych umiejs
 
 \subsection{Dwuwymiarowa funkcja sinusoidalna}
 \label{subsec:sin}
-Dwuwymiarowa funkcja sinus posiada bardzo zróżnicowany przebieg oraz wiele równoważnych minimów lokalnych. Wzór funkcji przedstawiony jest równaniem $$f(x_{1},x_{2})=\sin{x_{1}}\sin{x_{2}}e^{-(x_{1}^2+x_{2}^2)}$$. Rysunek \ref{fig:8} prezentuje wykres funkcji dla argumentów z przedziału $<-1,1$.
+Dwuwymiarowa funkcja sinus posiada bardzo zróżnicowany przebieg oraz wiele równoważnych minimów lokalnych. Wzór funkcji przedstawiony jest równaniem $$f(x_{1},x_{2})=\sin{x_{1}}\sin{x_{2}}e^{-(x_{1}^2+x_{2}^2)}.$$ Rysunek \ref{fig:8} prezentuje wykres funkcji dla argumentów z przedziału $<-1,1>$.
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{.5\textwidth}
 		\centering
@@ -230,9 +236,9 @@ Dwuwymiarowa funkcja sinus posiada bardzo zróżnicowany przebieg oraz wiele ró
 	\caption{Wykres funkcji sinus dla $x_{1}, x_{2} \in <-1,1>$}
 \end{figure}
 
-\subsection{Dwuwymiarowa funkcja sinusoidalna z eksponentom}
+\subsection{Dwuwymiarowa funkcja sinusoidalna z eksponentą}
 \label{subsec:sinexp}
-Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cosinusa z eksponent. Przypadek jest o tyle ciekawy, że większość wartości funkcji jest dla {\em $x_{1}, x_{2}$} jest do siebie zbliżona. Blisko jej wartość ulega dużemu odchyłowi.  Wzór funkcji przedstawiony jest jako: $$f(x)=x_{1}e^{-(x_{1}^{2}+x_{2}^2)}$$. Rysunek \ref{fig:9} prezentuje działanie programu z obliczoną wartością minimalną. Jak możemy dostrzec program dobrze wyliczył jej wartość co potwierdza jego odporność na działanie funkcji, dla której większość argumentów jest stała. 
+Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cosinusa z eksponentą. Przypadek jest o tyle ciekawy, że większość wartości funkcji jest dla {\em $x_{1}, x_{2}$} jest do siebie zbliżona. Wzór funkcji przedstawiony jest jako: $$f(x)=x_{1}e^{-(x_{1}^{2}+x_{2}^2)}.$$ Rysunek \ref{fig:9} prezentuje działanie programu z obliczoną wartością minimalną. Program poprawnie wyliczył jej wartość, co potwierdza jego odporność na działanie funkcji, dla której większość argumentów jest stała. 
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{.5\textwidth}
 		\centering
@@ -243,18 +249,20 @@ Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cos
 		\includegraphics[width=\linewidth]{images/92.PNG} 
 	\end{minipage}
 	\label{fig:9}
-	\caption{Wykres funkcji sinus z eksponentom $x_{1}, x_{2} \in <-1,1>$}
+	\caption{Wykres funkcji sinus z eksponentą $x_{1}, x_{2} \in <-1,1>$}
 \end{figure}
 
-\subsection{Podsumowanie testów}
+\subsection{Podsumowanie}
 \label{subsec:podsumowanietestow}
-Sprawdzając działanie algorytmu dla różnych funkcji można stwierdzić, że poprawnie znajduje ich minimum lokalne. Dla funkcji jedno i dwu wymiarowych algorytm działa idealnie. Podczas szukania minimum funkcji trzech zmiennych należy maksymalnie zawęzić obszar. Algorytm działa na tyle szybko, że dla użytkownika nie odczuwalny jest dyskomfort podczas użytkowania programu. Dodatkowo gdy funkcja posiada więcej niż jedno minimum można znaleźć wszystkie z nich zmniejszając przedział dla argumentów. Taka sytuacja została zaprezentowana w punkcie \ref{subsubsec:fcn4min2}. 
+Sprawdzając działanie algorytmu dla różnych funkcji można stwierdzić, że poprawnie znajduje ich minima lokalne. Dla funkcji jedno i dwu wymiarowych algorytm działa bardzo dobrze. Podczas szukania lokalnych minimów funkcji trzech zmiennych należy stosowanie zawęzić przedziały losowania argumentów. Algorytm działa na tyle szybko, że dla użytkownika nie odczuwalny jest dyskomfort podczas użytkowania programu. Gdy funkcja posiada więcej niż jedno minimum można znaleźć wszystkie z nich, odpowiednio kontrolując przedziały losowania argumentów. Taka sytuacja została zaprezentowana w punkcie \ref{subsubsec:fcn4min2}. 
+
+\pagebreak
 
 \section{Ilustracja wyników pracy algorytmu optymalizacji}
 
 \subsection{Funkcja trzech zmiennych}
 \label{subsec:trzyzmienne}
-By przetestować działanie programu i algorytmu dla funkcji z trzema zmiennymi wybrano funkcję $$f(x_{1},x_{2},x_{3}) = x_{1}^{4}+x_{3}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}+0.1x_{3}$$. Oczywistym jest, że wykres czterowymiarowy jest niemożliwy do wyrysowania dlatego okno wykresu zostało puste co prezentuje \ref{fig:41}. W tysięcznej iteracji obliczono minimalną wartość funkcji $f(-3.43,-7171,1.58)=-3.19$. Można się spodziewać, że w kolejnych iteracjach znaleziona by była mniejsza wartość minimalna lecz ograniczenie spowodowało zatrzymacie cyklu obliczeń. W takim przypadku najlepszym rozwiązaniem jest zmniejszenie obszaru dla zmiennych $x$.
+By przetestować działanie programu i algorytmu dla funkcji z trzema zmiennymi wybrano funkcję $$f(x_{1},x_{2},x_{3}) = x_{1}^{4}+x_{3}^{4}-0.62x_{1}^{2}-0.62x_{2}^{2}+0.1x_{3}.$$ W tysięcznej iteracji obliczono minimalną wartość funkcji $f(-3.43,-7171,1.58)=-3.19$. Można się spodziewać, że w kolejnych iteracjach znaleziona by była mniejsza wartość minimalna lecz ograniczenie spowodowało zatrzymacie cyklu obliczeń. W takim przypadku najlepszym rozwiązaniem jest zmniejszenie obszaru dla zmiennych $x$.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=.6\textwidth]{images/41.PNG}
@@ -262,13 +270,17 @@ By przetestować działanie programu i algorytmu dla funkcji z trzema zmiennymi 
 	\label{fig:41}
 \end{figure}
 
+\pagebreak
+
 \section{Wnioski końcowe}
 \label{sec:wnioski}
-Program obliczający minimum funkcji wielu zmiennych według algorytmu {\em Harmony Search} działa tak jak założono na początku. Spełniły się domniemania na temat szybkości funkcji. Dodatkowo szybkość poprawiła się gdy zamiast zwykłej tablicy dla {\tt HM} przyjęto {\tt SortedSet}. Oczywistym jest, że program najdokładniej przybliży rozwiązanie gdy zakres wartości {\em x} będzie jak najbliższy minimum funkcji. Dodatkowo gdy zmniejszymy ilość iteracji program zakończy szybciej swoje działanie, lecz kosztem gorszego przybliżenia. Gdy wymagane jest obliczenie każdego z minimum funkcji możemy je znaleźć i obliczyć jego wartość o ile znamy przedział, w którym jest ono umiejscowione. 
+Program obliczający minimum funkcji wielu zmiennych według algorytmu {\em Harmony Search} działa tak jak założono na początku. Spełniły się domniemania na temat szybkości działania algorytmu. Ponadto szybkość poprawiła się, gdy zamiast zwykłej tablicy dla {\tt HM} przyjęto {\tt SortedSet}. Program najdokładniej przybliży rozwiązanie, gdy zakres wartości {\em x} będzie jak najbliższy minimum funkcji. Dodatkowo, gdy ogranicznymy ilość iteracji, program zakończy szybciej swoje działanie, lecz kosztem znalezenia gorszego rozwiązania. Gdy wymagane jest obliczenie każdego z~minimum funkcji możemy je znaleźć i obliczyć jego wartość, o ile znamy przedział, w którym jest ono umiejscowione. Poprzez odpowiednie ustawienie parametrów algorymu i przedziałów losowania argumentów, jesteśmy w stanie wskazać kierunek poszukiwań lokalnych optimów funkcji.
+
+Sam algorytm Harmony Search zyskuje coraz większą popularność w praktycznych zastosowaniach \cite{bib:geempdf}. Używa się do znajdywania rozwiązań problemów VRP ({\em ang. vehicle routing problem}, przykładowo szukanie optymalnej trasy szkolnych autobusów), projektowaniu sieci wodociągowych, systemów zapór wodnych czy pompy ciepła w satelitach. Zastosowanie znajduje także w innych dziedzinach: przewidywaniu struktury RNA, obróbce medycznych obrazów i onkologii, robotyce, śledzeniu wizualnym i wielu innych. Bardzo często daje lepsze rezultaty przy mniejszych błędach niż stosowane wcześniej metody, nie wymaga zadnych informacji o gradiencie funkcji, a także możliwe jest stosowanie do problemów dyskretnych. Wadą jest natomiast konieczność określenia parametrów działania, typowych dla algorytmów metaheurystycznych.
 
 \newpage
-\addcontentsline{toc}{section}{Bibilografia}
+\addcontentsline{toc}{section}{Bibliografia}
 \bibliography{bibliografia}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \end{document}
 

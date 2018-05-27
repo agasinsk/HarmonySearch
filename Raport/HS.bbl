@@ -1,26 +1,23 @@
 \begin{thebibliography}{1}
 
-\bibitem{bib:goldstein}
-Virtual library of simulation experiments.
-\newblock https://www.sfu.ca/~ssurjano/goldpr.html.
-
-\bibitem{bib:jzy3d}
-Jzy3d.
-\newblock http://www.jzy3d.org/, 2016.
+\bibitem{bib:orginal}
+Kang~Seok Lee, Zong~Woo Geem, and G.V. {Loganathan}.
+\newblock {\em A New Heuristic Optimization Algorithm: Harmony Search}.
+\newblock 2004.
 
 \bibitem{bib:tlumaczenie}
 Kowal Andrzej.
-\newblock Algorytm „harmony search”.
+\newblock {\em Algorytm Harmony Search}.
 
 \bibitem{bib:mathparser}
 Mariusz Gromada.
-\newblock Mathparser.
-\newblock
-  https://mvnrepository.com/artifact/org.mariuszgromada.math/MathParser.org-mXparser,
-  2017.
+\newblock {\em Dokumentacja biblioteki mXParser}.
+\newblock dostęp 27.05.2018.
+\newblock "\url{http://mathparser.org/}.
 
-\bibitem{bib:orginal}
-G.V.~Loganathan Kang Seok~Lee, Zong Woo~Geem.
-\newblock A new heuristic optimization algorithm: Harmony search, 2005.
+\bibitem{bib:geempdf}
+Zong~Woo Geem.
+\newblock {\em Music-Inspired Optimization Algorithm: Harmony Search}.
+\newblock 2004.
 
 \end{thebibliography}
