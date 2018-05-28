@@ -32,7 +32,7 @@ public class HarmonySearcherGui extends HarmonySearcher
         super(function, harmonyMemorySize, maxImprovisationCount, harmonyMemoryConsiderationRatio, pitchAdjustmentRatio, argumentGenerationLimits);
         bestSolutions = FXCollections.observableArrayList();
         plot = new Plot();
-        plot.setParameters(function, argumentGenerationLimits);
+        plot.setParameters(function,argumentGenerationLimits);
     }
 
     /**
@@ -59,7 +59,7 @@ public class HarmonySearcherGui extends HarmonySearcher
                 if (harmonyMemory.count() > 0 && !harmonyMemory.getBestSolution().equals(currentBestSolution))
                 {
                     currentBestSolution = harmonyMemory.getBestSolution();
-                    bestSolutions.add(0, new SolutionGui((float) currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
+                    bestSolutions.add(0, new SolutionGui(currentBestSolution.getValue(), currentBestSolution.getArguments(), improvisationCount));
                     plot.drawPoint(currentBestSolution);
                 }
 

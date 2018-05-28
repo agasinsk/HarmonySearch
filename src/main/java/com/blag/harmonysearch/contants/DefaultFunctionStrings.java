@@ -12,5 +12,4 @@ public class DefaultFunctionStrings
     public static String sinFunction = "sin(x1)*sin(x2)*exp(-(x1^2+x2^2))";
     public static String sinExpFunction =
             "x1*exp(-(x1^2+x2^2))";
-    public static String RanstriginFunction = "x1^2-cos(18*x1)+x2^2-cos(18*x2)+x3^2-cos(18*x3)";
 }
