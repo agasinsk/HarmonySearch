@@ -51,8 +51,7 @@ public class Controller implements Initializable
     private Spinner<Double> harmonyMemoryConsiderationRatioSpinner;
     @FXML
     private Spinner<Double> pitchAdjustingRatioSpinner;
-    @FXML
-    private Label leftStatusLabel;
+
     @FXML
     private StackPane stackPanePlot;
 
@@ -157,11 +156,7 @@ public class Controller implements Initializable
         solutionTableView.setItems(harmonySearcher.getBestSolutions());
         showFunctionPlot(harmonySearcher.getPlot());
 
-        leftStatusLabel.setText("Busy");
-
         startHarmonySearcherTask();
-
-        leftStatusLabel.setText("Waiting");
     }
 
     private void startHarmonySearcherTask()
