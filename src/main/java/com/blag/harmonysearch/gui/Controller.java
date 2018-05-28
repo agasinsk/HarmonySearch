@@ -86,6 +86,7 @@ public class Controller implements Initializable
         defaultFunctions.add(DefaultFunctionStrings.GoldSteinPriceFunction);
         defaultFunctions.add(DefaultFunctionStrings.sinFunction);
         defaultFunctions.add(DefaultFunctionStrings.sinExpFunction);
+        defaultFunctions.add(DefaultFunctionStrings.RanstriginFunction);
         functionComboBox.setItems(defaultFunctions);
         functionValidator = new FunctionStringValidator();
 
@@ -241,6 +242,8 @@ public class Controller implements Initializable
 
     private void resetSolutionTableView()
     {
+        harmonySearcher = null;
+
         solutionTableView.getItems().clear();
         solutionTableView.getColumns().clear();
 
