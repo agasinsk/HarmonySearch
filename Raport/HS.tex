@@ -68,13 +68,30 @@ Algorytm działa następująco: wpierw program wypełnia tablicę pamięci harmo
 
 \pagebreak
 
-\section{Informacje ogólne o programie}
+\section{Informacje o programie}
 \label{sec:implementacja}
 Program do obliczania minimum funkcji na podstawie algorytmu Harmony Search został napisany w~języku Java. Technologią dostarczającą GUI dla użytkownika była {\em JavaFx} umożliwiająca tworzenie aplikacji okienkowych. Dodatkowo by ułatwić zarządzanie bibliotekami wewnątrz projektu użyto wsparcia ze strony {\em Maven}.  Program korzysta z zewnętrznej biblioteki mXparser do parsowania łańcuchów znakowych na funkcje i do obliczania ich wartości w określonych punktach \cite{bib:mathparser}. Wykres prezentujący najlepsze rozwiązanie zaznaczone na wykroju z przestrzeni rozwiązań funkcji został stworzony za pomocą biblioteki {\em jzy3D}.
 
-\section{Środowisko programistyczne, zastosowane biblioteki i gotowe moduły}
+\subsection{Środowisko programistyczne, zastosowane biblioteki i gotowe moduły}
 \label{subsec:gui}
 By ułatwić wprowadzanie funkcji do programu oraz bezproblemowo odczytywać wyniki obliczone przez program zostało stworzone GUI programu. Na rysunkach \ref{fig:1}, \ref{fig:2} i \ref{fig:3} przedstawiono etapy działania programu. Poszczególne elementy GUI podczas działania programu nie zmieniają swojego położenia. Jedynie pustych w miejscach zostają wyświetlone ich parametry, dlatego by omówić elementy posłużono się rysunkiem \ref{fig:3}, gdzie widnieje obraz programu po obliczeniach. Główne okno programu zostało podzielone pionowo na trzy części. Pierwsza część od lewej przeznaczona jest do wpisania funkcji i jej parametrów, środkowa prezentuje wykres, a część prawa w tabelce wyniki obliczeń programu. Wszystkie części zostaną szczegółowo opisane poniżej.
+
+\subsection{Parametry}
+\label{subsec:parametry}
+W części parametrów można dostrzec, że zaraz pod paskiem edycji znajduje miejsce do wpisania funkcji, której minimum należy wyznaczyć. Okno umożliwia również wybór takiej funkcji z wcześniej zadeklarowanych w programie. Dokonuje się tego, klikając w rozwijane menu. Zostało to przedstawione na rysunku \ref{fig:1}. Po wybraniu funkcji automatycznie zostaną domyślnie uzupełnione wszystkie parametry obliczeń. Oczywiście możliwa jest dostosowanie algorytmu do własnych potrzeb. Poniżej okna funkcji znajduje się przycisk ,,{\tt Resetuj wartości parametrów}'' umożliwiający, jak mówi nazwa przywrócenie domyślnych wartości parametrów. Poniżej przycisku zostały umieszczone po sobie cztery główne parametry algorytmu {\em Harmony Search}. 
+
+Pierwszy z parametrów {\tt HMS} ({\em ang. harmony memory size}) reguluje ilość zapamiętywanych rozwiązań podczas wyszukiwania. Domyślnie rozmiar jest zadeklarowany na $20$. Poniżej znajduje się okno o nazwie {\tt iteracje}. Domyślnie jest zadeklarowana maksymalna wartość iteracji równa $10000$. W każdej iteracji programu algorytm wyszukuje nowe rozwiązanie i sprawdza je z~tymi zapisanymi w {\tt HMS}. Im większa liczba iteracji, tym algorytm powinien obliczać dokładniejsze rozwiązanie, kosztem wydłużonego czasu obliczeń. Następnie pod polem {\tt iteracje} znajduje się pole {\tt HMCR} ({\em ang. harmony memory consideration ratio}). Jest to prawdopodobieństwo wyboru rozwiązania z pamięci (z zakresu $(0, 1)$). Im {\tt HMCR} jest większe tym wyszukiwane wartości {\em x} następnych rozwiązań będą zbliżone do tych istniejących już w tablicy {\tt HMS}. Poniżej znajduje się drugi parametr prawdopodobieństwa o nazwie {\tt PAR} {\em(ang. pitch adjustment ratio)} tłumaczony jako współczynnik dostosowywania tonu. Wybierany jest również z zakresu $(0, 1]$. 
+
+Na samym dole kolumny znajduje się tabela {\tt Przedziały losowania argumentów}. W tabeli deklarowany jest przedziały wszystkich wartości {\em x}, z których zostaną wylosowane początkowe argumenty podczas inicjalizacji pamięci harmonii. Domyślnie parametry dla wszystkich {\em x} brane są z przedziału $(-10, 10)$. Algorytm z~dużą dokładnością znajdzie najmniejsze minimum lokalne dla funkcji z~podanego przedziału. Po wybraniu wszystkich parametrów można przystąpić do uruchomienia algorytmu przyciskiem {\tt Start} znajdującym się na na dole kolumny.
+
+\subsection{Wykres}
+\label{subsec:wykres}
+Środkowy obszar okna głównego przeznaczony jest do wyświetlania wykresu funkcji. Jak wspomniane zostało na początku rozdziału \ref{sec:implementacja}, do rysowania wykresów została użyta zewnętrzna biblioteka {\em jzy3D}. Umożliwia ona tworzenie wykresów dwu- i trójwymiarowych. Wykresy można obracać w dowolny sposób. Oś {\em X} i {\em Y} wykresu wyskalowana jest do zgodnie z podanymi przedziałami losowania argumentów~{\em x}. Dodatkowo wartości zostały pokolorowane w tak, że mniejsze wartości funkcji mają kolory zimniejsze, a wyższe - kolory cieplejsze, analogicznie do tego jak przedstawia się wysokość n.p.m. w kartografii. Dodatkowo czarną kropką zaznaczona została najmniejsza obliczona wartość funkcji. 
+
+\subsection{Tabela rozwiązań}
+\label{subsec:rozwiazania}
+Po prawej stronie okna głównego można dostrzec najlepsze rozwiązania wyszukane przez program. Gdy znajdowane jest rozwiązanie lepsze od najlepszego rozwiązania zapamiętanego w {\tt HMS} dodawane jest ono jako pierwszy wiersz w tabeli. Poprzednie rozwiązania przesuwane są o jedno miejsce niżej. Pozwala to śledzić jaka wartości jest aktualnie największa oraz od razu ukazuje się obok numer iteracji tego rozwiązania. Gdy algorytm długo oblicza najlepszy wynik, okno pozwala śledzić postęp obliczeń. Dodatkowo po wykonaniu wszystkich iteracji zostaje wyświetlony komunikat z~najlepszym rozwiązaniem (pierwszym od góry), co przedstawia rysunek \ref{fig:3}.
+
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{.5\linewidth}
 		\centering
@@ -97,22 +114,6 @@ By ułatwić wprowadzanie funkcji do programu oraz bezproblemowo odczytywać wyn
 		\label{fig:3}
 	\end{minipage}
 \end{figure}
-
-\pagebreak
-
-\section{Parametry}
-\label{sec:parametry}
-W części parametrów można dostrzec, że zaraz pod paskiem edycji znajduje miejsce do wpisania funkcji, której minimum należy wyznaczyć. Okno umożliwia również wybór takiej funkcji z wcześniej zadeklarowanych w programie. Dokonuje się tego, klikając w rozwijane menu. Zostało to przedstawione na rysunku \ref{fig:1}. Po wybraniu funkcji automatycznie zostaną domyślnie uzupełnione wszystkie parametry obliczeń. Oczywiście możliwa jest dostosowanie algorytmu do własnych potrzeb. Poniżej okna funkcji znajduje się przycisk ,,{\tt Resetuj wartości parametrów}'' umożliwiający, jak mówi nazwa przywrócenie domyślnych wartości parametrów. Poniżej przycisku zostały umieszczone po sobie cztery główne parametry algorytmu {\em Harmony Search}. \\
-
-Pierwszy z parametrów {\tt HMS} ({\em ang. harmony memory size}) reguluje ilość zapamiętywanych rozwiązań podczas wyszukiwania. Domyślnie rozmiar jest zadeklarowany na $20$. Poniżej znajduje się okno o nazwie {\tt iteracje}. Domyślnie jest zadeklarowana maksymalna wartość iteracji równa $10000$. W każdej iteracji programu algorytm wyszukuje nowe rozwiązanie i sprawdza je z~tymi zapisanymi w {\tt HMS}. Im większa liczba iteracji, tym algorytm powinien obliczać dokładniejsze rozwiązanie, kosztem wydłużonego czasu obliczeń. Następnie pod polem {\tt iteracje} znajduje się pole {\tt HMCR} ({\em ang. harmony memory consideration ratio}). Jest to prawdopodobieństwo wyboru rozwiązania z pamięci (z zakresu $(0, 1)$). Im {\tt HMCR} jest większe tym wyszukiwane wartości {\em x} następnych rozwiązań będą zbliżone do tych istniejących już w tablicy {\tt HMS}. Poniżej znajduje się drugi parametr prawdopodobieństwa o nazwie {\tt PAR} {\em(ang. pitch adjustment ratio)} tłumaczony jako współczynnik dostosowywania tonu. Wybierany jest również z zakresu $(0, 1]$. Na samym dole kolumny znajduje się tabela {\tt Przedziały losowania argumentów}. W tabeli deklarowany jest przedziały wszystkich wartości {\em x}, z których zostaną wylosowane początkowe argumenty podczas inicjalizacji pamięci harmonii. Domyślnie parametry dla wszystkich {\em x} brane są z przedziału $(-10, 10)$. Algorytm z~dużą dokładnością znajdzie najmniejsze minimum lokalne dla funkcji z~podanego przedziału. Po wybraniu wszystkich parametrów można przystąpić do uruchomienia algorytmu przyciskiem {\tt Start} znajdującym się na na dole kolumny.
-
-\subsection{Wykres}
-\label{subsec:wykres}
-Środkowy obszar okna głównego przeznaczony jest do wyświetlania wykresu funkcji. Jak wspomniane zostało na początku rozdziału \ref{sec:implementacja}, do rysowania wykresów została użyta zewnętrzna biblioteka {\em jzy3D}. Umożliwia ona tworzenie wykresów dwu- i trójwymiarowych. Wykresy można obracać w dowolny sposób. Oś {\em X} i {\em Y} wykresu wyskalowana jest do zgodnie z podanymi przedziałami losowania argumentów~{\em x}. Dodatkowo wartości zostały pokolorowane w tak, że mniejsze wartości funkcji mają kolory zimniejsze, a wyższe - kolory cieplejsze, analogicznie do tego jak przedstawia się wysokość n.p.m. w kartografii. Dodatkowo czarną kropką zaznaczona została najmniejsza obliczona wartość funkcji. 
-
-\subsection{Tabela rozwiązań}
-\label{subsec:rozwiazania}
-Po prawej stronie okna głównego można dostrzec najlepsze rozwiązania wyszukane przez program. Gdy znajdowane jest rozwiązanie lepsze od najlepszego rozwiązania zapamiętanego w {\tt HMS} dodawane jest ono jako pierwszy wiersz w tabeli. Poprzednie rozwiązania przesuwane są o jedno miejsce niżej. Pozwala to śledzić jaka wartości jest aktualnie największa oraz od razu ukazuje się obok numer iteracji tego rozwiązania. Gdy algorytm długo oblicza najlepszy wynik, okno pozwala śledzić postęp obliczeń. Dodatkowo po wykonaniu wszystkich iteracji zostaje wyświetlony komunikat z~najlepszym rozwiązaniem (pierwszym od góry), co przedstawia rysunek \ref{fig:3}.
 
 \pagebreak
 
@@ -156,8 +157,8 @@ By wyznaczyć wszystkie minima funkcji należało zawęzić przedziały losowani
 		\includegraphics[width=\linewidth]{images/17e.PNG} 
 		\caption{Funkcja czterech minimów: $x_{1}\in<0,1>,  x_{2}\in<-1,0>$}
 	\end{minipage}
-	\label{fig:12}
 	\caption{Wykres funkcji czterech minimów dla różnych przedziałów}
+	\label{fig:12}
 \end{figure}
 
 \pagebreak 
@@ -174,7 +175,7 @@ Kolejny przykład przedstawiał funkcję opisaną wzorem: $$f(x_{1},x_{2}) = x_{
 
 \subsubsection{Zmiana zakresu dla argumentów}
 \label{subsubsec:gemm2}
-Jak w poprzednim przykładzie tak i tutaj postanowiono zmienić zakres wyszukiwania argumentów na $x_{1}, x_{2} \in <-1,1>$. Zostały znalezione obydwa globalne minima.
+Jak w poprzednim przykładzie tak i tutaj zmieniono zakres losowania argumentów na $x_{1}, x_{2} \in <-1,1>$. Zostały znalezione obydwa globalne minima.
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{1\textwidth}
 		\centering
@@ -185,22 +186,22 @@ Jak w poprzednim przykładzie tak i tutaj postanowiono zmienić zakres wyszukiwa
 		\centering
 		\includegraphics[width=\linewidth]{images/Geem2e.PNG} 
 	\end{minipage}
-	\label{fig:22}
 	\caption{Wykresy funkcji Geema dla $x_{1}, x_{2} \in <-1,1>$}
+	\label{fig:22}
 \end{figure}
 
 \pagebreak 
 
 \subsection{Funkcja Rastrigina dla $n = 3$ }
 \label{subsec:rastrigin}
-Funkcja Rastrigina jest określona następująco: $$f(x) = \sum_{i=1}^{n} x_{i}^2-cos(18x_{i}), x_{i} \in <-1,1>.$$ Ma ona jedno globalne minimum $f(x^*) = -n, x^* = 0.$ W poniższym przypadku przyjęto $n=3$. Program odnajduje je bezproblemowo, chociaż im więcej iteracji, tym bardziej przybliża się do rzeczywistej wartości minimum.
+Funkcja Rastrigina jest określona następująco: $$f(x) = \sum_{i=1}^{n} x_{i}^2-cos(18x_{i}), x_{i} \in <-1,1>.$$ Ma ona jedno globalne minimum $f(x^*) = -n, x^* = 0.$ W poniższym przypadku przyjęto $n=3$. Program odnajduje je bez większych problemów, chociaż im więcej iteracji, tym bardziej przybliża się do rzeczywistej wartości minimum.
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{1\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{images/Rastrigine.PNG} 
 	\end{minipage}
-	\label{fig:23}
 	\caption{Wykres funkcji Rastrigina i znalezione minimum globalne}
+	\label{fig:23}
 \end{figure}
 
 \subsection{Funkcja Himmelblau}
@@ -215,14 +216,14 @@ Funkcja Himmelbalu również jak \ref{subsec:fcn4min} posiada cztery minima loka
 		\centering
 		\includegraphics[width=\linewidth]{images/32.PNG} 
 	\end{minipage}
-	\label{fig:31}
 	\caption{Wykresy funkcji Himmelblau dla $x_{1}, x_{2} \in <-4,4>$}
+	\label{fig:31}
 \end{figure}
 
 
 \subsection{Funkcja Goldsteina-Price’a z czterema minimami lokalnymi}
 \label{subsec:cenyzlota}
-Funkcja Goldsteina-Price’a posiada kilka minimów lokalnych umiejscowionych blisko siebie. Opisuje ją wzór: $$f(x_{1},x_{2}) = [1+(x_{1}+x_{2}+1)^2(19-14x_{1}+3x_{1}^2-14x_{2}+6x_{1}x_{2}+3x_{2}^2)][30+(2x_{1}-3x_{2})^2(18-32x_{1}+12x_{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2)]$$ Odpowiednio manewrując parametrami algorytmu, program był w stanie obliczyć wszystkie 4 minima funkcji. Na wykresach \ref{fig:101} oraz \ref{fig:102} pokazano wyznaczone rozwiązania.
+Funkcja Goldsteina-Price’a posiada kilka minimów lokalnych umiejscowionych blisko siebie. Opisuje ją wzór: $$f(x_{1},x_{2}) = [1+(x_{1}+x_{2}+1)^2(19-14x_{1}+3x_{1}^2-14x_{2}+6x_{1}x_{2}+3x_{2}^2)][30+(2x_{1}-3x_{2})^2(18-32x_{1}+12x_{1}^2+48x_{2}-36x_{1}x_{2}+27x_{2}^2)]$$ Odpowiednio manewrując parametrami algorytmu, program był w stanie obliczyć wszystkie 4 minima funkcji. Na wykresach \ref{fig:61} oraz \ref{fig:62} pokazano wyznaczone rozwiązania.
 \begin{figure}[htbp] 
 	\begin{minipage}[b]{1\textwidth}
 		\centering
@@ -234,8 +235,8 @@ Funkcja Goldsteina-Price’a posiada kilka minimów lokalnych umiejscowionych bl
 		\includegraphics[width=\linewidth]{images/goldprice1.PNG} 
 		\caption{Wykres funkcji Goldsteina-Price’a z lokalnym minimum: $x^*(1)=[1.2; 0.8], f[x^*(1)] = 840.0$ }
 	\end{minipage}
-	\label{fig:101}
 	\caption{Wykresy funkcji Goldsteina-Price’a z lokalnymi minimami }
+	\label{fig:61}
 \end{figure}
 
 \begin{figure}[htbp] 
@@ -249,8 +250,8 @@ Funkcja Goldsteina-Price’a posiada kilka minimów lokalnych umiejscowionych bl
 		\includegraphics[width=\linewidth]{images/goldprice3.PNG}
 		\caption{Wykres funkcji Goldsteina-Price’a z lokalnym minimum: $x^*(3)=[-0.6; -0.4], f[x^*(3)] = 30.0$ }
 	\end{minipage}
-	\label{fig:102}
 	\caption{Wykresy funkcji Goldsteina-Price’a z lokalnymi minimami }
+	\label{fig:62}
 \end{figure}
 
 \subsection{Dwuwymiarowa funkcja sinusoidalna}
@@ -265,8 +266,8 @@ Dwuwymiarowa funkcja sinus posiada bardzo zróżnicowany przebieg oraz wiele ró
 		\centering
 		\includegraphics[width=\linewidth]{images/82.PNG} 
 	\end{minipage}
-	\label{fig:8}
 	\caption{Wykres funkcji sinusoidalnej dla $x_{1}, x_{2} \in <-1,1>$}
+	\label{fig:8}
 \end{figure}
 
 \subsection{Dwuwymiarowa funkcja sinusoidalna z eksponentą}
@@ -281,8 +282,8 @@ Ostatnia przedstawiana funkcja ukazuje przypadek połączenia funkcji sinusa-cos
 		\centering
 		\includegraphics[width=\linewidth]{images/92.PNG} 
 	\end{minipage}
-	\label{fig:9}
 	\caption{Wykres funkcji sinusoidalnej z eksponentą $x_{1}, x_{2} \in <-1,1>$}
+	\label{fig:9}
 \end{figure}
 
 \subsection{Podsumowanie}
@@ -298,7 +299,7 @@ Program obliczający minimum funkcji wielu zmiennych według algorytmu {\em Harm
 Sam algorytm Harmony Search zyskuje coraz większą popularność w praktycznych zastosowaniach \cite{bib:geempdf}. Używa się do znajdywania rozwiązań problemów VRP ({\em ang. vehicle routing problem}, przykładowo szukanie optymalnej trasy szkolnych autobusów), projektowaniu sieci wodociągowych, systemów zapór wodnych czy pompy ciepła w satelitach. Zastosowanie znajduje także w innych dziedzinach: przewidywaniu struktury RNA, obróbce medycznych obrazów i onkologii, robotyce, śledzeniu wizualnym i wielu innych. Bardzo często daje lepsze rezultaty przy mniejszych błędach niż stosowane wcześniej metody, nie wymaga zadnych informacji o gradiencie funkcji, a także możliwe jest stosowanie do problemów dyskretnych. Wadą jest natomiast konieczność określenia parametrów działania, typowych dla algorytmów metaheurystycznych.
 
 \newpage
-\addcontentsline{toc}{section}{Bibliografia}
+\addcontentsline{toc}{section}{Literatura}
 \bibliography{bibliografia}
 \bibliographystyle{unsrt}
 \end{document}
